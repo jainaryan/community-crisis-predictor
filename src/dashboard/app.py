@@ -72,7 +72,8 @@ st.caption(DASHBOARD_COPY["caption"])
 # ── Data loading (cached) ─────────────────────────────────────────────
 @st.cache_data
 def load_feature_df():
-    path = Path("data/features/features.parquet")
+    cfg = load_app_config()
+    path = Path(cfg["paths"]["features"]) / "features.parquet"
     if not path.exists():
         return None
     return pd.read_parquet(path)
@@ -80,7 +81,8 @@ def load_feature_df():
 
 @st.cache_data
 def load_eval_results():
-    path = Path("data/models/eval_results.json")
+    cfg = load_app_config()
+    path = Path(cfg["paths"]["models"]) / "eval_results.json"
     if not path.exists():
         return None
     with open(path) as f:
@@ -94,9 +96,11 @@ def load_app_config():
 
 @st.cache_data
 def load_shap(sub: str):
-    path = Path(f"data/reports/{sub}/shap.csv")
+    cfg = load_app_config()
+    reports_root = Path(cfg["paths"]["reports"])
+    path = reports_root / sub / "shap.csv"
     if not path.exists():
-        path = Path(f"data/reports/{sub}_shap.csv")
+        path = reports_root / f"{sub}_shap.csv"
     if not path.exists():
         return None
     return pd.read_csv(path)
@@ -104,9 +108,11 @@ def load_shap(sub: str):
 
 @st.cache_data
 def load_drift(sub: str):
-    path = Path(f"data/reports/{sub}/drift_alerts.json")
+    cfg = load_app_config()
+    reports_root = Path(cfg["paths"]["reports"])
+    path = reports_root / sub / "drift_alerts.json"
     if not path.exists():
-        path = Path(f"data/reports/{sub}_drift_alerts.json")
+        path = reports_root / f"{sub}_drift_alerts.json"
     if not path.exists():
         return None
     return pd.read_json(path)
@@ -114,7 +120,8 @@ def load_drift(sub: str):
 
 @st.cache_data
 def load_data_quality_report(sub: str):
-    path = Path(f"data/reports/{sub}/data_quality_report.json")
+    cfg = load_app_config()
+    path = Path(cfg["paths"]["reports"]) / sub / "data_quality_report.json"
     if not path.exists():
         return None
     with open(path, encoding="utf-8") as f:
@@ -123,7 +130,8 @@ def load_data_quality_report(sub: str):
 
 @st.cache_data
 def load_weekly_completeness(sub: str):
-    path = Path(f"data/reports/{sub}/weekly_completeness.csv")
+    cfg = load_app_config()
+    path = Path(cfg["paths"]["reports"]) / sub / "weekly_completeness.csv"
     if not path.exists():
         return None
     return pd.read_csv(path)
@@ -131,7 +139,8 @@ def load_weekly_completeness(sub: str):
 
 @st.cache_data
 def load_pipeline_profile():
-    path = Path("data/reports/pipeline_profile.json")
+    cfg = load_app_config()
+    path = Path(cfg["paths"]["reports"]) / "pipeline_profile.json"
     if not path.exists():
         return []
     with open(path, encoding="utf-8") as f:
@@ -140,7 +149,8 @@ def load_pipeline_profile():
 
 
 def load_transitions(n: int = 30) -> list[dict]:
-    db = Path("data/alerts.db")
+    cfg = load_app_config()
+    db = Path(cfg["paths"].get("alerts_db", "data/alerts.db"))
     if not db.exists():
         return []
     with sqlite3.connect(db) as conn:
@@ -209,6 +219,9 @@ if feature_df is None or eval_results is None:
     st.stop()
 
 available_subs = sorted(feature_df["subreddit"].unique().tolist())
+if not available_subs:
+    st.error("No subreddits available in feature data. Run collection + feature pipeline first.")
+    st.stop()
 subreddit = st.sidebar.selectbox("Subreddit", available_subs)
 
 available_models = []
@@ -228,16 +241,42 @@ if model_choice == "LSTM":
 else:
     results = sub_results.get("xgb", sub_results)
 
+if not isinstance(results, dict) or not results:
+    st.warning(
+        f"No evaluation results found for r/{subreddit} ({model_choice}). "
+        "Run training/evaluation again to generate per-week predictions."
+    )
+    st.code(
+        "python -m src.pipeline.run_train --config config/default.yaml\n"
+        "python -m src.pipeline.run_evaluate --config config/default.yaml"
+    )
+    st.stop()
+
 per_week = results.get("per_week", {})
 predictions_all = np.array(per_week.get("predictions", []))
 probabilities_all = np.array(per_week.get("probabilities", []))
 actuals_all = np.array(per_week.get("actuals", []))
+
+if not per_week:
+    st.warning(
+        f"Evaluation artifact exists but has no per-week outputs for r/{subreddit} ({model_choice}). "
+        "Re-run training/evaluation."
+    )
+    st.code(
+        "python -m src.pipeline.run_train --config config/default.yaml\n"
+        "python -m src.pipeline.run_evaluate --config config/default.yaml"
+    )
+    st.stop()
 
 # Filter sub data
 sub_df = feature_df[feature_df["subreddit"] == subreddit].copy()
 sub_df = sub_df.sort_values(["iso_year", "iso_week"]).reset_index(drop=True)
 n_weeks = len(sub_df)
 weeks = sub_df["week_start"].values if "week_start" in sub_df.columns else np.arange(n_weeks)
+
+if n_weeks == 0:
+    st.warning(f"No feature rows found for r/{subreddit}. Re-run features/training for this subreddit.")
+    st.stop()
 
 # Align arrays to sub_df length
 def _trim(arr, n):
@@ -255,6 +294,9 @@ st.sidebar.subheader("Live Replay")
 
 if "week_idx" not in st.session_state:
     st.session_state["week_idx"] = min(40, n_weeks - 1)
+else:
+    # Clamp stale slider state when subreddit/data size changes.
+    st.session_state["week_idx"] = max(0, min(int(st.session_state["week_idx"]), n_weeks - 1))
 
 week_idx = st.sidebar.slider("Current Week", 0, n_weeks - 1, st.session_state["week_idx"])
 st.session_state["week_idx"] = week_idx
@@ -276,9 +318,10 @@ distress_scores = compute_distress_score(sub_df)
 
 # ── Sidebar: weekly brief (generated by run_evaluate) ───────────────────
 _brief_week_key = week_key_from_row(sub_df.iloc[week_idx])
-_brief_path = Path(f"data/reports/{subreddit}/weekly_briefs/{_brief_week_key}.txt")
+_reports_root = Path(app_config["paths"]["reports"])
+_brief_path = _reports_root / subreddit / "weekly_briefs" / f"{_brief_week_key}.txt"
 if not _brief_path.exists():
-    _brief_path = Path(f"data/reports/{subreddit}_weekly_brief_{_brief_week_key}.txt")
+    _brief_path = _reports_root / f"{subreddit}_weekly_brief_{_brief_week_key}.txt"
 st.sidebar.markdown("---")
 st.sidebar.subheader(DASHBOARD_COPY["weekly_brief_header"])
 

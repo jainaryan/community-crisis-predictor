@@ -70,7 +70,8 @@ def main():
     print("\n" + "=" * 60)
     print("PIPELINE COMPLETE")
     print("=" * 60)
-    print(f"Reports saved to: {args.config.replace('config/default.yaml', 'data/reports/')}")
+    cfg = load_config(args.config)
+    print(f"Reports saved to: {cfg['paths']['reports']}")
 
 
 def _append_profile(config_path: str, entry: dict) -> None:

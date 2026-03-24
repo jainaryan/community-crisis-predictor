@@ -11,6 +11,13 @@ from src.data_quality.completeness import (
     flag_missing_weeks,
     log_source_provenance,
 )
+from src.collector.manifest import (
+    is_file_entry_valid,
+    load_manifest,
+    record_file_entry,
+    record_subreddit_ingestion,
+    save_manifest,
+)
 from src.collector.privacy import strip_pii
 from src.collector.storage import save_raw
 from src.collector.synthetic import generate_synthetic_data
@@ -27,18 +34,23 @@ def main():
     args = parser.parse_args()
 
     config = load_config(args.config)
+    source = config.get("collection", {}).get("source", "reddit_api")
+    if args.synthetic:
+        source = "synthetic"
     reports_root = Path(config["paths"]["reports"])
     reports_root.mkdir(parents=True, exist_ok=True)
     profile_path = reports_root / "pipeline_profile.json"
     stage_start = time.perf_counter()
     profile_entries: list[dict] = []
 
-    if args.synthetic:
+    print(f"Collection source: {source}")
+    if source == "synthetic":
         print("Generating synthetic data...")
         datasets = generate_synthetic_data(config, seed=config.get("random_seed", 42))
         for subreddit, df in datasets.items():
             print(f"  {subreddit}: {len(df)} posts")
             df = strip_pii(df, config["collection"]["privacy_salt"])
+            df["data_source"] = "synthetic"
             path = save_raw(df, config["paths"]["raw_data"], subreddit)
             print(f"  Saved to {path}")
             _run_data_quality_and_log(
@@ -47,7 +59,127 @@ def main():
                 source="synthetic",
                 date_range=config["reddit"]["date_range"],
                 reports_root=reports_root,
+                quality_db_path=config.get("paths", {}).get("quality_db", "data/quality.db"),
             )
+    elif source == "zenodo_covid":
+        from src.collector.zenodo_loader import ZenodoLoader
+
+        zen = config["collection"].get("zenodo", {})
+        date_range = zen.get("date_range", config["reddit"]["date_range"])
+        loader = ZenodoLoader(
+            dataset_url=zen["dataset_url"],
+            archive_dir=zen.get(
+                "local_archive_dir", config.get("paths", {}).get("external_zenodo", "data/external/zenodo")
+            ),
+            staging_dir=zen.get(
+                "staging_dir", config.get("paths", {}).get("staging_zenodo", "data/staging/zenodo")
+            ),
+            record_id=int(zen.get("record_id", 3941387)),
+            timeframes=zen.get("timeframes", ["2018", "2019", "pre", "post"]),
+        )
+        manifest_path = zen.get(
+            "manifest_path",
+            str(
+                Path(config.get("paths", {}).get("staging_zenodo", "data/staging/zenodo")) / "manifest.json"
+            ),
+        )
+        manifest = load_manifest(manifest_path)
+
+        subreddits = zen.get("subreddits", config["reddit"]["subreddits"])
+        for subreddit in subreddits:
+            sub_start = time.perf_counter()
+            raw_path = Path(config["paths"]["raw_data"]) / subreddit / "posts.parquet"
+            if raw_path.exists() and manifest.get("subreddits", {}).get(subreddit, {}).get("status") == "ingested":
+                files_ok = True
+                for file_path in manifest.get("subreddits", {}).get(subreddit, {}).get("files", []):
+                    if not is_file_entry_valid(manifest, file_path):
+                        files_ok = False
+                        break
+                if files_ok:
+                    print(f"Skipping r/{subreddit}: already ingested and manifest valid.")
+                    elapsed = time.perf_counter() - sub_start
+                    profile_entries.append(
+                        {
+                            "stage": "collect",
+                            "subreddit": subreddit,
+                            "elapsed_seconds": round(elapsed, 3),
+                            "rows_processed": int(
+                                manifest.get("subreddits", {}).get(subreddit, {}).get("rows", 0)
+                            ),
+                            "throughput_rows_per_sec": 0.0,
+                            "source": "zenodo_covid",
+                            "status": "skipped_manifest_valid",
+                        }
+                    )
+                    continue
+
+            print(f"Collecting r/{subreddit} via Zenodo dataset ...")
+            print(f"  Date range filter: {date_range.get('start')} -> {date_range.get('end')}")
+            downloaded_files = loader.ensure_subreddit_files(subreddit)
+            print(f"  Files prepared for r/{subreddit}: {len(downloaded_files)}")
+            for p in downloaded_files:
+                record_file_entry(manifest, p)
+            manifest.setdefault("subreddits", {}).setdefault(subreddit, {})["files"] = [
+                str(p) for p in downloaded_files
+            ]
+            save_manifest(manifest_path, manifest)
+
+            df = loader.load_subreddit_posts(
+                subreddit=subreddit,
+                start_date=date_range.get("start"),
+                end_date=date_range.get("end"),
+            )
+            if df.empty:
+                print(f"  No posts found for r/{subreddit} in Zenodo staging files")
+                record_subreddit_ingestion(
+                    manifest,
+                    subreddit=subreddit,
+                    rows=0,
+                    min_created_utc=None,
+                    max_created_utc=None,
+                    status="empty",
+                )
+                save_manifest(manifest_path, manifest)
+                continue
+
+            df = strip_pii(df, config["collection"]["privacy_salt"])
+            df["data_source"] = "zenodo_covid"
+            path = save_raw(df, config["paths"]["raw_data"], subreddit)
+            print(f"  Saved {len(df)} posts to {path}")
+
+            min_ts = int(df["created_utc"].min()) if "created_utc" in df.columns else None
+            max_ts = int(df["created_utc"].max()) if "created_utc" in df.columns else None
+            record_subreddit_ingestion(
+                manifest,
+                subreddit=subreddit,
+                rows=len(df),
+                min_created_utc=min_ts,
+                max_created_utc=max_ts,
+                status="ingested",
+            )
+            save_manifest(manifest_path, manifest)
+
+            _run_data_quality_and_log(
+                df=df,
+                subreddit=subreddit,
+                source="zenodo_covid",
+                date_range=date_range,
+                reports_root=reports_root,
+                quality_db_path=config.get("paths", {}).get("quality_db", "data/quality.db"),
+            )
+            elapsed = time.perf_counter() - sub_start
+            print(f"  r/{subreddit} collection finished in {elapsed:.2f}s")
+            profile_entries.append(
+                {
+                    "stage": "collect",
+                    "subreddit": subreddit,
+                    "elapsed_seconds": round(elapsed, 3),
+                    "rows_processed": int(len(df)),
+                    "throughput_rows_per_sec": round(len(df) / max(elapsed, 1e-9), 3),
+                    "source": "zenodo_covid",
+                }
+            )
+
     else:
         # Real collection via PushshiftLoader (PullPush.io — free, no auth needed)
         from src.collector.historical_loader import PushshiftLoader
@@ -69,7 +201,7 @@ def main():
         for subreddit in config["reddit"]["subreddits"]:
             sub_start = time.perf_counter()
             print(f"Collecting r/{subreddit} via PullPush.io ...")
-            print(f"  Date range: {date_range['start']} → {date_range['end']}")
+            print(f"  Date range: {date_range['start']} -> {date_range['end']}")
             print("  (This may take 20–40 min due to rate limiting — ~1 req/sec)")
             source = "pushshift"
 
@@ -109,6 +241,7 @@ def main():
                     f"truncated: {summary.truncated}"
                 )
             df = strip_pii(df, config["collection"]["privacy_salt"])
+            df["data_source"] = source
             path = save_raw(df, config["paths"]["raw_data"], subreddit)
             print(f"  Saved to {path}")
             _run_data_quality_and_log(
@@ -117,8 +250,10 @@ def main():
                 source=source,
                 date_range=config["reddit"]["date_range"],
                 reports_root=reports_root,
+                quality_db_path=config.get("paths", {}).get("quality_db", "data/quality.db"),
             )
             elapsed = time.perf_counter() - sub_start
+            print(f"  r/{subreddit} collection finished in {elapsed:.2f}s")
             profile_entries.append(
                 {
                     "stage": "collect",
@@ -162,6 +297,7 @@ def _run_data_quality_and_log(
     source: str,
     date_range: dict,
     reports_root: Path,
+    quality_db_path: str,
 ) -> None:
     completeness_df = check_weekly_completeness(df, subreddit)
     missing_weeks = flag_missing_weeks(
@@ -171,7 +307,12 @@ def _run_data_quality_and_log(
         end_date=date_range["end"],
     )
     for wk in completeness_df["week_start"].astype(str).tolist():
-        log_source_provenance(subreddit=subreddit, week=wk, source=source)
+        log_source_provenance(
+            subreddit=subreddit,
+            week=wk,
+            source=source,
+            db_path=quality_db_path,
+        )
 
     sub_report_dir = reports_root / subreddit
     sub_report_dir.mkdir(parents=True, exist_ok=True)

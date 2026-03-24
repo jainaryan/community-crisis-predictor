@@ -25,7 +25,7 @@ The model never sees future data. Walk-forward time-series cross-validation ensu
 
 ## How It Works
 
-1. **Collect** — Fetch posts from Reddit via PullPush.io (free, no payment needed) or generate synthetic data
+1. **Collect** — Collect from configurable source (`zenodo_covid`, `reddit_api`, or `synthetic`)
 2. **Extract** — Build weekly feature vectors: linguistic patterns, VADER sentiment, distress lexicon density, topic distributions (BERTopic), behavioral signals, JS-divergence topic drift (1-week and 4-week lookback)
 3. **Label** — Score each week's distress; classify next week into one of 4 states using community-specific baselines
 4. **Train** — Two models run in parallel:
@@ -65,9 +65,59 @@ The dashboard will open in your browser. Use the **week slider** in the sidebar 
 
 ---
 
-## Using Real Reddit Data (Free)
+## Data Source Selection
 
-Real data is fetched from [PullPush.io](https://pullpush.io) — a free, publicly accessible archive of Reddit posts. **No Reddit account, no API keys, and no credentials are required.** The collector just sends plain HTTP requests to the PullPush API.
+Collection source is now controlled by config:
+
+```yaml
+collection:
+  source: "zenodo_covid"   # zenodo_covid | reddit_api | synthetic
+```
+
+- `zenodo_covid`: primary mode for project experiments (download + local ingest, manifest-aware/idempotent)
+- `reddit_api`: existing PullPush.io + PRAW fallback path
+- `synthetic`: generated development data (can also be forced via `--synthetic`)
+
+`run_collect` writes canonical raw schema with provenance:
+- `post_id`, `created_utc`, `selftext`, `subreddit`, `author`, `data_source`
+
+---
+
+## Zenodo-First Collection Workflow
+
+The Zenodo source configured in `config/default.yaml` points to the Low et al. COVID mental health dataset.
+
+### PowerShell + venv bootstrap (Windows)
+
+```powershell
+# From repo root
+python -m venv venv
+venv/Scripts/Activate.ps1
+pip install -e ".[dev]"
+
+# Ensure config uses source: zenodo_covid
+python -m src.pipeline.run_collect --config config/default.yaml
+```
+
+Behavior:
+- Query Zenodo record metadata (`record_id`) and resolve matching file URLs
+- Download only matching subreddit/timeframe CSV files into `data/staging/zenodo/` (no full 3.1GB bulk fetch)
+- Build per-subreddit raw parquet under `data/raw/{subreddit}/posts.parquet`
+- Track file integrity + per-subreddit ingestion metadata in manifest (`collection.zenodo.manifest_path`)
+- Re-run is idempotent when manifest and outputs are valid
+
+Important:
+- Zenodo is treated as **raw post source only**
+- Precomputed columns like `tfidf_*` / `liwc_*` are intentionally ignored
+- Default downloader uses per-file Zenodo links from record `3941387` instead of assuming one dataset zip
+
+---
+
+## Using Real Reddit API Data (Free)
+
+Set `collection.source: reddit_api` in config.
+
+Real API collection uses [PullPush.io](https://pullpush.io) — a free, publicly accessible archive of Reddit posts. **No Reddit account, no API keys, and no credentials are required** for the PullPush path.
 
 The only thing you need to set is a privacy salt (used to hash author usernames before storing):
 
@@ -93,10 +143,10 @@ OPENAI_API_KEY=...      # used if Anthropic is unavailable
 
 If both are unset, briefs are still written using the template fallback.
 
-### Run the pipeline
+### Run the pipeline (reddit_api)
 
 ```bash
-# Collect real posts (2024-01-01 to 2026-03-01 by default)
+# Collect real posts (range from reddit.date_range in config)
 # This takes 20–40 minutes due to API rate limiting (~1 req/sec)
 python -m src.pipeline.run_collect --config config/default.yaml
 
@@ -130,7 +180,7 @@ For a convincing live demo:
 | Command | What it does |
 |---------|--------------|
 | `make collect-synthetic` | Generate 2 years of synthetic Reddit data |
-| `make collect` | Fetch real posts via PullPush.io |
+| `make collect` | Collect from configured source in `collection.source` |
 | `make features` | Build weekly feature matrix |
 | `make train` | Train LSTM + XGBoost, save `eval_results.json` |
 | `make evaluate` | Generate structured per-subreddit reports (HTML, SHAP, drift, weekly briefs), populate alerts.db |
@@ -271,7 +321,7 @@ After running the full pipeline, `data/` contains:
 
 ```
 data/
-├── raw/{subreddit}/posts.parquet          Raw collected posts
+├── raw/{subreddit}/posts.parquet          Raw collected posts (+ data_source provenance column)
 ├── features/features.parquet             Weekly feature matrix
 ├── models/eval_results.json              XGB + LSTM walk-forward metrics
 ├── alerts.db                             SQLite log of state transitions
@@ -291,7 +341,16 @@ data/
     └── ...
 ```
 
-  The Streamlit dashboard reads from `data/features/`, `data/models/eval_results.json`, `data/reports/{sub}/shap.csv`, `data/reports/{sub}/drift_alerts.json`, `data/reports/{sub}/weekly_briefs/`, and `data/alerts.db`.
+  The Streamlit dashboard reads from configured paths in `config/default.yaml` (`paths.features`, `paths.models`, `paths.reports`, `paths.alerts_db`).
+
+---
+
+## Non-git Data Strategy
+
+The whole `data/` directory is intentionally gitignored.
+All downloaded sources, staging files, parquet outputs, sqlite databases, and generated reports remain local-only.
+
+Commit code/config/docs/metadata, but not large source archives.
 
 ---
 

@@ -1,8 +1,4 @@
-data/raw/
-data/processed/
-data/features/
-data/models/
-data/reports/
+data/
 __pycache__/
 *.pyc
 .env
@@ -11,5 +7,4 @@ dist/
 build/
 .venv/
 venv/
-*.parquet
 .ipynb_checkpoints/
