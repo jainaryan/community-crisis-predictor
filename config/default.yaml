@@ -5,15 +5,37 @@ reddit:
   subreddits:
     - depression
     - anxiety
+    - mentalhealth
+    - SuicideWatch
+    - lonely
   date_range:
     start: "2024-01-01"
     end: "2026-03-01"
 
 collection:
+  source: "zenodo_covid"  # synthetic | zenodo_covid | reddit_api
   pushshift_base_url: "https://api.pullpush.io"
   batch_size: 500
   rate_limit_rps: 1
   privacy_salt: "${PRIVACY_SALT}"
+  reddit_api:
+    enabled: true
+  zenodo:
+    dataset_url: "https://zenodo.org/records/3941387"
+    record_id: 3941387
+    local_archive_dir: "data/external/zenodo"
+    staging_dir: "data/staging/zenodo"
+    manifest_path: "data/staging/zenodo/manifest.json"
+    timeframes: ["2018", "2019", "pre", "post"]
+    subreddits:
+      - depression
+      - anxiety
+      - mentalhealth
+      - SuicideWatch
+      - lonely
+    date_range:
+      start: "2018-01-01"
+      end: "2020-12-31"
 
 processing:
   min_post_length_chars: 20
@@ -72,6 +94,7 @@ modeling:
 evaluation:
   primary_metric: "recall"
   probability_threshold: 0.5
+  monitoring_min_crisis_weeks: 10
 
 demo_mode:
   enabled: true
@@ -100,3 +123,7 @@ paths:
   features: "data/features"
   models: "data/models"
   reports: "data/reports"
+  external_zenodo: "data/external/zenodo"
+  staging_zenodo: "data/staging/zenodo"
+  alerts_db: "data/alerts.db"
+  quality_db: "data/quality.db"

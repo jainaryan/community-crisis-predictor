@@ -15,16 +15,16 @@ from src.modeling.train_xgb import XGBCrisisModel
 
 
 @st.cache_data
-def load_feature_df():
-    path = Path("data/features/features.parquet")
+def load_feature_df(features_root: str):
+    path = Path(features_root) / "features.parquet"
     if not path.exists():
         return None
     return pd.read_parquet(path)
 
 
 @st.cache_data
-def load_eval_results():
-    path = Path("data/models/eval_results.json")
+def load_eval_results(models_root: str):
+    path = Path(models_root) / "eval_results.json"
     if not path.exists():
         return None
     with open(path) as f:
@@ -67,9 +67,9 @@ st.set_page_config(page_title="STePS Demo", page_icon="🧪", layout="wide")
 st.title("STePS Demo Workspace")
 st.caption("Focused scenario preview page. Changes are in-session only and do not modify saved artifacts.")
 
-feature_df = load_feature_df()
-eval_results = load_eval_results()
 app_config = load_config("config/default.yaml")
+feature_df = load_feature_df(app_config["paths"]["features"])
+eval_results = load_eval_results(app_config["paths"]["models"])
 prob_threshold = float(app_config.get("evaluation", {}).get("probability_threshold", 0.5))
 
 if feature_df is None or eval_results is None:

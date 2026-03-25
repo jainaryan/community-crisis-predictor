@@ -47,7 +47,8 @@ def main():
     threshold_std = labeling_cfg.get("crisis_threshold_std", 1.5)
     thresholds_std = labeling_cfg.get("crisis_thresholds_std", [0.5, 1.0, 2.0])
 
-    alert_engine = AlertEngine(db_path="data/alerts.db")
+    alerts_db_path = config.get("paths", {}).get("alerts_db", "data/alerts.db")
+    alert_engine = AlertEngine(db_path=alerts_db_path)
     drift_detector = DriftDetector(baseline_weeks=12)
 
     for sub, sub_results in all_results.items():
@@ -179,7 +180,7 @@ def main():
         print(f"  Dashboard: {dashboard_path}")
 
     print("\nVisualization complete.")
-    print(f"Alert transitions logged to: data/alerts.db")
+    print(f"Alert transitions logged to: {alerts_db_path}")
 
 
 if __name__ == "__main__":
