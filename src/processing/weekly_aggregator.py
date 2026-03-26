@@ -8,9 +8,13 @@ class WeeklyAggregator:
     def aggregate(self, df: pd.DataFrame) -> pd.DataFrame:
         df = df.copy()
 
-        # Always normalize datetime and drop invalid timestamps before iso calendar conversion.
+        # Normalize datetime.
+        # If mixed sources produced partial `created_utc_dt` (e.g., Zenodo has it, Arctic Shift doesn't),
+        # fill missing values from `created_utc` so rows from all sources survive aggregation.
         if "created_utc_dt" in df.columns:
             df["created_utc_dt"] = pd.to_datetime(df["created_utc_dt"], errors="coerce", utc=True)
+            fallback_dt = pd.to_datetime(df["created_utc"], unit="s", errors="coerce", utc=True)
+            df["created_utc_dt"] = df["created_utc_dt"].fillna(fallback_dt)
         else:
             df["created_utc_dt"] = pd.to_datetime(df["created_utc"], unit="s", errors="coerce", utc=True)
         df = df[df["created_utc_dt"].notna()].copy()
