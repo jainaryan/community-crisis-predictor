@@ -45,26 +45,46 @@ SUBREDDIT_ROLES = {
     "anxiety": "Early warning signal",
     "lonely": "Isolation indicator",
     "depression": "Core signal",
-    "SuicideWatch": "Acute sentinel",
+    "suicidewatch": "Acute sentinel",
 }
 
 SUBREDDIT_ACCENT = {
-    "mentalhealth": "#1D9E75",
-    "anxiety": "#BA7517",
-    "lonely": "#D85A30",
-    "depression": "#A32D2D",
-    "SuicideWatch": "#534AB7",
+    # Identity palette only (non-semantic): avoid implying risk level.
+    "mentalhealth": "#0EA5E9",
+    "anxiety": "#8B5CF6",
+    "lonely": "#F59E0B",
+    "depression": "#14B8A6",
+    "suicidewatch": "#6366F1",
 }
 
 MONITORING_MODE = {"lonely", "mentalhealth"}
 
-DASHBOARD_SUBORDER = ["mentalhealth", "anxiety", "lonely", "depression", "SuicideWatch"]
+DASHBOARD_SUBORDER = ["mentalhealth", "anxiety", "lonely", "depression", "suicidewatch"]
 
 # ── Page config ───────────────────────────────────────────────────────
 st.set_page_config(
     page_title=DASHBOARD_COPY["page_title"],
     page_icon="🧠",
     layout="wide",
+)
+
+st.markdown(
+    """
+<style>
+/* Card spacing + readability */
+div[data-testid="stVerticalBlock"] .community-meta-note {
+  font-size: 0.72rem;
+  color: #94a3b8;
+}
+.community-legend {
+  font-size: 0.74rem;
+  color: #64748b;
+  margin-top: -0.15rem;
+  margin-bottom: 0.35rem;
+}
+</style>
+""",
+    unsafe_allow_html=True,
 )
 
 
@@ -76,6 +96,43 @@ def _format_week_label(value) -> str:
     except Exception:
         pass
     return str(value)[:10]
+
+
+def _to_naive_ts(value):
+    ts = pd.to_datetime(value, errors="coerce", utc=True)
+    if pd.isna(ts):
+        return pd.NaT
+    return ts.tz_convert(None)
+
+
+def _resolve_week_index_for_sub(sub_df: pd.DataFrame, replay_week_ts) -> int:
+    """Map a global replay calendar week to this subreddit's nearest available week."""
+    if sub_df.empty:
+        return 0
+    n = len(sub_df)
+    if {"iso_year", "iso_week"}.issubset(sub_df.columns) and pd.notna(replay_week_ts):
+        replay_iso = pd.Timestamp(replay_week_ts).isocalendar()
+        sub_iso_year = pd.to_numeric(sub_df["iso_year"], errors="coerce").fillna(-1).astype(int).to_numpy()
+        sub_iso_week = pd.to_numeric(sub_df["iso_week"], errors="coerce").fillna(-1).astype(int).to_numpy()
+        exact = np.where((sub_iso_year == int(replay_iso.year)) & (sub_iso_week == int(replay_iso.week)))[0]
+        if len(exact):
+            return int(exact[0])
+        sub_keys = sub_iso_year * 100 + sub_iso_week
+        replay_key = int(replay_iso.year) * 100 + int(replay_iso.week)
+        not_after = np.where(sub_keys <= replay_key)[0]
+        if len(not_after):
+            return int(not_after[-1])
+        return 0
+    if "week_start" not in sub_df.columns or pd.isna(replay_week_ts):
+        return n - 1
+    sub_weeks = pd.to_datetime(sub_df["week_start"], errors="coerce", utc=True).dt.tz_convert(None)
+    exact = np.where(sub_weeks == replay_week_ts)[0]
+    if len(exact):
+        return int(exact[0])
+    not_after = np.where(sub_weeks <= replay_week_ts)[0]
+    if len(not_after):
+        return int(not_after[-1])
+    return 0
 
 
 def available_models_for_sub(sub_results: dict) -> list[str]:
@@ -162,6 +219,16 @@ def _add_timeline_vline(
         )
 
 
+def _state_badge_html(state_text: str, state_color: str) -> str:
+    return (
+        "<div style='margin:6px 0 8px 0;'>"
+        f"<span style='display:inline-block;padding:4px 10px;border-radius:999px;"
+        f"font-size:0.78rem;font-weight:700;color:{state_color};"
+        f"border:1px solid {state_color};background:{state_color}14;'>"
+        f"Signal: {state_text}</span></div>"
+    )
+
+
 app_config = load_app_config()
 feature_df = load_feature_df()
 eval_results = load_eval_results()
@@ -184,11 +251,31 @@ if not visible_subs:
     st.stop()
 
 
-def _n_weeks(sub: str) -> int:
-    return int(feature_df[feature_df["subreddit"] == sub].shape[0])
-
-
-n_weeks_max = max(_n_weeks(s) for s in visible_subs)
+if {"iso_year", "iso_week"}.issubset(feature_df.columns):
+    _global_iso = (
+        feature_df[["iso_year", "iso_week"]]
+        .dropna()
+        .astype({"iso_year": int, "iso_week": int})
+        .drop_duplicates()
+        .sort_values(["iso_year", "iso_week"])
+    )
+    global_replay_weeks = np.array(
+        [
+            pd.Timestamp.fromisocalendar(int(r.iso_year), int(r.iso_week), 1)
+            for r in _global_iso.itertuples(index=False)
+        ]
+    )
+else:
+    _global_weeks_series = pd.to_datetime(
+        feature_df["week_start"],
+        errors="coerce",
+        utc=True,
+    ).dropna().dt.tz_convert(None)
+    global_replay_weeks = np.array(sorted(_global_weeks_series.unique()))
+if len(global_replay_weeks) == 0:
+    st.error("No valid week_start values found in feature data.")
+    st.stop()
+n_weeks_max = len(global_replay_weeks)
 monitoring_min_crisis_weeks = int(app_config.get("evaluation", {}).get("monitoring_min_crisis_weeks", 10))
 
 # ── Session state ─────────────────────────────────────────────────────
@@ -216,6 +303,7 @@ with hdr_l:
     st.title(DASHBOARD_COPY["title"])
     st.caption(DASHBOARD_COPY["caption"])
 with hdr_r:
+    st.caption("Replay controls")
     # Buttons must run before the slider: Streamlit forbids mutating a widget key after it is built.
     nav_l, nav_r, slider_col = st.columns([0.11, 0.11, 0.78])
     with nav_l:
@@ -227,10 +315,6 @@ with hdr_r:
         ):
             st.session_state.current_week = max(0, int(st.session_state.current_week) - 1)
             st.rerun()
-        st.markdown(
-            "<div style='text-align:center;font-size:0.72rem;color:#94a3b8;margin-top:-0.35rem'>Previous</div>",
-            unsafe_allow_html=True,
-        )
     with nav_r:
         if st.button(
             "▶",
@@ -240,10 +324,6 @@ with hdr_r:
         ):
             st.session_state.current_week = min(n_weeks_max - 1, int(st.session_state.current_week) + 1)
             st.rerun()
-        st.markdown(
-            "<div style='text-align:center;font-size:0.72rem;color:#94a3b8;margin-top:-0.35rem'>Next</div>",
-            unsafe_allow_html=True,
-        )
     with slider_col:
         st.slider(
             "Week",
@@ -253,15 +333,14 @@ with hdr_r:
             label_visibility="collapsed",
         )
     _idx = int(st.session_state.current_week)
-    _ref_df = feature_df[feature_df["subreddit"] == visible_subs[0]].copy()
-    _ref_df = _ref_df.sort_values(["iso_year", "iso_week"]).reset_index(drop=True)
-    _wl = _ref_df["week_start"].values if "week_start" in _ref_df.columns and len(_ref_df) else np.arange(len(_ref_df))
-    _wi = min(_idx, len(_wl) - 1) if len(_wl) else 0
-    _lbl = _format_week_label(_wl[_wi]) if len(_wl) else "—"
-    st.caption(f"Replay week (calendar): {_lbl}")
+    _ts = pd.to_datetime(global_replay_weeks[_idx])
+    _lbl = _format_week_label(_ts)
+    _iso = _ts.isocalendar()
+    st.caption(f"Replay week (calendar): {_lbl}  |  ISO: {_iso.year}-W{int(_iso.week):02d}")
 
 week_idx = int(st.session_state.current_week)
 subreddit = st.session_state.selected_sub
+replay_week_ts = _to_naive_ts(global_replay_weeks[week_idx]) if n_weeks_max else pd.NaT
 
 # Model selector must run before community cards so cards + timeline stay in sync on the same run.
 sel_sub_results = eval_results.get(subreddit, {})
@@ -279,6 +358,11 @@ with mod_b:
         label_visibility="collapsed",
     )
 model_choice = st.session_state.selected_model
+st.markdown(
+    "<div class='community-legend'>Subreddit color = community identity. "
+    "Signal badge color = model state.</div>",
+    unsafe_allow_html=True,
+)
 
 # ── Community cards ───────────────────────────────────────────────────
 card_cols = st.columns(len(visible_subs))
@@ -292,7 +376,7 @@ for i, sub in enumerate(visible_subs):
         sub_df_i = feature_df[feature_df["subreddit"] == sub].copy()
         sub_df_i = sub_df_i.sort_values(["iso_year", "iso_week"]).reset_index(drop=True)
         n_wi = len(sub_df_i)
-        wi_local = min(week_idx, n_wi - 1) if n_wi else 0
+        wi_local = _resolve_week_index_for_sub(sub_df_i, replay_week_ts)
 
         distress_i = compute_distress_score(sub_df_i) if n_wi else pd.Series(dtype=float)
         per_w = (results_i or {}).get("per_week", {}) or {}
@@ -304,29 +388,30 @@ for i, sub in enumerate(visible_subs):
         accent = SUBREDDIT_ACCENT.get(sub, "#64748b")
         role = SUBREDDIT_ROLES.get(sub, "")
         sel = subreddit == sub
-        border = f"3px solid {accent}" if sel else "1px solid rgba(148,163,184,0.5)"
-        bg = f"{accent}18" if sel else "transparent"
+        border = f"2.5px solid {accent}" if sel else "1px solid rgba(148,163,184,0.45)"
+        bg = f"{accent}12" if sel else "rgba(148,163,184,0.04)"
+        shadow = "0 0 0 1px rgba(255,255,255,0.06), 0 8px 24px rgba(2,6,23,0.28)" if sel else "none"
 
         st.markdown(
-            f"<div style='border:{border};border-radius:10px;padding:10px;background:{bg};'>"
-            f"<div style='font-weight:600;font-size:0.9rem'>r/{sub}</div>"
-            f"<div style='font-size:0.75rem;color:#64748b;margin-bottom:6px'>{role}</div></div>",
+            f"<div style='border:{border};box-shadow:{shadow};border-radius:12px;padding:10px;background:{bg};'>"
+            f"<div style='display:inline-block;padding:3px 8px;border-radius:999px;"
+            f"background:{accent}22;border:1px solid {accent}66;font-weight:700;font-size:0.78rem;'>r/{sub}</div>"
+            f"<div style='font-size:0.75rem;color:#64748b;margin-top:4px;margin-bottom:6px'>{role}</div></div>",
             unsafe_allow_html=True,
         )
 
         if use_trend_pill:
             status_html = (
-                "<div style='min-height:2.6em;line-height:1.35;color:#94a3b8;font-size:0.78rem'>"
-                "<b>Trend monitoring</b><br/>"
+                "<div style='min-height:2.6em;line-height:1.35;color:#64748b;font-size:0.79rem'>"
+                "<b>Signal: Trend monitoring</b><br/>"
                 "<span style='opacity:0.9'>Insufficient crisis weeks for stable eval (&lt;10)</span>"
                 "</div>"
             )
         else:
             cp = preds[wi_local] if len(preds) > wi_local and np.isfinite(preds[wi_local]) else np.nan
             state_line = STATE_NAMES.get(int(cp), "—") if not np.isnan(cp) else "—"
-            status_html = (
-                f"<div style='min-height:2.6em;line-height:1.35;font-size:0.82rem'>{state_line}</div>"
-            )
+            state_color = STATE_COLORS.get(int(cp), "#64748b") if not np.isnan(cp) else "#64748b"
+            status_html = _state_badge_html(state_line, state_color)
         st.markdown(status_html, unsafe_allow_html=True)
 
         d_score = float(distress_i.iloc[wi_local]) if n_wi else 0.0
@@ -334,7 +419,7 @@ for i, sub in enumerate(visible_subs):
         p_line = f"{(p_hi * 100):.1f}%" if not np.isnan(p_hi) else "—"
         st.markdown(
             f"<div style='font-size:1.35rem;font-weight:600;color:{accent}'>{d_score:+.3f}</div>"
-            f"<div style='font-size:0.75rem;color:#64748b'>p(distress) {p_line}</div>",
+            f"<div class='community-meta-note'>p(distress) {p_line}</div>",
             unsafe_allow_html=True,
         )
 
@@ -342,7 +427,8 @@ for i, sub in enumerate(visible_subs):
             start_sp = max(0, wi_local - 11)
             spark = distress_i.iloc[start_sp : wi_local + 1]
             if len(spark) > 0:
-                sp_fig = build_sparkline(spark, accent, height=72)
+                spark_color = "#334155" if sel else "#64748b"
+                sp_fig = build_sparkline(spark, spark_color, height=72)
                 st.plotly_chart(sp_fig, width="stretch", config={"displayModeBar": False})
 
         help_txt = (
@@ -396,6 +482,7 @@ if n_weeks == 0:
     st.stop()
 
 week_idx_plot = min(week_idx, n_weeks - 1)
+week_idx_plot = _resolve_week_index_for_sub(sub_df, replay_week_ts)
 
 predictions_all = trim_to_length(predictions_all, n_weeks)
 probabilities_all = trim_to_length(probabilities_all, n_weeks)
