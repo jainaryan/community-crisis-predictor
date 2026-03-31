@@ -7,6 +7,13 @@ from pathlib import Path
 from src.config import load_config
 from src.core.ui_config import PIPELINE_COPY
 
+# Presentation artifact legend:
+# - Stage 1 (collect)  -> data/raw/{subreddit}/posts.parquet
+# - Stage 2 (features) -> data/processed/weekly.parquet, data/features/features.parquet
+# - Stage 3 (train)    -> data/models/{sub}_xgb.pkl, {sub}_lstm.pt, {sub}_feature_stats.json, eval_results.json
+# - Stage 4 (evaluate) -> data/reports/{sub}/ (shap.csv, drift_alerts.json, weekly_briefs.json, timeline.html, etc.)
+# - Pipeline telemetry -> data/reports/pipeline_profile.json
+
 
 def main():
     parser = argparse.ArgumentParser(description=PIPELINE_COPY["run_all_description"])
@@ -29,7 +36,11 @@ def main():
     print("=" * 60)
     stage_profile: list[dict] = []
 
-    # Step 1: Collect
+    # Presentation checkpoint [1/4]
+    # Input: source connectors (synthetic / zenodo / reddit_api)
+    # Output artifact: data/raw/{subreddit}/posts.parquet
+    # We call each stage's CLI main directly and override sys.argv so
+    # stage-specific argparse parsing behaves exactly like standalone execution.
     print("\n[1/4] DATA COLLECTION")
     print("-" * 40)
     t0 = time.perf_counter()
@@ -40,7 +51,10 @@ def main():
     collect_main()
     stage_profile.append({"stage": "collect", "elapsed_seconds": round(time.perf_counter() - t0, 3)})
 
-    # Step 2: Features
+    # Presentation checkpoint [2/4]
+    # Input artifact: data/raw/{subreddit}/posts.parquet
+    # Output artifacts: data/processed/weekly.parquet + data/features/features.parquet
+    # Feature stage may short-circuit via cache fingerprint unless --force is passed.
     print("\n[2/4] FEATURE EXTRACTION")
     print("-" * 40)
     t0 = time.perf_counter()
@@ -53,7 +67,10 @@ def main():
     features_main()
     stage_profile.append({"stage": "features", "elapsed_seconds": round(time.perf_counter() - t0, 3)})
 
-    # Step 3: Train
+    # Presentation checkpoint [3/4]
+    # Input artifact: data/features/features.parquet
+    # Output artifacts: data/models/*.pkl, *.pt, *_feature_stats.json, eval_results.json
+    # Produces eval metrics plus serialized model artifacts under paths.models.
     print("\n[3/4] MODEL TRAINING & EVALUATION")
     print("-" * 40)
     t0 = time.perf_counter()
@@ -64,7 +81,10 @@ def main():
     train_main()
     stage_profile.append({"stage": "train", "elapsed_seconds": round(time.perf_counter() - t0, 3)})
 
-    # Step 4: Visualize
+    # Presentation checkpoint [4/4]
+    # Input artifacts: data/features/features.parquet + data/models/eval_results.json
+    # Output artifacts: data/reports/{sub}/ (timeline, SHAP, drift, briefs, dashboard HTML)
+    # Generates deploy-facing report artifacts under paths.reports.
     print("\n[4/4] VISUALIZATION & REPORTING")
     print("-" * 40)
     t0 = time.perf_counter()
@@ -83,6 +103,7 @@ def main():
 
 
 def _append_profile(config_path: str, entry: dict) -> None:
+    # pipeline_profile.json is append-only operational telemetry used by dashboard/reporting.
     cfg = load_config(config_path)
     reports_root = Path(cfg["paths"]["reports"])
     reports_root.mkdir(parents=True, exist_ok=True)

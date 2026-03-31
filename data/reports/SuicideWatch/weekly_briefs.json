@@ -1,0 +1,562 @@
+{
+  "2018-W37": {
+    "text": "r/suicidewatch (2018-W37) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.7261; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.402229+00:00"
+  },
+  "2018-W38": {
+    "text": "r/suicidewatch (2018-W38) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.4492; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.424798+00:00"
+  },
+  "2018-W39": {
+    "text": "r/suicidewatch (2018-W39) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1674; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.448110+00:00"
+  },
+  "2018-W40": {
+    "text": "r/suicidewatch (2018-W40) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2843; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.470397+00:00"
+  },
+  "2018-W41": {
+    "text": "r/suicidewatch (2018-W41) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1006; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.492796+00:00"
+  },
+  "2018-W42": {
+    "text": "r/suicidewatch (2018-W42) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.4543; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.514195+00:00"
+  },
+  "2018-W43": {
+    "text": "r/suicidewatch (2018-W43) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.5728; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.533664+00:00"
+  },
+  "2018-W44": {
+    "text": "r/suicidewatch (2018-W44) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.9438; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.552150+00:00"
+  },
+  "2018-W45": {
+    "text": "r/suicidewatch (2018-W45) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.0896; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.570671+00:00"
+  },
+  "2018-W46": {
+    "text": "r/suicidewatch (2018-W46) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.5223; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.589560+00:00"
+  },
+  "2018-W47": {
+    "text": "r/suicidewatch (2018-W47) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.7379; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.609822+00:00"
+  },
+  "2018-W48": {
+    "text": "r/suicidewatch (2018-W48) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0258; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.627399+00:00"
+  },
+  "2018-W49": {
+    "text": "r/suicidewatch (2018-W49) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.8743; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.645989+00:00"
+  },
+  "2018-W50": {
+    "text": "r/suicidewatch (2018-W50) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.8337; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.665316+00:00"
+  },
+  "2018-W51": {
+    "text": "r/suicidewatch (2018-W51) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.4871; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.683827+00:00"
+  },
+  "2018-W52": {
+    "text": "r/suicidewatch (2018-W52) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3662; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.703570+00:00"
+  },
+  "2019-W01": {
+    "text": "r/suicidewatch (2019-W01) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0598; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.722915+00:00"
+  },
+  "2019-W02": {
+    "text": "r/suicidewatch (2019-W02) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0679; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.743452+00:00"
+  },
+  "2019-W03": {
+    "text": "r/suicidewatch (2019-W03) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.0088; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.760131+00:00"
+  },
+  "2019-W04": {
+    "text": "r/suicidewatch (2019-W04) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.4478; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.781033+00:00"
+  },
+  "2019-W05": {
+    "text": "r/suicidewatch (2019-W05) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.2641; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.799958+00:00"
+  },
+  "2019-W06": {
+    "text": "r/suicidewatch (2019-W06) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.5270; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.819025+00:00"
+  },
+  "2019-W07": {
+    "text": "r/suicidewatch (2019-W07) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1392; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.838012+00:00"
+  },
+  "2019-W08": {
+    "text": "r/suicidewatch (2019-W08) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0999; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.859644+00:00"
+  },
+  "2019-W09": {
+    "text": "r/suicidewatch (2019-W09) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4960; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.879301+00:00"
+  },
+  "2019-W10": {
+    "text": "r/suicidewatch (2019-W10) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3269; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.902803+00:00"
+  },
+  "2019-W11": {
+    "text": "r/suicidewatch (2019-W11) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.8283; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.926672+00:00"
+  },
+  "2019-W12": {
+    "text": "r/suicidewatch (2019-W12) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.8352; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.947990+00:00"
+  },
+  "2019-W13": {
+    "text": "r/suicidewatch (2019-W13) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.6683; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.972871+00:00"
+  },
+  "2019-W14": {
+    "text": "r/suicidewatch (2019-W14) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3598; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:13.991637+00:00"
+  },
+  "2019-W15": {
+    "text": "r/suicidewatch (2019-W15) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.5061; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.015548+00:00"
+  },
+  "2019-W16": {
+    "text": "r/suicidewatch (2019-W16) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1588; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.037171+00:00"
+  },
+  "2019-W17": {
+    "text": "r/suicidewatch (2019-W17) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0788; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.059298+00:00"
+  },
+  "2019-W18": {
+    "text": "r/suicidewatch (2019-W18) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2778; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.081386+00:00"
+  },
+  "2019-W19": {
+    "text": "r/suicidewatch (2019-W19) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5130; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.102580+00:00"
+  },
+  "2019-W20": {
+    "text": "r/suicidewatch (2019-W20) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4387; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.137494+00:00"
+  },
+  "2019-W21": {
+    "text": "r/suicidewatch (2019-W21) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2679; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.157668+00:00"
+  },
+  "2019-W23": {
+    "text": "r/suicidewatch (2019-W23) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2949; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.178253+00:00"
+  },
+  "2019-W24": {
+    "text": "r/suicidewatch (2019-W24) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1921; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.199858+00:00"
+  },
+  "2019-W25": {
+    "text": "r/suicidewatch (2019-W25) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0141; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.221724+00:00"
+  },
+  "2019-W26": {
+    "text": "r/suicidewatch (2019-W26) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.1678; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.239926+00:00"
+  },
+  "2019-W27": {
+    "text": "r/suicidewatch (2019-W27) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +2.1279; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.260297+00:00"
+  },
+  "2019-W28": {
+    "text": "r/suicidewatch (2019-W28) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.2201; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.280926+00:00"
+  },
+  "2019-W29": {
+    "text": "r/suicidewatch (2019-W29) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2719; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.303227+00:00"
+  },
+  "2019-W30": {
+    "text": "r/suicidewatch (2019-W30) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0778; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.325751+00:00"
+  },
+  "2019-W31": {
+    "text": "r/suicidewatch (2019-W31) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.2647; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.344894+00:00"
+  },
+  "2019-W32": {
+    "text": "r/suicidewatch (2019-W32) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.0978; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.363569+00:00"
+  },
+  "2019-W33": {
+    "text": "r/suicidewatch (2019-W33) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5720; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.385285+00:00"
+  },
+  "2019-W34": {
+    "text": "r/suicidewatch (2019-W34) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3546; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.406935+00:00"
+  },
+  "2019-W35": {
+    "text": "r/suicidewatch (2019-W35) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3662; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.427334+00:00"
+  },
+  "2019-W36": {
+    "text": "r/suicidewatch (2019-W36) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.0876; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.449311+00:00"
+  },
+  "2019-W37": {
+    "text": "r/suicidewatch (2019-W37) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.2484; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.469841+00:00"
+  },
+  "2019-W38": {
+    "text": "r/suicidewatch (2019-W38) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.9107; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.491536+00:00"
+  },
+  "2019-W39": {
+    "text": "r/suicidewatch (2019-W39) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.4996; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.513912+00:00"
+  },
+  "2019-W40": {
+    "text": "r/suicidewatch (2019-W40) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4991; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.533605+00:00"
+  },
+  "2019-W41": {
+    "text": "r/suicidewatch (2019-W41) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.4088; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.556110+00:00"
+  },
+  "2019-W42": {
+    "text": "r/suicidewatch (2019-W42) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0231; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.576504+00:00"
+  },
+  "2019-W43": {
+    "text": "r/suicidewatch (2019-W43) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0528; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.598118+00:00"
+  },
+  "2019-W44": {
+    "text": "r/suicidewatch (2019-W44) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3879; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.619418+00:00"
+  },
+  "2020-W01": {
+    "text": "r/suicidewatch (2020-W01) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1185; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.641373+00:00"
+  },
+  "2020-W02": {
+    "text": "r/suicidewatch (2020-W02) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0903; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.661502+00:00"
+  },
+  "2020-W03": {
+    "text": "r/suicidewatch (2020-W03) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2036; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.681149+00:00"
+  },
+  "2020-W04": {
+    "text": "r/suicidewatch (2020-W04) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.5156; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.699171+00:00"
+  },
+  "2020-W05": {
+    "text": "r/suicidewatch (2020-W05) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4602; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.720328+00:00"
+  },
+  "2020-W06": {
+    "text": "r/suicidewatch (2020-W06) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2812; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.741562+00:00"
+  },
+  "2020-W07": {
+    "text": "r/suicidewatch (2020-W07) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0472; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.763063+00:00"
+  },
+  "2020-W08": {
+    "text": "r/suicidewatch (2020-W08) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1615; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.784439+00:00"
+  },
+  "2020-W09": {
+    "text": "r/suicidewatch (2020-W09) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3681; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.807112+00:00"
+  },
+  "2020-W10": {
+    "text": "r/suicidewatch (2020-W10) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5177; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.828854+00:00"
+  },
+  "2020-W11": {
+    "text": "r/suicidewatch (2020-W11) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3188; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.850132+00:00"
+  },
+  "2020-W12": {
+    "text": "r/suicidewatch (2020-W12) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.8613; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.872541+00:00"
+  },
+  "2020-W13": {
+    "text": "r/suicidewatch (2020-W13) is labeled Severe Community Distress Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.3028; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Escalate to senior moderators for community-level response; prominently post official subreddit rules and static mental health resource links; consider temporary community announcements (aggregate signal only).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.892365+00:00"
+  },
+  "2020-W14": {
+    "text": "r/suicidewatch (2020-W14) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3884; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.914323+00:00"
+  },
+  "2020-W15": {
+    "text": "r/suicidewatch (2020-W15) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.1397; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.936698+00:00"
+  },
+  "2020-W16": {
+    "text": "r/suicidewatch (2020-W16) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5180; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.958048+00:00"
+  },
+  "2020-W17": {
+    "text": "r/suicidewatch (2020-W17) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5569; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:14.981147+00:00"
+  },
+  "2020-W18": {
+    "text": "r/suicidewatch (2020-W18) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -2.0341; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.003645+00:00"
+  },
+  "2020-W19": {
+    "text": "r/suicidewatch (2020-W19) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.2428; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.022997+00:00"
+  },
+  "2020-W20": {
+    "text": "r/suicidewatch (2020-W20) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3531; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.044334+00:00"
+  },
+  "2020-W21": {
+    "text": "r/suicidewatch (2020-W21) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.6364; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.066665+00:00"
+  },
+  "2020-W22": {
+    "text": "r/suicidewatch (2020-W22) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.7919; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.090474+00:00"
+  },
+  "2020-W23": {
+    "text": "r/suicidewatch (2020-W23) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.7252; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.113149+00:00"
+  },
+  "2020-W24": {
+    "text": "r/suicidewatch (2020-W24) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1055; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.134717+00:00"
+  },
+  "2020-W25": {
+    "text": "r/suicidewatch (2020-W25) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.7586; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.155032+00:00"
+  },
+  "2020-W26": {
+    "text": "r/suicidewatch (2020-W26) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4214; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.174572+00:00"
+  },
+  "2020-W27": {
+    "text": "r/suicidewatch (2020-W27) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.8592; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.195354+00:00"
+  },
+  "2020-W28": {
+    "text": "r/suicidewatch (2020-W28) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3567; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.215584+00:00"
+  },
+  "2020-W29": {
+    "text": "r/suicidewatch (2020-W29) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0693; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.235156+00:00"
+  },
+  "2020-W30": {
+    "text": "r/suicidewatch (2020-W30) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2154; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.256679+00:00"
+  },
+  "2020-W31": {
+    "text": "r/suicidewatch (2020-W31) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0328; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.278842+00:00"
+  },
+  "2020-W32": {
+    "text": "r/suicidewatch (2020-W32) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2789; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.301023+00:00"
+  },
+  "2020-W33": {
+    "text": "r/suicidewatch (2020-W33) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2468; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.323827+00:00"
+  },
+  "2020-W34": {
+    "text": "r/suicidewatch (2020-W34) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1665; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.343342+00:00"
+  },
+  "2020-W35": {
+    "text": "r/suicidewatch (2020-W35) is labeled Severe Community Distress Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2712; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Escalate to senior moderators for community-level response; prominently post official subreddit rules and static mental health resource links; consider temporary community announcements (aggregate signal only).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.364297+00:00"
+  },
+  "2020-W36": {
+    "text": "r/suicidewatch (2020-W36) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1399; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.388340+00:00"
+  },
+  "2020-W37": {
+    "text": "r/suicidewatch (2020-W37) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.5039; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.407134+00:00"
+  },
+  "2020-W38": {
+    "text": "r/suicidewatch (2020-W38) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1837; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.428469+00:00"
+  },
+  "2020-W39": {
+    "text": "r/suicidewatch (2020-W39) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1306; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.449817+00:00"
+  },
+  "2020-W40": {
+    "text": "r/suicidewatch (2020-W40) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4747; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.469217+00:00"
+  },
+  "2020-W41": {
+    "text": "r/suicidewatch (2020-W41) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.5644; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.491911+00:00"
+  },
+  "2020-W42": {
+    "text": "r/suicidewatch (2020-W42) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3853; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.513391+00:00"
+  },
+  "2020-W43": {
+    "text": "r/suicidewatch (2020-W43) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2223; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.536767+00:00"
+  },
+  "2020-W44": {
+    "text": "r/suicidewatch (2020-W44) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1832; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.556139+00:00"
+  },
+  "2020-W45": {
+    "text": "r/suicidewatch (2020-W45) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2128; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.575465+00:00"
+  },
+  "2020-W46": {
+    "text": "r/suicidewatch (2020-W46) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2486; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.598583+00:00"
+  },
+  "2020-W47": {
+    "text": "r/suicidewatch (2020-W47) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0222; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.622594+00:00"
+  },
+  "2020-W48": {
+    "text": "r/suicidewatch (2020-W48) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3871; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.647613+00:00"
+  },
+  "2020-W49": {
+    "text": "r/suicidewatch (2020-W49) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5833; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.671978+00:00"
+  },
+  "2020-W50": {
+    "text": "r/suicidewatch (2020-W50) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.4763; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.696119+00:00"
+  },
+  "2020-W51": {
+    "text": "r/suicidewatch (2020-W51) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3486; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.717866+00:00"
+  },
+  "2020-W52": {
+    "text": "r/suicidewatch (2020-W52) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1476; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.740191+00:00"
+  },
+  "2020-W53": {
+    "text": "r/suicidewatch (2020-W53) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4884; globally important features include pct_neutral, help_seeking_density, pct_negative_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:43:15.759306+00:00"
+  }
+}
