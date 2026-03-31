@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "community-crisis-predictor"
 version = "0.1.0"
 description = "Predict community mental health crises from Reddit data"
-requires-python = ">=3.10"
+requires-python = ">=3.10,<4.0"
 dependencies = [
     "pandas>=2.0",
     "pyarrow>=14.0",
