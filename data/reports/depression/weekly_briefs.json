@@ -1,0 +1,492 @@
+{
+  "2018-W37": {
+    "text": "r/depression (2018-W37) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2076; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.442538+00:00"
+  },
+  "2018-W38": {
+    "text": "r/depression (2018-W38) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.6173; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.461849+00:00"
+  },
+  "2018-W39": {
+    "text": "r/depression (2018-W39) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4808; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.480093+00:00"
+  },
+  "2018-W40": {
+    "text": "r/depression (2018-W40) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2747; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.496963+00:00"
+  },
+  "2018-W41": {
+    "text": "r/depression (2018-W41) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.7856; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.513004+00:00"
+  },
+  "2018-W42": {
+    "text": "r/depression (2018-W42) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4873; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.528444+00:00"
+  },
+  "2018-W43": {
+    "text": "r/depression (2018-W43) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2949; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.543810+00:00"
+  },
+  "2018-W44": {
+    "text": "r/depression (2018-W44) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3942; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.560698+00:00"
+  },
+  "2018-W45": {
+    "text": "r/depression (2018-W45) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.6834; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.577165+00:00"
+  },
+  "2018-W47": {
+    "text": "r/depression (2018-W47) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -2.7627; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.595295+00:00"
+  },
+  "2018-W48": {
+    "text": "r/depression (2018-W48) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.9199; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.613857+00:00"
+  },
+  "2018-W50": {
+    "text": "r/depression (2018-W50) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2475; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.632377+00:00"
+  },
+  "2019-W01": {
+    "text": "r/depression (2019-W01) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5516; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.652228+00:00"
+  },
+  "2019-W02": {
+    "text": "r/depression (2019-W02) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2243; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.673477+00:00"
+  },
+  "2019-W03": {
+    "text": "r/depression (2019-W03) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2299; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.696770+00:00"
+  },
+  "2019-W04": {
+    "text": "r/depression (2019-W04) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2761; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.713681+00:00"
+  },
+  "2019-W05": {
+    "text": "r/depression (2019-W05) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3772; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.729663+00:00"
+  },
+  "2019-W06": {
+    "text": "r/depression (2019-W06) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.8385; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.746857+00:00"
+  },
+  "2019-W07": {
+    "text": "r/depression (2019-W07) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.8042; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.764178+00:00"
+  },
+  "2019-W08": {
+    "text": "r/depression (2019-W08) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2759; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.781207+00:00"
+  },
+  "2019-W09": {
+    "text": "r/depression (2019-W09) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2476; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.797801+00:00"
+  },
+  "2019-W10": {
+    "text": "r/depression (2019-W10) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.8285; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.815115+00:00"
+  },
+  "2019-W11": {
+    "text": "r/depression (2019-W11) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.1313; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.838063+00:00"
+  },
+  "2019-W12": {
+    "text": "r/depression (2019-W12) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5443; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.855466+00:00"
+  },
+  "2019-W13": {
+    "text": "r/depression (2019-W13) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.5963; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.872328+00:00"
+  },
+  "2019-W14": {
+    "text": "r/depression (2019-W14) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0408; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.889729+00:00"
+  },
+  "2019-W15": {
+    "text": "r/depression (2019-W15) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4579; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.907582+00:00"
+  },
+  "2019-W16": {
+    "text": "r/depression (2019-W16) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0243; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.924426+00:00"
+  },
+  "2019-W17": {
+    "text": "r/depression (2019-W17) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.8398; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.942296+00:00"
+  },
+  "2019-W18": {
+    "text": "r/depression (2019-W18) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.2083; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.959549+00:00"
+  },
+  "2019-W20": {
+    "text": "r/depression (2019-W20) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.6168; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.976003+00:00"
+  },
+  "2019-W22": {
+    "text": "r/depression (2019-W22) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2288; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:48.993197+00:00"
+  },
+  "2019-W24": {
+    "text": "r/depression (2019-W24) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.6806; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.010091+00:00"
+  },
+  "2019-W26": {
+    "text": "r/depression (2019-W26) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -2.3026; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.026885+00:00"
+  },
+  "2019-W28": {
+    "text": "r/depression (2019-W28) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.4398; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.043475+00:00"
+  },
+  "2019-W29": {
+    "text": "r/depression (2019-W29) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.4988; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.060233+00:00"
+  },
+  "2019-W30": {
+    "text": "r/depression (2019-W30) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.2178; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.076497+00:00"
+  },
+  "2019-W31": {
+    "text": "r/depression (2019-W31) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.6139; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.095003+00:00"
+  },
+  "2019-W32": {
+    "text": "r/depression (2019-W32) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2306; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.112563+00:00"
+  },
+  "2019-W34": {
+    "text": "r/depression (2019-W34) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.7893; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.129504+00:00"
+  },
+  "2019-W35": {
+    "text": "r/depression (2019-W35) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.0378; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.146342+00:00"
+  },
+  "2019-W38": {
+    "text": "r/depression (2019-W38) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.6341; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.165096+00:00"
+  },
+  "2019-W41": {
+    "text": "r/depression (2019-W41) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.6297; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.185635+00:00"
+  },
+  "2019-W42": {
+    "text": "r/depression (2019-W42) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2489; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.208093+00:00"
+  },
+  "2019-W43": {
+    "text": "r/depression (2019-W43) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1003; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.229243+00:00"
+  },
+  "2020-W01": {
+    "text": "r/depression (2020-W01) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.1451; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.246156+00:00"
+  },
+  "2020-W02": {
+    "text": "r/depression (2020-W02) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2976; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.264317+00:00"
+  },
+  "2020-W03": {
+    "text": "r/depression (2020-W03) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.4010; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.281312+00:00"
+  },
+  "2020-W04": {
+    "text": "r/depression (2020-W04) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2846; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.298899+00:00"
+  },
+  "2020-W05": {
+    "text": "r/depression (2020-W05) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.8328; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.316905+00:00"
+  },
+  "2020-W06": {
+    "text": "r/depression (2020-W06) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.2619; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.334132+00:00"
+  },
+  "2020-W07": {
+    "text": "r/depression (2020-W07) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.2901; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.351082+00:00"
+  },
+  "2020-W08": {
+    "text": "r/depression (2020-W08) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2727; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.367902+00:00"
+  },
+  "2020-W09": {
+    "text": "r/depression (2020-W09) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.5098; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.384990+00:00"
+  },
+  "2020-W10": {
+    "text": "r/depression (2020-W10) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5827; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.401063+00:00"
+  },
+  "2020-W11": {
+    "text": "r/depression (2020-W11) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3508; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.418604+00:00"
+  },
+  "2020-W12": {
+    "text": "r/depression (2020-W12) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.8387; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.435631+00:00"
+  },
+  "2020-W13": {
+    "text": "r/depression (2020-W13) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3459; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.453700+00:00"
+  },
+  "2020-W14": {
+    "text": "r/depression (2020-W14) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1405; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.470774+00:00"
+  },
+  "2020-W15": {
+    "text": "r/depression (2020-W15) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5828; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.488439+00:00"
+  },
+  "2020-W16": {
+    "text": "r/depression (2020-W16) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.6276; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.504952+00:00"
+  },
+  "2020-W17": {
+    "text": "r/depression (2020-W17) is labeled Severe Community Distress Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.2161; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Escalate to senior moderators for community-level response; prominently post official subreddit rules and static mental health resource links; consider temporary community announcements (aggregate signal only).",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.521299+00:00"
+  },
+  "2020-W18": {
+    "text": "r/depression (2020-W18) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.9186; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.537813+00:00"
+  },
+  "2020-W19": {
+    "text": "r/depression (2020-W19) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2859; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.555560+00:00"
+  },
+  "2020-W20": {
+    "text": "r/depression (2020-W20) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1279; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.574529+00:00"
+  },
+  "2020-W21": {
+    "text": "r/depression (2020-W21) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.8932; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.595937+00:00"
+  },
+  "2020-W22": {
+    "text": "r/depression (2020-W22) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5095; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.617551+00:00"
+  },
+  "2020-W23": {
+    "text": "r/depression (2020-W23) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4830; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.638724+00:00"
+  },
+  "2020-W24": {
+    "text": "r/depression (2020-W24) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.8852; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.659824+00:00"
+  },
+  "2020-W25": {
+    "text": "r/depression (2020-W25) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3849; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.683241+00:00"
+  },
+  "2020-W26": {
+    "text": "r/depression (2020-W26) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.4394; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.705016+00:00"
+  },
+  "2020-W27": {
+    "text": "r/depression (2020-W27) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0146; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.725855+00:00"
+  },
+  "2020-W28": {
+    "text": "r/depression (2020-W28) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1281; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.747481+00:00"
+  },
+  "2020-W29": {
+    "text": "r/depression (2020-W29) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4964; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.769513+00:00"
+  },
+  "2020-W30": {
+    "text": "r/depression (2020-W30) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.7432; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.790252+00:00"
+  },
+  "2020-W31": {
+    "text": "r/depression (2020-W31) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2146; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.807961+00:00"
+  },
+  "2020-W32": {
+    "text": "r/depression (2020-W32) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.7355; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.833289+00:00"
+  },
+  "2020-W33": {
+    "text": "r/depression (2020-W33) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.4773; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.854838+00:00"
+  },
+  "2020-W34": {
+    "text": "r/depression (2020-W34) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0181; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.874339+00:00"
+  },
+  "2020-W35": {
+    "text": "r/depression (2020-W35) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1051; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.894354+00:00"
+  },
+  "2020-W36": {
+    "text": "r/depression (2020-W36) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.5984; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.912657+00:00"
+  },
+  "2020-W37": {
+    "text": "r/depression (2020-W37) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.7784; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.931476+00:00"
+  },
+  "2020-W38": {
+    "text": "r/depression (2020-W38) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2340; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.951044+00:00"
+  },
+  "2020-W39": {
+    "text": "r/depression (2020-W39) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1029; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.970093+00:00"
+  },
+  "2020-W40": {
+    "text": "r/depression (2020-W40) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.5432; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:49.987686+00:00"
+  },
+  "2020-W41": {
+    "text": "r/depression (2020-W41) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0176; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:50.005634+00:00"
+  },
+  "2020-W42": {
+    "text": "r/depression (2020-W42) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.0196; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:50.027497+00:00"
+  },
+  "2020-W43": {
+    "text": "r/depression (2020-W43) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.9101; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:50.046121+00:00"
+  },
+  "2020-W44": {
+    "text": "r/depression (2020-W44) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4700; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:50.064131+00:00"
+  },
+  "2020-W45": {
+    "text": "r/depression (2020-W45) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3383; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:50.081893+00:00"
+  },
+  "2020-W46": {
+    "text": "r/depression (2020-W46) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1433; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:50.099755+00:00"
+  },
+  "2020-W47": {
+    "text": "r/depression (2020-W47) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.0228; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:50.118331+00:00"
+  },
+  "2020-W48": {
+    "text": "r/depression (2020-W48) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.6343; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:50.135380+00:00"
+  },
+  "2020-W49": {
+    "text": "r/depression (2020-W49) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.6046; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:50.154211+00:00"
+  },
+  "2020-W50": {
+    "text": "r/depression (2020-W50) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2320; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:50.173045+00:00"
+  },
+  "2020-W51": {
+    "text": "r/depression (2020-W51) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1891; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:50.190675+00:00"
+  },
+  "2020-W52": {
+    "text": "r/depression (2020-W52) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2042; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:50.208611+00:00"
+  },
+  "2020-W53": {
+    "text": "r/depression (2020-W53) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1099; globally important features include avg_char_count, hopelessness_density_roll2w, avg_neutral_delta (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "source": "template",
+    "generated_at": "2026-03-31T09:42:50.229711+00:00"
+  }
+}

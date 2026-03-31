@@ -1,0 +1,42 @@
+{
+  "version": 1,
+  "fingerprint": "bea4ed307b6284f4bd912f7b6476c41065a635ca20339ff600653f839b911c9c",
+  "base": {
+    "subreddits": [
+      "depression",
+      "anxiety",
+      "mentalhealth",
+      "SuicideWatch",
+      "lonely"
+    ],
+    "skip_topics": false,
+    "raw_files": [
+      {
+        "path": "data\\raw\\depression\\posts.parquet",
+        "size": 145965677,
+        "mtime_ns": 1774945462818129100
+      },
+      {
+        "path": "data\\raw\\anxiety\\posts.parquet",
+        "size": 65003336,
+        "mtime_ns": 1774945476131615200
+      },
+      {
+        "path": "data\\raw\\mentalhealth\\posts.parquet",
+        "size": 66802944,
+        "mtime_ns": 1774945494671352900
+      },
+      {
+        "path": "data\\raw\\SuicideWatch\\posts.parquet",
+        "size": 78433293,
+        "mtime_ns": 1774945520583724100
+      },
+      {
+        "path": "data\\raw\\lonely\\posts.parquet",
+        "size": 19450851,
+        "mtime_ns": 1774945526270022900
+      }
+    ],
+    "config_sig": "2892cb7a488c8020ee7ee48515a2174c09df7de90d02afd73be302ff3bc9a696"
+  }
+}

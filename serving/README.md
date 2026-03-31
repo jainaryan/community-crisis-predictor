@@ -20,6 +20,94 @@ for each monitored subreddit, with drift detection and inference logging.
 
 ---
 
+## Deployment Setup Guide (First Run)
+
+### Accounts you need
+
+Create/sign in to these accounts before first deployment:
+
+1. **GitHub** (repo host)
+2. **Render** ([render.com](https://render.com)) for FastAPI API hosting
+3. **Streamlit Community Cloud** ([share.streamlit.io](https://share.streamlit.io)) for dashboard hosting
+
+### Repository prerequisites
+
+Before connecting cloud services, ensure:
+
+- Repo is pushed to GitHub
+- Required tracked artifacts exist:
+  - `data/features/features.parquet`
+  - `data/models/*` (xgb/lstm/stats/eval)
+  - `data/reports/*` (including `shap.csv`)
+- If artifacts are stale, refresh first:
+
+```bash
+make prepare-deploy
+git add . && git commit -m "Refresh deployment artifacts" && git push
+```
+
+### First-time API deployment (Render)
+
+1. In Render dashboard: **New** -> **Web Service**
+2. Connect your GitHub repo
+3. Configure:
+   - **Root directory**: `serving`
+   - **Build command**: `pip install -r requirements.txt`
+   - **Start command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+   - **Instance type**: Free (or paid if you want fewer cold starts)
+4. Deploy and wait for first build
+5. Verify:
+   - `https://<your-render-app>.onrender.com/health`
+   - `https://<your-render-app>.onrender.com/docs`
+
+> No mandatory env vars for basic deployment because model/report artifacts are read from `../data`.
+
+### First-time dashboard deployment (Streamlit Cloud)
+
+1. In Streamlit Cloud: **New app**
+2. Select the same GitHub repo/branch
+3. Set entrypoint file to:
+   - `src/dashboard/app.py`
+4. In **Advanced settings -> Secrets**, add:
+
+```toml
+API_MODE = "true"
+API_URL = "https://<your-render-app>.onrender.com"
+```
+
+5. Deploy and verify the sidebar shows API status.
+
+---
+
+## Ongoing Deploy Flow (After First Run)
+
+### Typical update cycle
+
+1. Rebuild artifacts locally:
+   - real data: `make prepare-deploy`
+   - synthetic fast path: `make prepare-deploy-synthetic`
+2. Commit + push:
+
+```bash
+git add .
+git commit -m "Update pipeline artifacts"
+git push
+```
+
+3. Auto-redeploy behavior:
+   - **Render** rebuilds API automatically from latest commit
+   - **Streamlit Cloud** redeploys dashboard automatically from latest commit
+
+### If only code changes (no data refresh)
+
+Just commit/push code; no need to rerun full pipeline.
+
+### If API URL changes
+
+Update `API_URL` in Streamlit Cloud Secrets and redeploy/restart app.
+
+---
+
 ## Run locally
 
 ```bash
