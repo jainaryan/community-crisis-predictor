@@ -31,7 +31,7 @@ test:
 	pytest tests/ -v
 
 clean:
-	rm -rf data/raw/* data/processed/* data/features/* data/models/* data/reports/*
+	python -c "import pathlib, shutil; dirs=['data/raw','data/processed','data/features','data/models','data/reports']; [pathlib.Path(d).mkdir(parents=True, exist_ok=True) for d in dirs]; [shutil.rmtree(p) if p.is_dir() else p.unlink() for d in dirs for p in pathlib.Path(d).iterdir()]"
 
 # ── Deployment helpers ─────────────────────────────────────────────────────────
 
