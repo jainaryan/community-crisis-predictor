@@ -26,6 +26,13 @@ from src.collector.privacy import strip_pii
 from src.collector.storage import save_raw
 from src.collector.synthetic import generate_synthetic_data
 
+# Presentation artifact legend:
+# - Primary output      -> data/raw/{subreddit}/posts.parquet
+# - Quality artifacts   -> data/reports/{subreddit}/weekly_completeness.csv, data_quality_report.json
+# - Provenance logging  -> data/quality.db (source-per-week records)
+# - Ingestion manifests -> data/staging/zenodo/manifest.json, data/ingestion_manifest.json
+# - Stage telemetry     -> data/reports/pipeline_profile.json
+
 
 def main():
     parser = argparse.ArgumentParser(description="Collect Reddit data")
@@ -47,8 +54,12 @@ def main():
     stage_start = time.perf_counter()
     profile_entries: list[dict] = []
 
+    # Single entrypoint for all collectors; downstream stages always consume
+    # canonical parquet outputs under paths.raw_data regardless of upstream source.
     print(f"Collection source: {source}")
     if source == "synthetic":
+        # Presentation checkpoint: synthetic branch
+        # Output artifact per subreddit -> data/raw/{subreddit}/posts.parquet
         print("Generating synthetic data...")
         datasets = generate_synthetic_data(config, seed=config.get("random_seed", 42))
         for subreddit, df in datasets.items():
@@ -66,6 +77,8 @@ def main():
                 quality_db_path=config.get("paths", {}).get("quality_db", "data/quality.db"),
             )
     elif source == "zenodo_covid":
+        # Presentation checkpoint: Zenodo (+ optional Arctic Shift gap-fill) branch
+        # Output artifact per subreddit -> data/raw/{subreddit}/posts.parquet
         from src.collector.zenodo_loader import ZenodoLoader
 
         zen = config["collection"].get("zenodo", {})
@@ -88,6 +101,8 @@ def main():
                 Path(config.get("paths", {}).get("staging_zenodo", "data/staging/zenodo")) / "manifest.json"
             ),
         )
+        # Manifest drives idempotency: if source files + subreddit status are valid,
+        # we skip expensive re-download/re-ingestion safely.
         manifest = load_manifest(manifest_path)
         ingestion_manifest_path = config["collection"].get(
             "ingestion_manifest_path", "data/ingestion_manifest.json"
@@ -129,6 +144,7 @@ def main():
             arctic_targeted_sub = bool(arctic_enabled and subreddit in arctic_subreddits)
             arctic_already_loaded_for_sub = bool(sub_manifest.get("arctic_shift_loaded", False))
             can_skip_for_arctic = (not arctic_targeted_sub) or arctic_already_loaded_for_sub
+            # Fast-path skip for already ingested subreddit snapshots.
             if raw_path.exists() and sub_manifest.get("status") == "ingested" and can_skip_for_arctic:
                 files_ok = True
                 for file_path in sub_manifest.get("files", []):
@@ -180,6 +196,7 @@ def main():
             ]
             save_manifest(manifest_path, manifest)
 
+            # Loader normalizes raw source columns into pipeline's canonical schema.
             df = loader.load_subreddit_posts(
                 subreddit=subreddit,
                 start_date=date_range.get("start"),
@@ -198,6 +215,8 @@ def main():
                 save_manifest(manifest_path, manifest)
                 continue
 
+            # Optional gap-fill merge for missing windows; dedupe on post_id to avoid
+            # double counting when primary and gap-fill sources overlap.
             if arctic_enabled and subreddit in arctic_subreddits:
                 arctic_df, file_stats = _load_arctic_shift_for_subreddit(
                     subreddit=subreddit,
@@ -238,6 +257,7 @@ def main():
             )
             save_manifest(manifest_path, manifest)
 
+            # Side artifacts for reporting/dashboard quality tab.
             _run_data_quality_and_log(
                 df=df,
                 subreddit=subreddit,
@@ -270,6 +290,7 @@ def main():
 
     else:
         # Real collection via PushshiftLoader (PullPush.io — free, no auth needed)
+        # Output artifact per subreddit -> data/raw/{subreddit}/posts.parquet
         from src.collector.historical_loader import PushshiftLoader
 
         date_range = config["reddit"]["date_range"]
@@ -480,6 +501,8 @@ def _run_data_quality_and_log(
     reports_root: Path,
     quality_db_path: str,
 ) -> None:
+    # Data-quality artifacts are first-class outputs consumed by dashboard/reporting.
+    # We regenerate them during collection so downstream stages stay lightweight.
     completeness_df = check_weekly_completeness(df, subreddit)
     missing_weeks = flag_missing_weeks(
         completeness_df,

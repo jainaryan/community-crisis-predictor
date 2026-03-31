@@ -8,6 +8,12 @@ from src.core.ui_config import PIPELINE_COPY
 from src.modeling.evaluate import evaluate_walk_forward, evaluate_walk_forward_lstm
 from src.labeling.target import STATE_NAMES
 
+# Presentation artifact legend:
+# - Input artifact      -> data/features/features.parquet
+# - Model artifacts     -> data/models/{sub}_xgb.pkl, {sub}_lstm.pt
+# - Drift stats         -> data/models/{sub}_feature_stats.json
+# - Metrics artifact    -> data/models/eval_results.json
+
 
 def main():
     parser = argparse.ArgumentParser(description=PIPELINE_COPY["run_train_description"])
@@ -35,6 +41,8 @@ def main():
 
     all_results: dict = {}
 
+    # Train/evaluate independently per subreddit so artifacts and metrics remain
+    # community-specific and easy to explain in demos.
     for sub, sub_df in feature_df.groupby("subreddit"):
         sub_df = sub_df.sort_values(["iso_year", "iso_week"]).reset_index(drop=True)
         print(f"\n{'='*50}")
@@ -42,6 +50,7 @@ def main():
         print("=" * 50)
 
         # --- XGBoost baseline ---
+        # Produces binary crisis metrics and persists {sub}_xgb.pkl + feature stats.
         print(f"\n{PIPELINE_COPY['xgb_section_title']}")
         xgb_results = evaluate_walk_forward(
             sub_df,
@@ -56,6 +65,7 @@ def main():
             xgb_results = {}
 
         # --- LSTM primary ---
+        # Produces 4-class sequential metrics and persists {sub}_lstm.pt.
         lstm_results: dict = {}
         if not args.skip_lstm:
             print("\n[LSTM — 4-class primary model]")
@@ -73,11 +83,16 @@ def main():
         # --- Comparison table ---
         _print_comparison(sub, xgb_results, lstm_results)
 
+        # Persist both model families in one payload; evaluate stage can prefer LSTM
+        # while keeping XGB as an explicit baseline for comparison.
         all_results[str(sub)] = {"xgb": xgb_results, "lstm": lstm_results}
 
     _print_section3_summary(all_results)
 
-    # Save results
+    # Presentation checkpoint: consolidated metrics artifact
+    # Path: data/models/eval_results.json (consumed by dashboard + serving API).
+    # eval_results.json is the canonical metrics artifact consumed by dashboard/API.
+    # Keep serialization robust for numpy scalar/array types.
     results_path = models_path / "eval_results.json"
 
     def convert(obj):

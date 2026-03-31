@@ -237,30 +237,48 @@ def _call_openai(user_prompt: str) -> tuple[str | None, str | None]:
         return None, f"openai error: {e.__class__.__name__}: {e}"
 
 
+def _resolve_narrative_mode() -> tuple[str, str]:
+    """Decide provider strategy once per run to avoid repeated key checks in loops."""
+    has_anthropic_key = bool(os.environ.get("ANTHROPIC_API_KEY", "").strip())
+    has_openai_key = bool(os.environ.get("OPENAI_API_KEY", "").strip())
+    if has_anthropic_key:
+        return "anthropic", "ok"
+    if has_openai_key:
+        return "openai", "ok"
+    return "template", "ANTHROPIC_API_KEY missing | OPENAI_API_KEY missing"
+
+
 def _generate_narrative_with_meta(
     context: dict[str, Any],
     playbook: str,
+    mode: str | None = None,
+    mode_note: str | None = None,
 ) -> tuple[str, str, str]:
     """Return narrative text, source, and note for observability."""
+    if mode is None or mode_note is None:
+        mode, mode_note = _resolve_narrative_mode()
+
+    if mode == "template":
+        return template_fallback(context, playbook), "template", mode_note
+
     user_prompt = _build_user_prompt(context, playbook)
 
-    text, anth_note = _call_anthropic(user_prompt)
-    if text:
-        return _normalize_sentences(text), "anthropic", "ok"
+    if mode == "anthropic":
+        text, anth_note = _call_anthropic(user_prompt)
+        if text:
+            return _normalize_sentences(text), "anthropic", "ok"
+        text, openai_note = _call_openai(user_prompt)
+        if text:
+            return _normalize_sentences(text), "openai", f"anthropic_unavailable: {anth_note}"
+        notes = [n for n in (anth_note, openai_note) if n]
+        note = " | ".join(notes) if notes else "both providers unavailable"
+        return template_fallback(context, playbook), "template", note
 
+    # mode == "openai" (preferred when only OPENAI_API_KEY is configured)
     text, openai_note = _call_openai(user_prompt)
     if text:
-        if anth_note:
-            return _normalize_sentences(text), "openai", f"anthropic_unavailable: {anth_note}"
         return _normalize_sentences(text), "openai", "ok"
-
-    notes = []
-    if anth_note:
-        notes.append(anth_note)
-    if openai_note:
-        notes.append(openai_note)
-    note = " | ".join(notes) if notes else "both providers unavailable"
-    return template_fallback(context, playbook), "template", note
+    return template_fallback(context, playbook), "template", (openai_note or mode_note)
 
 
 def _append_weekly_brief_log(
@@ -406,6 +424,7 @@ def generate_weekly_briefs_for_subreddit(
     """
     reports_path = Path(reports_path)
     playbook = load_playbook(playbook_path)
+    mode, mode_note = _resolve_narrative_mode()
 
     n = len(sub_df)
     preds = _trim_predictions(predictions, n)
@@ -435,7 +454,12 @@ def generate_weekly_briefs_for_subreddit(
         )
         if ctx is None:
             continue
-        narrative, source, note = _generate_narrative_with_meta(ctx, playbook)
+        narrative, source, note = _generate_narrative_with_meta(
+            ctx,
+            playbook,
+            mode=mode,
+            mode_note=mode_note,
+        )
         wk = ctx["week"]
         json_path = write_weekly_brief_json(
             reports_path,

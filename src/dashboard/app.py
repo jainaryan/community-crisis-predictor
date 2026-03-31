@@ -4,12 +4,15 @@ Streamlit live dashboard for Community Mental Health Crisis Predictor.
 Run with:
     streamlit run src/dashboard/app.py
 
-Environment variables
----------------------
+Configuration (priority order)
+------------------------------
+1) Streamlit secrets (`st.secrets`)
+2) Environment variables
+
 API_MODE   Set to "true" to show live API connection status in the sidebar.
-           Predictions still use the local pipeline outputs (eval_results.json)
-           but the sidebar shows the Render API health for demonstration.
-API_URL    URL of the deployed FastAPI service (e.g. https://your-api.onrender.com).
+           Predictions still use local pipeline outputs (eval_results.json),
+           but the sidebar shows API health for demonstration.
+API_URL    URL of the FastAPI service (e.g. https://your-api.onrender.com).
            Only used when API_MODE=true.
 """
 
@@ -51,8 +54,18 @@ from src.narration.narrative_generator import week_key_from_row
 
 # ── Dashboard layout constants (issue #32) ─────────────────────────────
 # ── API mode configuration ─────────────────────────────────────────────
-_API_MODE: bool = os.getenv("API_MODE", "false").lower() == "true"
-_API_URL: str = os.getenv("API_URL", "").rstrip("/")
+def _cfg_value(key: str, default: str = "") -> str:
+    """Read config from Streamlit secrets first, then process environment."""
+    try:
+        if key in st.secrets:
+            return str(st.secrets[key])
+    except Exception:
+        pass
+    return os.getenv(key, default)
+
+
+_API_MODE: bool = _cfg_value("API_MODE", "false").strip().lower() == "true"
+_API_URL: str = _cfg_value("API_URL", "").strip().rstrip("/")
 
 
 @st.cache_data(ttl=30)

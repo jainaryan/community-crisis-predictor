@@ -254,7 +254,7 @@ serving/                       FastAPI inference service (deployed to Render.com
 ├── Procfile                   Render start command
 ├── .python-version            Pins Python 3.11.7 (avoids pandas/Python 3.13 issues)
 ├── README.md                  Local run instructions + deployed URL + cold-start note
-├── models/                    Committed model artifacts (copied by `make copy-models`)
+├── models/                    Deprecated local cache dir (artifacts now read from `data/`)
 └── tests/                     API test suite (29 tests, runs with MOCK_MODELS=true)
 
 config/
@@ -314,8 +314,7 @@ data/
     │   ├── dashboard.html                Combined HTML report
     │   ├── case_studies/
     │   │   └── case_study_*.md           Narrative high-distress case studies
-    │   ├── weekly_briefs/
-    │   │   └── YYYY-Www.txt              Weekly narrative brief per week
+    │   ├── weekly_briefs.json            Weekly narrative brief store keyed by week (one file/subreddit)
     │   └── logs/
     │       └── weekly_brief_calls.jsonl  LLM/template source + fallback notes
     └── ...
@@ -337,7 +336,7 @@ Raw and intermediate data remain gitignored to keep the repo lean:
 | `data/models/{sub}_xgb.pkl`, `{sub}_lstm.pt`, `{sub}_feature_stats.json` | **Yes** | Loaded by serving layer |
 | `data/reports/**` (shap, drift, briefs, quality) | **Yes** | Read by dashboard tabs |
 | `data/alerts.db`, `data/quality.db` | No | SQLite DBs reset on deploy anyway |
-| `serving/models/**` | **Yes** | Copied from `data/models/` for Render |
+| `serving/models/**` | No | Deprecated duplicate store; API reads directly from `data/` |
 | `serving/logs/*.jsonl` | No | Ephemeral (resets on Render restart) |
 
 After retraining, run `make prepare-deploy` then `git push` — both cloud platforms redeploy automatically.
@@ -359,7 +358,7 @@ The system is deployed as two hosted services following the Train → API → De
 ### Local → Cloud in 2 commands
 
 ```bash
-# 1. Run pipeline + copy model artifacts (real data, or add --synthetic for quick test)
+# 1. Run pipeline to refresh tracked data artifacts (real data, or add --synthetic for quick test)
 make prepare-deploy
 
 # 2. Commit and push — Render + Streamlit Cloud auto-redeploy
@@ -394,6 +393,25 @@ API_MODE = "true"
 When `API_MODE=true`, the dashboard sidebar shows a live API connection status indicator.
 When the API is unreachable, the dashboard automatically falls back to local pipeline outputs.
 
+### Local Streamlit config (no shell export needed)
+
+For local runs, you can set the same values in Streamlit secrets:
+
+```bash
+cp .streamlit/secrets.toml.example .streamlit/secrets.toml
+```
+
+Then edit:
+
+```toml
+API_MODE = "true"
+API_URL = "http://127.0.0.1:8000"
+```
+
+Config precedence in `src/dashboard/app.py` is:
+1) `st.secrets` (local `.streamlit/secrets.toml` or Streamlit Cloud Secrets)
+2) environment variables (`API_MODE`, `API_URL`)
+
 ### API endpoints
 
 | Endpoint | Method | Description |
@@ -418,8 +436,7 @@ See `serving/README.md` for full endpoint documentation and local run instructio
 | `make train` | Train LSTM + XGBoost, save `eval_results.json` + model pkl/pt files |
 | `make evaluate` | Generate structured per-subreddit reports (HTML, SHAP, drift, weekly briefs), populate alerts.db |
 | `make all-synthetic` | Run the full pipeline end-to-end with synthetic data |
-| `make copy-models` | Copy trained artifacts from `data/models/` into `serving/models/` |
-| `make prepare-deploy` | Run full pipeline + copy models (then `git push` to deploy) |
+| `make prepare-deploy` | Run full pipeline and refresh `data/features`, `data/models`, `data/reports` |
 | `make serve-local` | Start FastAPI inference service at http://localhost:8000 |
 | `make test` | Run all unit tests |
 | `make clean` | Delete all generated data files |

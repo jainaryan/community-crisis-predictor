@@ -19,6 +19,14 @@ from src.visualization.case_study import CaseStudyGenerator
 from src.visualization.dashboard import generate_html_report
 from src.narration.narrative_generator import generate_weekly_briefs_for_subreddit
 
+# Presentation artifact legend:
+# - Input artifacts     -> data/features/features.parquet, data/models/eval_results.json
+# - Per-subreddit outputs under data/reports/{sub}/:
+#   - shap.csv, drift_alerts.json, weekly_briefs.json
+#   - timeline.html, feature_importance.html, dashboard.html
+#   - case_studies/case_study_*.md
+# - Cross-subreddit output -> data/alerts.db (transition log)
+
 
 def main():
     parser = argparse.ArgumentParser(description="Generate evaluation visualizations")
@@ -51,6 +59,8 @@ def main():
     alert_engine = AlertEngine(db_path=alerts_db_path)
     drift_detector = DriftDetector(baseline_weeks=12)
 
+    # Evaluate/report generation is artifact-oriented:
+    # each subreddit gets its own report folder under paths.reports/{sub}/.
     for sub, sub_results in all_results.items():
         # Handle new {"xgb": ..., "lstm": ...} format — prefer LSTM for visualization
         if "lstm" in sub_results or "xgb" in sub_results:
@@ -74,12 +84,14 @@ def main():
         labeler.fit(distress_scores)
 
         # --- Drift detection ---
+        # Output artifact: data/reports/{sub}/drift_alerts.json
         drift_df = drift_detector.detect(sub_df)
         drift_path = sub_reports_path / "drift_alerts.json"
         drift_df.to_json(drift_path, orient="records", indent=2)
         print(f"  Drift alerts: {drift_path}")
 
         # --- Alert engine: log actual state escalations (ground truth) ---
+        # Output artifact: data/alerts.db (state transition timeline)
         per_week = results.get("per_week", {})
         # Use actual 4-class labels so the DB reflects real community transitions
         actual_states_raw = per_week.get("actuals", [])
@@ -99,6 +111,7 @@ def main():
             )
 
         # --- Train XGB on full data for SHAP (binary labels) ---
+        # SHAP is recomputed here for explanation artifacts, independent of walk-forward folds.
         valid_labels = labeler.label(distress_scores)
         valid_mask = ~valid_labels.isna()
         X_full = sub_df.loc[valid_mask, feature_columns]
@@ -114,12 +127,14 @@ def main():
 
         shap_df = compute_shap_importance(xgb_model, X_full, feature_columns)
 
-        # Save SHAP for dashboard
+        # Save SHAP for dashboard and serving model-info endpoint.
+        # Output artifact: data/reports/{sub}/shap.csv
         shap_csv = sub_reports_path / "shap.csv"
         shap_df.to_csv(shap_csv, index=False)
         print(f"  SHAP: {shap_csv}")
 
         # --- Weekly narratives (structured context + optional LLM) ---
+        # Stored as one JSON file per subreddit: weekly_briefs.json (week-keyed entries).
         preds_for_brief = np.array(per_week.get("predictions", []))
         n_brief, _ = generate_weekly_briefs_for_subreddit(
             sub,
@@ -129,9 +144,10 @@ def main():
             shap_df,
             reports_path,
         )
-        print(f"  Weekly briefs: {n_brief} file(s) in {sub_reports_path / 'weekly_briefs'}")
+        print(f"  Weekly briefs: {n_brief} week entries in {sub_reports_path / 'weekly_briefs.json'}")
 
         # --- Timeline ---
+        # Output artifact: data/reports/{sub}/timeline.html
         timeline_path = sub_reports_path / "timeline.html"
         plot_backtest_timeline(
             sub_df,
@@ -144,11 +160,13 @@ def main():
         print(f"  Timeline: {timeline_path}")
 
         # --- Feature importance ---
+        # Output artifact: data/reports/{sub}/feature_importance.html
         importance_path = sub_reports_path / "feature_importance.html"
         plot_feature_importance(shap_df, top_n=20, output_path=importance_path)
         print(f"  Feature importance: {importance_path}")
 
         # --- Case studies ---
+        # Output artifact: data/reports/{sub}/case_studies/case_study_*.md
         predictions = np.array(per_week.get("predictions", []))
         actuals = np.array(per_week.get("actuals", []))
 
@@ -173,6 +191,7 @@ def main():
             print(f"  Case study {i + 1}: {cs_path}")
 
         # --- Dashboard HTML ---
+        # Output artifact: data/reports/{sub}/dashboard.html
         dashboard_path = sub_reports_path / "dashboard.html"
         generate_html_report(
             timeline_path, importance_path, case_study_paths, results, dashboard_path

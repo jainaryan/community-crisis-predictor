@@ -14,6 +14,13 @@ from src.processing.text_cleaner import process_posts
 from src.processing.weekly_aggregator import WeeklyAggregator
 from src.features.pipeline import FeaturePipeline
 
+# Presentation artifact legend:
+# - Input artifact      -> data/raw/{subreddit}/posts.parquet
+# - Intermediate output -> data/processed/weekly.parquet
+# - Primary output      -> data/features/features.parquet
+# - Cache metadata      -> data/features/feature_build_meta.json
+# - Stage telemetry     -> data/reports/pipeline_profile.json
+
 
 def main():
     parser = argparse.ArgumentParser(description="Extract features from collected data")
@@ -30,6 +37,7 @@ def main():
     config = load_config(args.config)
     stage_start = time.perf_counter()
     cache_meta_path = Path(config["paths"]["features"]) / "feature_build_meta.json"
+    # Fingerprint guards expensive feature recomputation and keeps rebuilds deterministic.
     current_fingerprint = _compute_feature_fingerprint(config, args.config, args.skip_topics)
     if not args.force and _is_feature_cache_valid(cache_meta_path, current_fingerprint):
         print("Feature extraction skipped: upstream data/config unchanged.")
@@ -37,12 +45,14 @@ def main():
         print("  Use --force to recompute features.")
         return
 
+    # Presentation checkpoint: input artifact from collection stage.
     print("Loading raw data...")
     df = load_all_raw(config["paths"]["raw_data"], config["reddit"]["subreddits"])
     loaded_counts = _counts_by_subreddit(df)
     print(f"  {len(df)} total posts loaded")
 
     print("Cleaning text...")
+    # Cleaning is done per subreddit to preserve progress visibility and isolate failures.
     min_len = config["processing"].get("min_post_length_chars", 20)
     cleaned_chunks = []
     for _, sub_df in iter_groupby_subreddit(df, "subreddit", desc="Cleaning text"):
@@ -63,6 +73,7 @@ def main():
         sys.exit(1)
 
     print("Aggregating by week...")
+    # This is the handoff boundary from post-level to week-level modeling granularity.
     aggregator = WeeklyAggregator()
     weekly_df = aggregator.aggregate(df)
     week_counts = _counts_by_subreddit(weekly_df)
@@ -83,7 +94,8 @@ def main():
         )
         sys.exit(1)
 
-    # Save processed weekly data
+    # Intermediate artifact used for audit/debug and optional reuse.
+    # Path: data/processed/weekly.parquet
     save_processed(weekly_df, config["paths"]["processed_data"], "weekly")
 
     _print_subreddit_summary_table(
@@ -98,9 +110,12 @@ def main():
     )
 
     print("Extracting features...")
+    # FeaturePipeline expands weekly aggregates into the model-ready matrix used by train/evaluate.
     pipeline = FeaturePipeline(config)
     feature_df = pipeline.run(weekly_df, skip_topics=args.skip_topics)
 
+    # Canonical model input artifact consumed by run_train and run_evaluate.
+    # Path: data/features/features.parquet
     save_processed(feature_df, config["paths"]["features"], "features")
     print(f"Feature matrix saved: {feature_df.shape}")
     _print_subreddit_summary_table(
@@ -268,6 +283,8 @@ def _print_subreddit_summary_table(
 
 
 def _compute_feature_fingerprint(config: dict, config_path: str, skip_topics: bool) -> dict:
+    # Cache key includes raw parquet signatures + relevant config slices.
+    # If any input changes, digest changes and feature rebuild is triggered.
     raw_root = Path(config["paths"]["raw_data"])
     subreddits = list(config["reddit"]["subreddits"])
     raw_files = []
