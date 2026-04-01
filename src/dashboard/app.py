@@ -385,7 +385,6 @@ with hdr_r:
             use_container_width=True,
         ):
             st.session_state.current_week = max(0, int(st.session_state.current_week) - 1)
-            st.rerun()
     with nav_r:
         if st.button(
             "▶",
@@ -394,7 +393,6 @@ with hdr_r:
             use_container_width=True,
         ):
             st.session_state.current_week = min(n_weeks_max - 1, int(st.session_state.current_week) + 1)
-            st.rerun()
     with slider_col:
         st.slider(
             "Week",
@@ -431,7 +429,9 @@ with mod_b:
 model_choice = st.session_state.selected_model
 st.markdown(
     "<div class='community-legend'>Subreddit color = community identity. "
-    "Signal badge color = model state.</div>",
+    "Signal badge color = model state. "
+    "Large tile number = composite <b>label</b> distress (same for every model). "
+    "<code>p(distress)</code> = probability from the selected model.</div>",
     unsafe_allow_html=True,
 )
 
@@ -489,6 +489,7 @@ for i, sub in enumerate(visible_subs):
         p_hi = float(probs[wi_local]) if len(probs) > wi_local and np.isfinite(probs[wi_local]) else float("nan")
         p_line = f"{(p_hi * 100):.1f}%" if not np.isnan(p_hi) else "—"
         st.markdown(
+            f"<div class='community-meta-note' style='margin-bottom:2px'>Label distress</div>"
             f"<div style='font-size:1.35rem;font-weight:600;color:{accent}'>{d_score:+.3f}</div>"
             f"<div class='community-meta-note'>p(distress) {p_line}</div>",
             unsafe_allow_html=True,
