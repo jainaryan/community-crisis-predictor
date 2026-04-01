@@ -40,6 +40,8 @@ collection:
   arctic_shift:
     gdrive_file_id: "10MBmVvf2F5rOPaNJhnjAyrGQZa2VXhhS"
     zip_filename: "arctic_shift_gap_fill_v1.zip"
+    gdrive_file_id_v2: "1x-Kfep6WEGkhBgNGsU_K4em4ZSRlYvXa"
+    zip_filename_v2: "arctic_shift_fill_v2.zip"
     staging_dir: "data/staging/arctic_shift"
     subreddits:
       - depression

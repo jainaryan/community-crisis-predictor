@@ -132,6 +132,16 @@ def main():
                 stage_dir=arctic_stage_dir,
                 ingestion_manifest=ingestion_manifest,
             )
+            # Download v2 zip (2021-2024 extension) if configured
+            gdrive_v2 = arctic_cfg.get("gdrive_file_id_v2", "").strip()
+            if gdrive_v2:
+                zip_v2_path = arctic_stage_dir / arctic_cfg.get("zip_filename_v2", "arctic_shift_fill_v2.zip")
+                _ensure_arctic_shift_ready(
+                    arctic_cfg={"gdrive_file_id": gdrive_v2},
+                    zip_path=zip_v2_path,
+                    stage_dir=arctic_stage_dir,
+                    ingestion_manifest=ingestion_manifest,
+                )
             save_manifest(ingestion_manifest_path, ingestion_manifest)
 
         subreddits = zen.get("subreddits", config["reddit"]["subreddits"])

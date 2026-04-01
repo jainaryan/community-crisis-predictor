@@ -17,6 +17,11 @@ API_URL    URL of the FastAPI service (e.g. https://your-api.onrender.com).
 """
 
 import os
+import sys
+from pathlib import Path
+# Ensure project root is on sys.path (required for Streamlit Cloud)
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+
 import numpy as np
 import pandas as pd
 import plotly.graph_objects as go
