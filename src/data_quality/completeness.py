@@ -6,6 +6,19 @@ import numpy as np
 import pandas as pd
 
 
+def _utc_dt_from_created_utc(series: pd.Series) -> pd.Series:
+    """Build UTC datetimes from integer unix timestamps (seconds, ms, or ns)."""
+    num = pd.to_numeric(series, errors="coerce")
+    if not num.notna().any():
+        return pd.Series(pd.NaT, index=series.index, dtype="datetime64[ns, UTC]")
+    mx = float(num.abs().max())
+    if mx > 1e15:
+        num = num / 1.0e9
+    elif mx > 1e12:
+        num = num / 1.0e3
+    return pd.to_datetime(num, unit="s", errors="coerce", utc=True)
+
+
 def check_weekly_completeness(
     df: pd.DataFrame,
     subreddit: str,
@@ -33,7 +46,7 @@ def check_weekly_completeness(
         else:
             work["created_utc_dt"] = pd.NaT
         if "created_utc" in work.columns:
-            fallback_dt = pd.to_datetime(work["created_utc"], unit="s", errors="coerce", utc=True)
+            fallback_dt = _utc_dt_from_created_utc(work["created_utc"])
             work["created_utc_dt"] = work["created_utc_dt"].fillna(fallback_dt)
 
         # Convert to timezone-naive before Period conversion to avoid pandas timezone warning.

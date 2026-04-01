@@ -202,9 +202,19 @@ class ZenodoLoader:
 
     @staticmethod
     def _to_unix(series: pd.Series) -> pd.Series:
+        # Datetime columns first — pd.to_numeric on datetime64 returns ns since epoch; do not treat as seconds.
+        if pd.api.types.is_datetime64_any_dtype(series):
+            dt = pd.to_datetime(series, errors="coerce", utc=True)
+            return (dt.astype("int64") // 10**9).astype("float64")
         # If already numeric unix-like keep as-is; else parse datetime.
         numeric = pd.to_numeric(series, errors="coerce")
         if numeric.notna().mean() > 0.8:
+            mx = float(numeric.abs().max()) if numeric.notna().any() else 0.0
+            # pandas datetime→numeric is ns; CSV may carry ms; normal unix seconds ~1e9–1e10.
+            if mx > 1e15:
+                numeric = numeric / 1.0e9
+            elif mx > 1e12:
+                numeric = numeric / 1.0e3
             return numeric
         dt = pd.to_datetime(series, errors="coerce", utc=True)
         return (dt.astype("int64") // 10**9).astype("float64")
