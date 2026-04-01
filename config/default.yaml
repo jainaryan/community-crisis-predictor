@@ -95,8 +95,8 @@ modeling:
     n_search_iter: 30
   lstm:
     sequence_length: 8
-    hidden_size: 64
-    num_layers: 2
+    hidden_size: 16
+    num_layers: 1
     dropout: 0.2
     epochs: 50
     walk_forward_epochs: 20

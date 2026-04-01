@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 import xgboost as xgb
-from sklearn.model_selection import RandomizedSearchCV
+from sklearn.model_selection import RandomizedSearchCV, TimeSeriesSplit
 
 
 class XGBCrisisModel:
@@ -42,12 +42,13 @@ class XGBCrisisModel:
         )
 
         if do_search and len(X_train) > 30:
+            tscv = TimeSeriesSplit(n_splits=3)
             search = RandomizedSearchCV(
                 base_model,
                 self.param_grid,
                 n_iter=min(self.n_search_iter, 20),
                 scoring="recall",
-                cv=3,
+                cv=tscv,
                 random_state=self.seed,
                 n_jobs=-1,
             )
