@@ -2,10 +2,13 @@ import argparse
 import json
 from pathlib import Path
 
+import numpy as np
+from sklearn.metrics import average_precision_score, confusion_matrix, f1_score, precision_score, recall_score, roc_auc_score
+
 from src.config import load_config
 from src.collector.storage import load_processed
 from src.core.ui_config import PIPELINE_COPY
-from src.modeling.evaluate import evaluate_walk_forward, evaluate_walk_forward_lstm
+from src.modeling.evaluate import compute_decision_usefulness, evaluate_walk_forward, evaluate_walk_forward_lstm
 from src.labeling.target import STATE_NAMES
 
 # Presentation artifact legend:
@@ -60,6 +63,8 @@ def main():
         print(f"\n{'='*50}")
         print(f"Evaluating r/{sub} ({len(sub_df)} weeks)...")
         print("=" * 50)
+        selected_features = _select_features_for_subreddit(config, str(sub), feature_columns)
+        print(f"  Feature selection: {len(selected_features)}/{len(feature_columns)} features")
 
         # --- XGBoost baseline ---
         # Produces binary crisis metrics and persists {sub}_xgb.pkl + feature stats.
@@ -67,7 +72,7 @@ def main():
         xgb_results = evaluate_walk_forward(
             sub_df,
             config,
-            feature_columns,
+            selected_features,
             skip_search=args.skip_search,
             save_dir=models_path,
             sub=str(sub),
@@ -84,20 +89,29 @@ def main():
             lstm_results = evaluate_walk_forward_lstm(
                 sub_df,
                 config,
-                feature_columns,
+                selected_features,
                 save_dir=models_path,
                 sub=str(sub),
             )
             if "error" in lstm_results:
                 print(f"  LSTM error: {lstm_results['error']}")
                 lstm_results = {}
+        ensemble_results = _build_ensemble_results(xgb_results, lstm_results, config)
 
         # --- Comparison table ---
         _print_comparison(sub, xgb_results, lstm_results)
+        if ensemble_results:
+            print(f"  Ensemble: PR-AUC={ensemble_results.get('pr_auc', float('nan')):.3f} "
+                  f"Recall={ensemble_results.get('recall', float('nan')):.3f}")
 
         # Persist both model families in one payload; evaluate stage can prefer LSTM
         # while keeping XGB as an explicit baseline for comparison.
-        all_results[str(sub)] = {"xgb": xgb_results, "lstm": lstm_results}
+        all_results[str(sub)] = {
+            "xgb": xgb_results,
+            "lstm": lstm_results,
+            "ensemble": ensemble_results,
+            "selected_features": selected_features,
+        }
 
     _print_section3_summary(all_results)
 
@@ -118,6 +132,96 @@ def main():
         json.dump(all_results, f, indent=2, default=convert)
 
     print(f"\nResults saved to {results_path}")
+
+
+def _select_features_for_subreddit(config: dict, subreddit: str, feature_columns: list[str]) -> list[str]:
+    fs_cfg = config.get("modeling", {}).get("feature_selection", {})
+    if not bool(fs_cfg.get("enabled", True)):
+        return list(feature_columns)
+    ratio = float(fs_cfg.get("shap_min_ratio_to_top", 0.01))
+    min_features = int(fs_cfg.get("min_features", 20))
+    max_features = int(fs_cfg.get("max_features", len(feature_columns)))
+    reports_root = Path(config.get("paths", {}).get("reports", "data/reports"))
+    shap_path = reports_root / subreddit / "shap.csv"
+    if not shap_path.exists():
+        return list(feature_columns)
+    try:
+        import pandas as pd
+
+        shap_df = pd.read_csv(shap_path)
+    except Exception:
+        return list(feature_columns)
+    if shap_df.empty or "feature" not in shap_df.columns or "mean_abs_shap" not in shap_df.columns:
+        return list(feature_columns)
+    shap_df = shap_df[shap_df["feature"].isin(feature_columns)].copy()
+    if shap_df.empty:
+        return list(feature_columns)
+    top_shap = float(shap_df["mean_abs_shap"].max())
+    threshold = top_shap * ratio
+    keep_df = shap_df[shap_df["mean_abs_shap"] >= threshold].copy()
+    if len(keep_df) < min_features:
+        keep_df = shap_df.nlargest(min_features, "mean_abs_shap")
+    keep_df = keep_df.nlargest(max_features, "mean_abs_shap")
+    keep = keep_df["feature"].tolist()
+    return keep if keep else list(feature_columns)
+
+
+def _build_ensemble_results(xgb: dict, lstm: dict, config: dict) -> dict:
+    if not xgb or not lstm:
+        return {}
+    xgb_pw = xgb.get("per_week", {})
+    lstm_pw = lstm.get("per_week", {})
+    if not xgb_pw or not lstm_pw:
+        return {}
+    xgb_probs = np.asarray(xgb_pw.get("probabilities", []), dtype=float)
+    lstm_probs = np.asarray(lstm_pw.get("probabilities", []), dtype=float)
+    xgb_actual = np.asarray(xgb_pw.get("actuals", []), dtype=float)
+    lstm_actual = np.asarray(lstm_pw.get("actuals", []), dtype=float)
+    n = max(len(xgb_probs), len(lstm_probs))
+    if n == 0:
+        return {}
+
+    def _pad(arr: np.ndarray, n_out: int) -> np.ndarray:
+        if len(arr) >= n_out:
+            return arr[:n_out]
+        return np.concatenate([arr, np.full(n_out - len(arr), np.nan)])
+
+    xgb_probs = _pad(xgb_probs, n)
+    lstm_probs = _pad(lstm_probs, n)
+    xgb_actual = _pad(xgb_actual, n)
+    lstm_actual = _pad(lstm_actual, n)
+    ens_prob = np.nanmean(np.vstack([xgb_probs, lstm_probs]), axis=0)
+    actual_4 = np.where(np.isfinite(lstm_actual), lstm_actual, np.where(np.isfinite(xgb_actual), xgb_actual * 2, np.nan))
+    valid = ~(np.isnan(ens_prob) | np.isnan(actual_4))
+    if valid.sum() < 5:
+        return {}
+    prob_threshold = float(config.get("evaluation", {}).get("probability_threshold", 0.5))
+    y_true_4 = actual_4[valid].astype(int)
+    y_true_bin = (y_true_4 >= 2).astype(int)
+    y_prob = ens_prob[valid]
+    y_pred_bin = (y_prob >= prob_threshold).astype(int)
+    y_pred_4 = np.where(y_pred_bin == 1, 2, 0)
+    result = {
+        "n_valid_predictions": int(valid.sum()),
+        "n_crisis_actual": int(y_true_bin.sum()),
+        "n_crisis_predicted": int(y_pred_bin.sum()),
+        "recall": float(recall_score(y_true_bin, y_pred_bin, zero_division=0)),
+        "precision": float(precision_score(y_true_bin, y_pred_bin, zero_division=0)),
+        "f1": float(f1_score(y_true_bin, y_pred_bin, zero_division=0)),
+        "pr_auc": float(average_precision_score(y_true_bin, y_prob)) if y_true_bin.sum() > 0 else 0.0,
+        "roc_auc": float(roc_auc_score(y_true_bin, y_prob))
+        if (y_true_bin.sum() > 0 and (y_true_bin == 0).sum() > 0)
+        else None,
+        "confusion_matrix": confusion_matrix(y_true_bin, y_pred_bin, labels=[0, 1]).tolist(),
+        "confusion_matrix_4class": confusion_matrix(y_true_4, y_pred_4, labels=[0, 1, 2, 3]).tolist(),
+        "decision_usefulness": compute_decision_usefulness(y_true_bin, y_prob),
+        "per_week": {
+            "predictions": np.where(np.isnan(ens_prob), np.nan, np.where(ens_prob >= prob_threshold, 2, 0)).tolist(),
+            "probabilities": ens_prob.tolist(),
+            "actuals": actual_4.tolist(),
+        },
+    }
+    return result
 
 
 def _print_comparison(sub: str, xgb: dict, lstm: dict) -> None:

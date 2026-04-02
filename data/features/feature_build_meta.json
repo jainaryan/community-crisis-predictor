@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fingerprint": "65ad96c05d495438500f6b5b4e3623c26e4e422f677df0f0f689ac24296c7111",
+  "fingerprint": "5a94ac1c3c183bf3fb06bf20e761b74c72fb5cb1a92a81d07422921fd4cb264d",
   "base": {
     "subreddits": [
       "depression",
@@ -12,29 +12,29 @@
     "skip_topics": true,
     "raw_files": [
       {
-        "path": "data\\raw\\depression\\posts.parquet",
-        "size": 313503102,
-        "mtime_ns": 1775023684354231900
+        "path": "data/raw/depression/posts.parquet",
+        "size": 490588,
+        "mtime_ns": 1775129106612620074
       },
       {
-        "path": "data\\raw\\anxiety\\posts.parquet",
-        "size": 180463701,
-        "mtime_ns": 1775023746496107700
+        "path": "data/raw/anxiety/posts.parquet",
+        "size": 489095,
+        "mtime_ns": 1775129106869171947
       },
       {
-        "path": "data\\raw\\mentalhealth\\posts.parquet",
-        "size": 235136517,
-        "mtime_ns": 1775023816764583400
+        "path": "data/raw/mentalhealth/posts.parquet",
+        "size": 514194,
+        "mtime_ns": 1775129107090989301
       },
       {
-        "path": "data\\raw\\SuicideWatch\\posts.parquet",
-        "size": 251425589,
-        "mtime_ns": 1775023900396025800
+        "path": "data/raw/SuicideWatch/posts.parquet",
+        "size": 500437,
+        "mtime_ns": 1775129107306577122
       },
       {
-        "path": "data\\raw\\lonely\\posts.parquet",
-        "size": 96097285,
-        "mtime_ns": 1775023934865739800
+        "path": "data/raw/lonely/posts.parquet",
+        "size": 497279,
+        "mtime_ns": 1775129107525038083
       }
     ],
     "config_sig": "2892cb7a488c8020ee7ee48515a2174c09df7de90d02afd73be302ff3bc9a696"

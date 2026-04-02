@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Modelling EDA — r/lonely</title>
+<style>
+  body { font-family: 'Segoe UI', Arial, sans-serif; margin: 0; background: #f8f9fa; color: #333; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 2em; }
+  h1 { color: #1a252f; border-bottom: 3px solid #2c3e50; padding-bottom: 0.4em; }
+  h2 { color: #2c3e50; margin-top: 1.8em; border-left: 4px solid #3498db; padding-left: 0.6em; }
+  h3 { color: #34495e; margin-top: 1.2em; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 0.88em; }
+  th { background: #2c3e50; color: white; padding: 8px 10px; text-align: left; }
+  td { padding: 6px 10px; border: 1px solid #ddd; }
+  tr:nth-child(even) { background: #f5f5f5; }
+  .section { background: white; border-radius: 8px; padding: 1.5em; margin-bottom: 1.5em;
+              box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5em; }
+  .stat { display: inline-block; background: #eaf0fb; border-radius: 6px; padding: 0.5em 1em;
+           margin: 0.3em; font-size: 0.9em; }
+  .stat strong { color: #2c3e50; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 10px; color: white;
+            font-size: 0.82em; font-weight: bold; }
+  .green { background: #5cb85c; } .red { background: #d9534f; }
+  .orange { background: #f0ad4e; color:#333; } .blue { background: #5bc0de; }
+  code { background: #f0f0f0; padding: 1px 5px; border-radius: 3px; font-size: 0.85em; }
+  footer { color: #aaa; font-size: 0.78em; margin-top: 2em; border-top: 1px solid #ddd; padding-top: 0.8em; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🔬 Modelling EDA Report — r/lonely</h1>
+<p>Three-stage exploratory analysis: <strong>pre-training</strong> feature profiling →
+<strong>fold-level</strong> walk-forward health → <strong>post-training</strong> model diagnostics.</p>
+
+<!-- ══════════════ STAGE 1: PRE-TRAINING ══════════════ -->
+<h2>Stage 1 — Pre-training Feature Analysis</h2>
+
+<div class="section">
+<h3>Class Balance</h3>
+<div class="stat">Total labeled weeks: <strong>104</strong></div>
+<div class="stat">Crisis weeks (State 2+3): <strong>22</strong></div>
+<div class="stat">Crisis rate: <strong>21.1%</strong></div>
+<div class="stat">Imbalance ratio: <strong>3.7:1</strong></div>
+<br><br>
+<div style='margin-bottom:6px'><span style='display:inline-block;width:130px;font-size:0.85em'>State 0 — Stable</span><span style='display:inline-block;width:178px;height:14px;background:#5cb85c;vertical-align:middle;border-radius:3px'></span> <small>74 (71.2%)</small></div>
+<div style='margin-bottom:6px'><span style='display:inline-block;width:130px;font-size:0.85em'>State 1 — Early Signal</span><span style='display:inline-block;width:19px;height:14px;background:#f0ad4e;vertical-align:middle;border-radius:3px'></span> <small>8 (7.7%)</small></div>
+<div style='margin-bottom:6px'><span style='display:inline-block;width:130px;font-size:0.85em'>State 2 — Elevated</span><span style='display:inline-block;width:48px;height:14px;background:#e67e22;vertical-align:middle;border-radius:3px'></span> <small>20 (19.2%)</small></div>
+<div style='margin-bottom:6px'><span style='display:inline-block;width:130px;font-size:0.85em'>State 3 — Severe</span><span style='display:inline-block;width:5px;height:14px;background:#d9534f;vertical-align:middle;border-radius:3px'></span> <small>2 (1.9%)</small></div>
+
+</div>
+
+<div class="section">
+<h3>Feature–Label Correlations (Spearman ρ vs binary crisis label)</h3>
+<p>Top 15 features ranked by |ρ|. Green = significant (p&lt;0.05) and |ρ|≥0.3, grey = significant but weak, red = not significant.</p>
+<table>
+  <tr><th>Feature</th><th>ρ with crisis label</th><th>Significant?</th></tr>
+  <tr><td>avg_positive</td><td style='text-align:center'>-0.5196</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+<tr><td>avg_negative</td><td style='text-align:center'>+0.4756</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+<tr><td>avg_compound</td><td style='text-align:center'>-0.4725</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+<tr><td>distress_density</td><td style='text-align:center'>+0.4702</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+<tr><td>pct_positive</td><td style='text-align:center'>-0.4633</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+<tr><td>pct_very_negative</td><td style='text-align:center'>+0.4571</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+<tr><td>avg_word_count</td><td style='text-align:center'>+0.4416</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+<tr><td>avg_char_count</td><td style='text-align:center'>+0.4308</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+<tr><td>avg_neutral</td><td style='text-align:center'>-0.4308</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+<tr><td>avg_flesch_kincaid_delta</td><td style='text-align:center'>-0.4185</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+<tr><td>hopelessness_density</td><td style='text-align:center'>+0.4115</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+<tr><td>help_seeking_density</td><td style='text-align:center'>-0.3992</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+<tr><td>hopelessness_density_delta</td><td style='text-align:center'>+0.3907</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+<tr><td>avg_flesch_kincaid</td><td style='text-align:center'>-0.3868</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+<tr><td>avg_compound_delta</td><td style='text-align:center'>-0.3853</td><td style='text-align:center;background:#5cb85c'>✓</td></tr>
+
+</table>
+</div>
+
+<div class="section">
+<h3>Highly Collinear Feature Pairs (|ρ| ≥ 0.90)</h3>
+<p>Redundant features may inflate SHAP uncertainty. Consider removing one from each pair.</p>
+<table>
+  <tr><th>Feature A</th><th>Feature B</th><th>Spearman ρ</th></tr>
+  <tr><td>avg_word_count_roll4w</td><td>avg_char_count_roll4w</td><td style='text-align:center'>+0.9987</td></tr>
+<tr><td>avg_word_count_roll2w</td><td>avg_char_count_roll2w</td><td style='text-align:center'>+0.9965</td></tr>
+<tr><td>avg_word_count</td><td>avg_char_count</td><td style='text-align:center'>+0.9963</td></tr>
+<tr><td>avg_word_count_delta</td><td>avg_char_count_delta</td><td style='text-align:center'>+0.9955</td></tr>
+<tr><td>post_volume_roll2w</td><td>unique_posters_roll2w</td><td style='text-align:center'>+0.9928</td></tr>
+<tr><td>avg_compound_roll4w</td><td>avg_negative_roll4w</td><td style='text-align:center'>-0.9926</td></tr>
+<tr><td>post_volume_roll4w</td><td>unique_posters_roll4w</td><td style='text-align:center'>+0.9921</td></tr>
+<tr><td>post_volume</td><td>unique_posters</td><td style='text-align:center'>+0.9908</td></tr>
+<tr><td>avg_compound_roll4w</td><td>pct_positive_roll4w</td><td style='text-align:center'>+0.9889</td></tr>
+<tr><td>post_volume_delta</td><td>unique_posters_delta</td><td style='text-align:center'>+0.9886</td></tr>
+
+</table>
+</div>
+
+<!-- ══════════════ STAGE 2: FOLD DIAGNOSTICS ══════════════ -->
+<h2>Stage 2 — Walk-forward Fold Health</h2>
+
+<div class="section">
+<div class="stat">Total folds: <strong>58</strong></div>
+<div class="stat">Ran: <strong>58</strong></div>
+<div class="stat">Skipped: <strong>0</strong>
+  (0.0%)</div>
+<div class="stat">Mean crisis rate across folds: <strong>21.4%</strong></div>
+<div class="stat">Low-balance folds (≤5%): <strong>0</strong></div>
+<br><br>
+<h3>Crisis Rate per Fold (red = low-balance ≤5%)</h3>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 1</small><span style='display:inline-block;width:71px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>23.5%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 2</small><span style='display:inline-block;width:60px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.0%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 3</small><span style='display:inline-block;width:50px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>16.7%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 4</small><span style='display:inline-block;width:65px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.6%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 5</small><span style='display:inline-block;width:71px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>23.7%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 6</small><span style='display:inline-block;width:62px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.5%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 7</small><span style='display:inline-block;width:60px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.0%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 8</small><span style='display:inline-block;width:66px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.9%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 9</small><span style='display:inline-block;width:64px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.4%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 10</small><span style='display:inline-block;width:70px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>23.3%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 11</small><span style='display:inline-block;width:61px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.4%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 12</small><span style='display:inline-block;width:67px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>22.2%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 13</small><span style='display:inline-block;width:65px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.7%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 14</small><span style='display:inline-block;width:70px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>23.4%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 15</small><span style='display:inline-block;width:62px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.8%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 16</small><span style='display:inline-block;width:67px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>22.4%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 17</small><span style='display:inline-block;width:66px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>22.0%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 18</small><span style='display:inline-block;width:65px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.6%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 19</small><span style='display:inline-block;width:63px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.1%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 20</small><span style='display:inline-block;width:68px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>22.6%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 21</small><span style='display:inline-block;width:67px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>22.2%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 22</small><span style='display:inline-block;width:60px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.0%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 23</small><span style='display:inline-block;width:64px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.4%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 24</small><span style='display:inline-block;width:63px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.1%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 25</small><span style='display:inline-block;width:62px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.7%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 26</small><span style='display:inline-block;width:66px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>22.0%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 27</small><span style='display:inline-block;width:70px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>23.3%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 28</small><span style='display:inline-block;width:69px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>22.9%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 29</small><span style='display:inline-block;width:68px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>22.6%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 30</small><span style='display:inline-block;width:67px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>22.2%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 31</small><span style='display:inline-block;width:66px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.9%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 32</small><span style='display:inline-block;width:65px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.5%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 33</small><span style='display:inline-block;width:64px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.2%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 34</small><span style='display:inline-block;width:63px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.9%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 35</small><span style='display:inline-block;width:62px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.6%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 36</small><span style='display:inline-block;width:61px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.3%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 37</small><span style='display:inline-block;width:64px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.4%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 38</small><span style='display:inline-block;width:63px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.1%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 39</small><span style='display:inline-block;width:62px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.8%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 40</small><span style='display:inline-block;width:62px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.5%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 41</small><span style='display:inline-block;width:61px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.3%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 42</small><span style='display:inline-block;width:60px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.0%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 43</small><span style='display:inline-block;width:59px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>19.7%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 44</small><span style='display:inline-block;width:62px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.8%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 45</small><span style='display:inline-block;width:62px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.5%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 46</small><span style='display:inline-block;width:65px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.5%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 47</small><span style='display:inline-block;width:64px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.2%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 48</small><span style='display:inline-block;width:63px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.0%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 49</small><span style='display:inline-block;width:62px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.7%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 50</small><span style='display:inline-block;width:65px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.7%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 51</small><span style='display:inline-block;width:64px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.4%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 52</small><span style='display:inline-block;width:67px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>22.4%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 53</small><span style='display:inline-block;width:63px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>20.9%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 54</small><span style='display:inline-block;width:66px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.8%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 55</small><span style='display:inline-block;width:68px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>22.7%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 56</small><span style='display:inline-block;width:64px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>21.3%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 57</small><span style='display:inline-block;width:67px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>22.2%</small></div>
+<div style='margin-bottom:3px'><small style='display:inline-block;width:60px'>Fold 58</small><span style='display:inline-block;width:66px;height:12px;background:#5bc0de;border-radius:2px;vertical-align:middle'></span> <small>22.0%</small></div>
+
+<h3>Skip Reasons</h3>
+<ul><li>No skipped folds.</li></ul>
+</div>
+
+<!-- ══════════════ STAGE 3: POST-TRAINING ══════════════ -->
+<h2>Stage 3 — Post-training Model Diagnostics</h2>
+
+<div class="two-col">
+  <div>
+    <h3>XGBoost — Confusion Matrix</h3>
+    <div class="section"><p>2 true alerts, 4 false alarms, 7 missed crises, 64 correct non-alerts out of 77 predicted weeks.</p><table><tr><th></th><th>Predicted Crisis</th><th>Predicted Stable</th></tr><tr><td><strong>Actual Crisis</strong></td><td style='background:#d4edda'>2 TP</td><td style='background:#f8d7da'>7 FN</td></tr><tr><td><strong>Actual Stable</strong></td><td style='background:#f8d7da'>4 FP</td><td style='background:#d4edda'>64 TN</td></tr></table><p>Precision: <strong>0.333</strong> | Recall: <strong>0.222</strong> | F1: <strong>0.267</strong> | Miss rate: <strong>77.8%</strong> | False alarm rate: <strong>5.9%</strong></p></div>
+  </div>
+  <div>
+    <h3>LSTM — Confusion Matrix</h3>
+    <div class="section"><p>7 true alerts, 24 false alarms, 1 missed crises, 37 correct non-alerts out of 69 predicted weeks.</p><table><tr><th></th><th>Predicted Crisis</th><th>Predicted Stable</th></tr><tr><td><strong>Actual Crisis</strong></td><td style='background:#d4edda'>7 TP</td><td style='background:#f8d7da'>1 FN</td></tr><tr><td><strong>Actual Stable</strong></td><td style='background:#f8d7da'>24 FP</td><td style='background:#d4edda'>37 TN</td></tr></table><p>Precision: <strong>0.226</strong> | Recall: <strong>0.875</strong> | F1: <strong>0.359</strong> | Miss rate: <strong>12.5%</strong> | False alarm rate: <strong>39.3%</strong></p></div>
+  </div>
+</div>
+
+<div class="two-col">
+  <div>
+    <h3>XGBoost — Probability Calibration</h3>
+    <div class="section"><p><strong>Verdict:</strong> <span style='color:#d9534f;font-weight:bold'>over-confident</span> | Mean predicted: 0.205 vs actual: 0.117 (gap: +0.088)</p><table><tr><th>Prob Bin</th><th>N</th><th>Mean Pred</th><th>Mean Actual</th><th>Gap</th></tr><tr><td>[0.0–0.1]</td><td>14</td><td>0.030</td><td>0.071</td><td style='color:#333'>-0.042</td></tr>
+<tr><td>[0.1–0.2]</td><td>37</td><td>0.158</td><td>0.081</td><td style='color:#333'>+0.077</td></tr>
+<tr><td>[0.2–0.3]</td><td>14</td><td>0.236</td><td>0.143</td><td style='color:#333'>+0.093</td></tr>
+<tr><td>[0.3–0.4]</td><td>6</td><td>0.331</td><td>0.167</td><td style='color:#d9534f'>+0.164</td></tr>
+<tr><td>[0.5–0.6]</td><td>2</td><td>0.500</td><td>0.000</td><td style='color:#d9534f'>+0.500</td></tr>
+<tr><td>[0.6–0.7]</td><td>1</td><td>0.629</td><td>0.000</td><td style='color:#d9534f'>+0.629</td></tr>
+<tr><td>[0.7–0.8]</td><td>1</td><td>0.780</td><td>1.000</td><td style='color:#d9534f'>-0.220</td></tr>
+<tr><td>[0.8–0.9]</td><td>1</td><td>0.891</td><td>0.000</td><td style='color:#d9534f'>+0.891</td></tr>
+<tr><td>[0.9–1.0]</td><td>1</td><td>0.951</td><td>1.000</td><td style='color:#333'>-0.049</td></tr>
+</table></div>
+  </div>
+  <div>
+    <h3>LSTM — Probability Calibration</h3>
+    <div class="section"><p><strong>Verdict:</strong> <span style='color:#d9534f;font-weight:bold'>over-confident</span> | Mean predicted: 0.260 vs actual: 0.116 (gap: +0.144)</p><table><tr><th>Prob Bin</th><th>N</th><th>Mean Pred</th><th>Mean Actual</th><th>Gap</th></tr><tr><td>[0.1–0.2]</td><td>29</td><td>0.172</td><td>0.138</td><td style='color:#333'>+0.034</td></tr>
+<tr><td>[0.2–0.3]</td><td>18</td><td>0.242</td><td>0.056</td><td style='color:#d9534f'>+0.186</td></tr>
+<tr><td>[0.3–0.4]</td><td>16</td><td>0.377</td><td>0.000</td><td style='color:#d9534f'>+0.377</td></tr>
+<tr><td>[0.4–0.5]</td><td>6</td><td>0.428</td><td>0.500</td><td style='color:#333'>-0.072</td></tr>
+</table></div>
+  </div>
+</div>
+
+<div class="two-col">
+  <div>
+    <h3>XGBoost — Threshold Sensitivity</h3>
+    <div class="section"><table><tr><th>Threshold</th><th>Precision</th><th>Recall</th><th>F1</th><th>#Alerts</th></tr><tr style=''><td>0.2</td><td>0.192</td><td>0.556</td><td>0.286</td><td>26</td></tr>
+<tr style=''><td>0.3</td><td>0.250</td><td>0.333</td><td>0.286</td><td>12</td></tr>
+<tr style=''><td>0.4</td><td>0.333</td><td>0.222</td><td>0.267</td><td>6</td></tr>
+<tr style=''><td>0.5</td><td>0.333</td><td>0.222</td><td>0.267</td><td>6</td></tr>
+<tr style='font-weight:bold;background:#eaf7ea'><td>0.6</td><td>0.500</td><td>0.222</td><td>0.308</td><td>4</td></tr>
+</table></div>
+  </div>
+  <div>
+    <h3>LSTM — Threshold Sensitivity</h3>
+    <div class="section"><table><tr><th>Threshold</th><th>Precision</th><th>Recall</th><th>F1</th><th>#Alerts</th></tr><tr style=''><td>0.2</td><td>0.100</td><td>0.500</td><td>0.167</td><td>40</td></tr>
+<tr style=''><td>0.3</td><td>0.136</td><td>0.375</td><td>0.200</td><td>22</td></tr>
+<tr style='font-weight:bold;background:#eaf7ea'><td>0.4</td><td>0.500</td><td>0.375</td><td>0.429</td><td>6</td></tr>
+<tr style=''><td>0.5</td><td>0.000</td><td>0.000</td><td>0.000</td><td>0</td></tr>
+<tr style=''><td>0.6</td><td>0.000</td><td>0.000</td><td>0.000</td><td>0</td></tr>
+</table></div>
+  </div>
+</div>
+
+<footer>
+Generated by community-crisis-predictor modelling EDA module.
+Methodology: Spearman correlations, IQR collinearity detection, walk-forward fold tracking,
+probability calibration curves, threshold sensitivity sweep.
+</footer>
+</div>
+</body>
+</html>

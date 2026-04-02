@@ -249,5 +249,39 @@
     "weeks_generated": 1514,
     "feature_rows": 1514,
     "feature_cols": 107
+  },
+  {
+    "stage": "collect_total",
+    "elapsed_seconds": 2.115,
+    "subreddit_runs": []
+  },
+  {
+    "stage": "features",
+    "elapsed_seconds": 6.123,
+    "rows_processed": 71865,
+    "weeks_generated": 525,
+    "feature_rows": 525,
+    "feature_cols": 107
+  },
+  {
+    "stage": "run_all",
+    "steps": [
+      {
+        "stage": "collect",
+        "elapsed_seconds": 3.876
+      },
+      {
+        "stage": "features",
+        "elapsed_seconds": 8.347
+      },
+      {
+        "stage": "train",
+        "elapsed_seconds": 52.262
+      },
+      {
+        "stage": "evaluate",
+        "elapsed_seconds": 5.606
+      }
+    ]
   }
 ]

@@ -52,6 +52,9 @@ class LSTMCrisisModel:
         self.walk_forward_epochs: int = lstm_cfg.get("walk_forward_epochs", self.epochs)
         self.lr: float = lstm_cfg.get("learning_rate", 0.001)
         self.batch_size: int = lstm_cfg.get("batch_size", 16)
+        self.val_split: float = float(lstm_cfg.get("val_split", 0.2))
+        self.early_stopping_patience: int = int(lstm_cfg.get("early_stopping_patience", 5))
+        self.min_val_sequences: int = int(lstm_cfg.get("min_val_sequences", 12))
         self.num_classes: int = 4
         self.seed: int = config.get("random_seed", 42)
         self.model: LSTMNet | None = None
@@ -113,7 +116,23 @@ class LSTMCrisisModel:
         ).to(self.device)
 
         dataset = TensorDataset(torch.tensor(seqs), torch.tensor(labels))
-        loader = DataLoader(dataset, batch_size=self.batch_size, shuffle=True)
+        val_count = int(len(seqs) * self.val_split)
+        use_validation = val_count >= self.min_val_sequences and (len(seqs) - val_count) >= max(8, self.batch_size)
+        if use_validation:
+            split_at = len(seqs) - val_count
+            train_ds = TensorDataset(
+                torch.tensor(seqs[:split_at]),
+                torch.tensor(labels[:split_at]),
+            )
+            val_ds = TensorDataset(
+                torch.tensor(seqs[split_at:]),
+                torch.tensor(labels[split_at:]),
+            )
+        else:
+            train_ds = dataset
+            val_ds = None
+
+        loader = DataLoader(train_ds, batch_size=self.batch_size, shuffle=True)
         optimizer = torch.optim.Adam(self.model.parameters(), lr=self.lr, weight_decay=1e-4)
         class_counts = np.bincount(labels, minlength=self.num_classes).astype(np.float32)
         class_counts = np.maximum(class_counts, 1.0)
@@ -124,14 +143,35 @@ class LSTMCrisisModel:
         )
 
         n_epochs = self.walk_forward_epochs if walk_forward else self.epochs
-        self.model.train()
+        best_val_loss = float("inf")
+        best_state = None
+        patience_left = self.early_stopping_patience
         for _ in range(n_epochs):
+            self.model.train()
             for xb, yb in loader:
                 xb, yb = xb.to(self.device), yb.to(self.device)
                 optimizer.zero_grad()
                 loss = criterion(self.model(xb), yb)
                 loss.backward()
                 optimizer.step()
+            if not use_validation or val_ds is None:
+                continue
+            self.model.eval()
+            with torch.no_grad():
+                x_val, y_val = val_ds.tensors
+                x_val = x_val.to(self.device)
+                y_val = y_val.to(self.device)
+                val_loss = float(criterion(self.model(x_val), y_val).item())
+            if val_loss + 1e-6 < best_val_loss:
+                best_val_loss = val_loss
+                best_state = {k: v.detach().cpu().clone() for k, v in self.model.state_dict().items()}
+                patience_left = self.early_stopping_patience
+            else:
+                patience_left -= 1
+                if patience_left <= 0:
+                    break
+        if best_state is not None:
+            self.model.load_state_dict(best_state)
 
     def predict_proba(self, X: pd.DataFrame) -> np.ndarray:
         """Returns P(crisis) = P(state 2) + P(state 3) per sample."""

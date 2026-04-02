@@ -3,7 +3,7 @@
     "z_avg_negative":0.0,
     "z_hopelessness_density":0.0,
     "z_topic_shift_jsd":0.0,
-    "week_start":1514764800000,
+    "week_start":1704051060000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"avg_negative"
@@ -12,1188 +12,936 @@
     "z_avg_negative":0.0,
     "z_hopelessness_density":0.0,
     "z_topic_shift_jsd":0.0,
-    "week_start":1515369600000,
+    "week_start":1704068340000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"avg_negative"
   },
   {
-    "z_avg_negative":-3.7238072179,
-    "z_hopelessness_density":0.9926700159,
+    "z_avg_negative":0.630568974,
+    "z_hopelessness_density":0.6437010244,
     "z_topic_shift_jsd":0.0,
-    "week_start":1515974400000,
+    "week_start":1704688380000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":-0.8077617042,
-    "z_hopelessness_density":1.5217483388,
+    "z_avg_negative":0.4371016919,
+    "z_hopelessness_density":0.8719824594,
     "z_topic_shift_jsd":0.0,
-    "week_start":1516579200000,
+    "week_start":1705284840000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"hopelessness_density"
+  },
+  {
+    "z_avg_negative":0.9541176995,
+    "z_hopelessness_density":0.5518861368,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1705889640000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"avg_negative"
+  },
+  {
+    "z_avg_negative":0.4142085541,
+    "z_hopelessness_density":-0.0090620207,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1706492220000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"avg_negative"
+  },
+  {
+    "z_avg_negative":1.1921456419,
+    "z_hopelessness_density":1.8612698556,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1707099900000,
     "aggregate_level":1,
     "alert_level_name":"warning",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":-2.1883094951,
-    "z_hopelessness_density":-0.7531563768,
+    "z_avg_negative":1.8626830302,
+    "z_hopelessness_density":3.4566911559,
     "z_topic_shift_jsd":0.0,
-    "week_start":1517184000000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-3.2058558461,
-    "z_hopelessness_density":-0.9855235778,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1517788800000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-1.4657611113,
-    "z_hopelessness_density":1.7166058371,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1518393600000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-0.7466917813,
-    "z_hopelessness_density":-0.0560798787,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1518998400000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-0.3858514186,
-    "z_hopelessness_density":-3.3234038134,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1519603200000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-0.4483415056,
-    "z_hopelessness_density":-0.0355106776,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1520208000000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":0.1778313898,
-    "z_hopelessness_density":0.4688060927,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1520812800000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":0.2744757136,
-    "z_hopelessness_density":3.8749428342,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1521417600000,
+    "week_start":1707704580000,
     "aggregate_level":3,
     "alert_level_name":"critical",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":0.4124707041,
-    "z_hopelessness_density":-2.251506216,
+    "z_avg_negative":0.0178708469,
+    "z_hopelessness_density":-0.5703786033,
     "z_topic_shift_jsd":0.0,
-    "week_start":1522022400000,
+    "week_start":1708307580000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"avg_negative"
   },
   {
-    "z_avg_negative":0.0811659675,
-    "z_hopelessness_density":0.8158366978,
+    "z_avg_negative":-0.2815747406,
+    "z_hopelessness_density":-0.2200069102,
     "z_topic_shift_jsd":0.0,
-    "week_start":1522627200000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-1.5624887428,
-    "z_hopelessness_density":0.8659814172,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1523232000000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-1.1459833146,
-    "z_hopelessness_density":-1.5621214917,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1523836800000,
+    "week_start":1708907340000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"topic_shift_jsd"
   },
   {
-    "z_avg_negative":-0.0346140329,
-    "z_hopelessness_density":1.2297373039,
+    "z_avg_negative":0.8839269375,
+    "z_hopelessness_density":1.7632259042,
     "z_topic_shift_jsd":0.0,
-    "week_start":1525133094000,
+    "week_start":1709521080000,
     "aggregate_level":1,
     "alert_level_name":"warning",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":-1.4467556305,
-    "z_hopelessness_density":0.4082843694,
+    "z_avg_negative":1.728831313,
+    "z_hopelessness_density":1.7100604023,
     "z_topic_shift_jsd":0.0,
-    "week_start":1525651299000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-2.1404067519,
-    "z_hopelessness_density":0.3474837275,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1526256125000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":1.2655189675,
-    "z_hopelessness_density":1.459674705,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1526860927000,
+    "week_start":1710124440000,
     "aggregate_level":1,
     "alert_level_name":"warning",
+    "dominant_signal":"avg_negative"
+  },
+  {
+    "z_avg_negative":-0.4127908704,
+    "z_hopelessness_density":-0.4528606735,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1710722880000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.9144347579,
+    "z_hopelessness_density":-0.8997938193,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1711338720000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-1.1020471117,
+    "z_hopelessness_density":-0.8702548187,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1711935060000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.3887064339,
+    "z_hopelessness_density":-0.5494188504,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1712535480000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.6131242243,
+    "z_hopelessness_density":-0.7923677315,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1713142080000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.5730206027,
+    "z_hopelessness_density":-0.500215581,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1713745320000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.8036701323,
+    "z_hopelessness_density":-0.3392642454,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1714349760000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.4632182212,
+    "z_hopelessness_density":-0.5998465947,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1714953840000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.484195876,
+    "z_hopelessness_density":-0.2914082262,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1715569500000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.9747231918,
+    "z_hopelessness_density":-0.1846181298,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1716170340000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.4661538271,
+    "z_hopelessness_density":-0.1476103532,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1716771780000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":0.5576951684,
+    "z_hopelessness_density":-0.8636754738,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1717374240000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"avg_negative"
+  },
+  {
+    "z_avg_negative":1.6856382024,
+    "z_hopelessness_density":-0.456436886,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1718006040000,
+    "aggregate_level":1,
+    "alert_level_name":"warning",
+    "dominant_signal":"avg_negative"
+  },
+  {
+    "z_avg_negative":-1.8710524562,
+    "z_hopelessness_density":-1.898680332,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1718587560000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.4571997139,
+    "z_hopelessness_density":-0.6397410473,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1719200040000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.5891291922,
+    "z_hopelessness_density":-2.5421074747,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1719800580000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":0.1101935769,
+    "z_hopelessness_density":0.3833096419,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1720402860000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":3.1402978228,
-    "z_hopelessness_density":0.0746822523,
+    "z_avg_negative":6.3006897329,
+    "z_hopelessness_density":5.1191433871,
     "z_topic_shift_jsd":0.0,
-    "week_start":1527465651000,
+    "week_start":1721002620000,
     "aggregate_level":3,
     "alert_level_name":"critical",
     "dominant_signal":"avg_negative"
   },
   {
-    "z_avg_negative":-0.5174619068,
-    "z_hopelessness_density":1.6678357461,
+    "z_avg_negative":3.7035700295,
+    "z_hopelessness_density":4.74582242,
     "z_topic_shift_jsd":0.0,
-    "week_start":1528070504000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":0.9705811984,
-    "z_hopelessness_density":-0.5955134453,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1528675259000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":-0.5092321789,
-    "z_hopelessness_density":0.2370718844,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1529280150000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":0.1311324232,
-    "z_hopelessness_density":0.3599073817,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1529885217000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":0.3589796273,
-    "z_hopelessness_density":1.5175059638,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1530489697000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-0.3610841952,
-    "z_hopelessness_density":2.5637465207,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1531095039000,
-    "aggregate_level":2,
-    "alert_level_name":"alert",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-0.7322461748,
-    "z_hopelessness_density":-0.0770694818,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1531699281000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-0.6594563969,
-    "z_hopelessness_density":0.1264775106,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1532304153000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-0.2234232893,
-    "z_hopelessness_density":-1.154201952,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1532908813000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-1.7194180991,
-    "z_hopelessness_density":-1.6432422617,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1533513608000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-0.1372548195,
-    "z_hopelessness_density":-2.2083396361,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1534118542000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":0.3781522731,
-    "z_hopelessness_density":-0.5828011347,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1534723313000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":-0.0782803047,
-    "z_hopelessness_density":-0.4198697017,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1535328072000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":0.0507698832,
-    "z_hopelessness_density":-1.2102912117,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1535932912000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":-0.0634894971,
-    "z_hopelessness_density":-1.1071106828,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1536537908000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":0.3273431342,
-    "z_hopelessness_density":0.0335229911,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1537142421000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":0.3569381646,
-    "z_hopelessness_density":1.5963315566,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1537747303000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":1.5892699278,
-    "z_hopelessness_density":0.3835619428,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1538352052000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":-1.5528102787,
-    "z_hopelessness_density":-0.3053777537,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1538956862000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-0.920833319,
-    "z_hopelessness_density":0.1545092177,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1539561707000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":0.4914875824,
-    "z_hopelessness_density":-0.8071012224,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1540166516000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":1.1048006378,
-    "z_hopelessness_density":0.7721662636,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1540771402000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":2.8250935718,
-    "z_hopelessness_density":4.0392132795,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1541548800000,
+    "week_start":1721616240000,
     "aggregate_level":3,
     "alert_level_name":"critical",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":-6.4865003938,
-    "z_hopelessness_density":-0.9145682557,
+    "z_avg_negative":0.967076486,
+    "z_hopelessness_density":-0.5589672661,
     "z_topic_shift_jsd":0.0,
-    "week_start":1542672000000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":1.8529351157,
-    "z_hopelessness_density":-0.8596119803,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1543190400000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":1.4656389276,
-    "z_hopelessness_density":-0.8661318609,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1544572800000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":1.7451322942,
-    "z_hopelessness_density":0.5193704899,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1546300800000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":1.3714706878,
-    "z_hopelessness_density":0.1838377665,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1546819200000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":0.5552516333,
-    "z_hopelessness_density":0.1608306657,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1547424000000,
+    "week_start":1722212040000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"avg_negative"
   },
   {
-    "z_avg_negative":0.1430686803,
-    "z_hopelessness_density":0.3606421118,
+    "z_avg_negative":1.0724455386,
+    "z_hopelessness_density":1.9054946968,
     "z_topic_shift_jsd":0.0,
-    "week_start":1548028800000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
+    "week_start":1722829380000,
+    "aggregate_level":1,
+    "alert_level_name":"warning",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":-0.4692046244,
-    "z_hopelessness_density":-0.0297658233,
+    "z_avg_negative":1.9045142707,
+    "z_hopelessness_density":2.9063241696,
     "z_topic_shift_jsd":0.0,
-    "week_start":1548633600000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":1.2267958468,
-    "z_hopelessness_density":0.2333101225,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1549238400000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":-0.5545307567,
-    "z_hopelessness_density":0.3243973116,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1549843200000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-0.4911518279,
-    "z_hopelessness_density":-0.6216669123,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1550448000000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-0.355978562,
-    "z_hopelessness_density":-0.0991085247,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1551052800000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":0.6429684463,
-    "z_hopelessness_density":2.1838880177,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1551657600000,
+    "week_start":1723429980000,
     "aggregate_level":2,
     "alert_level_name":"alert",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":-1.1723782133,
-    "z_hopelessness_density":-1.1966010079,
+    "z_avg_negative":-0.8803863443,
+    "z_hopelessness_density":-0.5756269539,
     "z_topic_shift_jsd":0.0,
-    "week_start":1552262400000,
+    "week_start":1724027520000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"topic_shift_jsd"
   },
   {
-    "z_avg_negative":-0.1586756967,
-    "z_hopelessness_density":-0.1034669897,
+    "z_avg_negative":-0.864786679,
+    "z_hopelessness_density":-0.6035958805,
     "z_topic_shift_jsd":0.0,
-    "week_start":1552867200000,
+    "week_start":1724631300000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"topic_shift_jsd"
   },
   {
-    "z_avg_negative":-2.027925701,
-    "z_hopelessness_density":-0.9162324194,
+    "z_avg_negative":-0.0884515027,
+    "z_hopelessness_density":-0.8803717113,
     "z_topic_shift_jsd":0.0,
-    "week_start":1553472000000,
+    "week_start":1725250440000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"topic_shift_jsd"
   },
   {
-    "z_avg_negative":-1.6449415145,
-    "z_hopelessness_density":-0.9745997912,
+    "z_avg_negative":0.8762530094,
+    "z_hopelessness_density":0.9337125309,
     "z_topic_shift_jsd":0.0,
-    "week_start":1554076800000,
+    "week_start":1725846840000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"hopelessness_density"
+  },
+  {
+    "z_avg_negative":1.2622527558,
+    "z_hopelessness_density":1.9302151686,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1726476660000,
+    "aggregate_level":1,
+    "alert_level_name":"warning",
+    "dominant_signal":"hopelessness_density"
+  },
+  {
+    "z_avg_negative":-1.0332637355,
+    "z_hopelessness_density":-0.6219422329,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1727054580000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"topic_shift_jsd"
   },
   {
-    "z_avg_negative":0.5832034941,
-    "z_hopelessness_density":-0.7720482003,
+    "z_avg_negative":-0.7786468001,
+    "z_hopelessness_density":-0.7178310738,
     "z_topic_shift_jsd":0.0,
-    "week_start":1554681600000,
+    "week_start":1727658120000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.929114001,
+    "z_hopelessness_density":-1.0543069763,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1728260760000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":0.8950639898,
+    "z_hopelessness_density":0.9171460934,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1728875100000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"hopelessness_density"
+  },
+  {
+    "z_avg_negative":1.0166209207,
+    "z_hopelessness_density":1.1479156597,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1729476840000,
+    "aggregate_level":1,
+    "alert_level_name":"warning",
+    "dominant_signal":"hopelessness_density"
+  },
+  {
+    "z_avg_negative":-1.1066891514,
+    "z_hopelessness_density":-0.7821429228,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1730074200000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.655992313,
+    "z_hopelessness_density":-0.7203281044,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1730680260000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.6529550177,
+    "z_hopelessness_density":-0.3655061173,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1731290700000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-1.0790181079,
+    "z_hopelessness_density":-0.7576078855,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1731890040000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.0164452683,
+    "z_hopelessness_density":-0.4144317691,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1732496580000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.8372724773,
+    "z_hopelessness_density":-0.6994769494,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1733106480000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.6961325761,
+    "z_hopelessness_density":-0.5190248936,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1733710020000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.3866807299,
+    "z_hopelessness_density":-0.6982376417,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1734307500000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.1736863651,
+    "z_hopelessness_density":-0.5086485254,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1734918660000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-1.3315235428,
+    "z_hopelessness_density":-1.0426481527,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1735530480000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":0.7957871131,
+    "z_hopelessness_density":-0.2310681328,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1736128140000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"avg_negative"
   },
   {
-    "z_avg_negative":0.4756214102,
-    "z_hopelessness_density":-0.5985527836,
+    "z_avg_negative":0.2693089892,
+    "z_hopelessness_density":0.0425018205,
     "z_topic_shift_jsd":0.0,
-    "week_start":1555286400000,
+    "week_start":1736728800000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"avg_negative"
   },
   {
-    "z_avg_negative":1.4559198585,
-    "z_hopelessness_density":3.5488980284,
+    "z_avg_negative":3.3178803082,
+    "z_hopelessness_density":6.1906180495,
     "z_topic_shift_jsd":0.0,
-    "week_start":1555891200000,
+    "week_start":1737333900000,
     "aggregate_level":3,
     "alert_level_name":"critical",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":2.3222249698,
-    "z_hopelessness_density":4.5086496104,
+    "z_avg_negative":3.813468425,
+    "z_hopelessness_density":5.4583760851,
     "z_topic_shift_jsd":0.0,
-    "week_start":1556496000000,
+    "week_start":1737942240000,
     "aggregate_level":3,
     "alert_level_name":"critical",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":0.6306382629,
-    "z_hopelessness_density":0.1073492538,
+    "z_avg_negative":1.7994019332,
+    "z_hopelessness_density":1.6231935038,
     "z_topic_shift_jsd":0.0,
-    "week_start":1557792000000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
+    "week_start":1738542780000,
+    "aggregate_level":1,
+    "alert_level_name":"warning",
     "dominant_signal":"avg_negative"
   },
   {
-    "z_avg_negative":0.5958969027,
-    "z_hopelessness_density":-0.3082522223,
+    "z_avg_negative":1.5332144571,
+    "z_hopelessness_density":2.6350212938,
     "z_topic_shift_jsd":0.0,
-    "week_start":1559088000000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":1.2099932787,
-    "z_hopelessness_density":2.8792607302,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1560384000000,
+    "week_start":1739146440000,
     "aggregate_level":2,
     "alert_level_name":"alert",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":0.1527272639,
-    "z_hopelessness_density":-0.6936096455,
+    "z_avg_negative":-0.3558178504,
+    "z_hopelessness_density":-0.4327901202,
     "z_topic_shift_jsd":0.0,
-    "week_start":1561593600000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":-2.252578798,
-    "z_hopelessness_density":0.0295706935,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1562544000000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-0.330472381,
-    "z_hopelessness_density":0.6588290349,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1563235200000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-0.7004201543,
-    "z_hopelessness_density":-0.5485776179,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1563753600000,
+    "week_start":1739751900000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"topic_shift_jsd"
   },
   {
-    "z_avg_negative":0.6707767666,
-    "z_hopelessness_density":0.5774659285,
+    "z_avg_negative":-0.6701422607,
+    "z_hopelessness_density":-0.4802401879,
     "z_topic_shift_jsd":0.0,
-    "week_start":1564358400000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":-1.1982267046,
-    "z_hopelessness_density":0.4021081695,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1565481600000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":1.3034765319,
-    "z_hopelessness_density":-0.4391172752,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1566172800000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":0.4706065721,
-    "z_hopelessness_density":-0.5784196494,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1566777600000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":-0.1070871681,
-    "z_hopelessness_density":-1.3209668193,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1568678400000,
+    "week_start":1740356400000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"topic_shift_jsd"
   },
   {
-    "z_avg_negative":1.129869864,
-    "z_hopelessness_density":-1.1516282384,
+    "z_avg_negative":-1.362296701,
+    "z_hopelessness_density":-0.4165208915,
     "z_topic_shift_jsd":0.0,
-    "week_start":1570492800000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":-0.1331106097,
-    "z_hopelessness_density":0.261504592,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1571270400000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-0.6796100541,
-    "z_hopelessness_density":-0.5308455528,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1571616000000,
+    "week_start":1740963600000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"topic_shift_jsd"
   },
   {
-    "z_avg_negative":1.971377575,
-    "z_hopelessness_density":1.8271779255,
+    "z_avg_negative":-0.6318268961,
+    "z_hopelessness_density":-0.5671485359,
     "z_topic_shift_jsd":0.0,
-    "week_start":1577836800000,
+    "week_start":1741572360000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.7941633476,
+    "z_hopelessness_density":-0.4584042819,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1742170680000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.7970287049,
+    "z_hopelessness_density":-0.7399062614,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1742774520000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.9770358571,
+    "z_hopelessness_density":-0.7994030045,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1743380400000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.8555207994,
+    "z_hopelessness_density":-0.7151532607,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1743990300000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":1.290566501,
+    "z_hopelessness_density":0.7228575813,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1744589400000,
     "aggregate_level":1,
     "alert_level_name":"warning",
     "dominant_signal":"avg_negative"
   },
   {
-    "z_avg_negative":1.0074652194,
-    "z_hopelessness_density":1.0522658905,
+    "z_avg_negative":1.5823548433,
+    "z_hopelessness_density":1.1751424413,
     "z_topic_shift_jsd":0.0,
-    "week_start":1578268800000,
+    "week_start":1745210100000,
+    "aggregate_level":1,
+    "alert_level_name":"warning",
+    "dominant_signal":"avg_negative"
+  },
+  {
+    "z_avg_negative":-0.625093176,
+    "z_hopelessness_density":-0.3953989011,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1745799480000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.6214938297,
+    "z_hopelessness_density":-0.9771873385,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1746405060000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":1.518420813,
+    "z_hopelessness_density":1.820496974,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1747013940000,
     "aggregate_level":1,
     "alert_level_name":"warning",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":1.2920086589,
-    "z_hopelessness_density":-0.7365999542,
+    "z_avg_negative":1.9984758794,
+    "z_hopelessness_density":2.4917888531,
     "z_topic_shift_jsd":0.0,
-    "week_start":1578873600000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":0.4080310037,
-    "z_hopelessness_density":1.1019076692,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1579478400000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-0.4292490867,
-    "z_hopelessness_density":-1.4266084379,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1580083200000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":1.4606510253,
-    "z_hopelessness_density":1.0659999931,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1580688000000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":-1.0863367269,
-    "z_hopelessness_density":-0.0351611913,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1581292800000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-0.4679947253,
-    "z_hopelessness_density":-0.2444565468,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1581897600000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-1.7925457283,
-    "z_hopelessness_density":-0.215361442,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1582502400000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-0.5943790812,
-    "z_hopelessness_density":0.195829113,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1583107200000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-0.8265679441,
-    "z_hopelessness_density":-0.4807553151,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1583712000000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":1.4299303994,
-    "z_hopelessness_density":-0.5438857351,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1584316800000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":0.1973496776,
-    "z_hopelessness_density":-0.1942029591,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1584921600000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":0.278797848,
-    "z_hopelessness_density":0.2657151019,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1585526400000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":0.1708693463,
-    "z_hopelessness_density":3.3245766254,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1586131200000,
-    "aggregate_level":3,
-    "alert_level_name":"critical",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":0.3177749541,
-    "z_hopelessness_density":-0.9438576383,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1586736000000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":2.0713894454,
-    "z_hopelessness_density":1.490229199,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1587340800000,
-    "aggregate_level":2,
-    "alert_level_name":"alert",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":-0.8087507221,
-    "z_hopelessness_density":-0.897081963,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1588292107000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-0.9580512305,
-    "z_hopelessness_density":-0.7716281124,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1588550568000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-0.1505033288,
-    "z_hopelessness_density":-1.9217753794,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1589155617000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-0.3763360847,
-    "z_hopelessness_density":1.6977830749,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1589761182000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":1.648258258,
-    "z_hopelessness_density":0.3539557084,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1590365053000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":0.6051323072,
-    "z_hopelessness_density":2.4833970313,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1590970158000,
+    "week_start":1747618860000,
     "aggregate_level":2,
     "alert_level_name":"alert",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":-0.2749716469,
-    "z_hopelessness_density":0.2162285955,
+    "z_avg_negative":-0.3541472231,
+    "z_hopelessness_density":-0.5911243439,
     "z_topic_shift_jsd":0.0,
-    "week_start":1591574733000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-1.1576094724,
-    "z_hopelessness_density":0.3912635552,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1592179212000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-0.9505516382,
-    "z_hopelessness_density":-0.6712016659,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1592784614000,
+    "week_start":1748223240000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"topic_shift_jsd"
   },
   {
-    "z_avg_negative":-0.9508219725,
-    "z_hopelessness_density":-1.1726544549,
+    "z_avg_negative":-1.1094611272,
+    "z_hopelessness_density":-0.8010092916,
     "z_topic_shift_jsd":0.0,
-    "week_start":1593389457000,
+    "week_start":1748822400000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"topic_shift_jsd"
   },
   {
-    "z_avg_negative":-0.6276258532,
-    "z_hopelessness_density":-0.6277962701,
+    "z_avg_negative":-0.1633875045,
+    "z_hopelessness_density":-0.6144464966,
     "z_topic_shift_jsd":0.0,
-    "week_start":1593994051000,
+    "week_start":1749429840000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"topic_shift_jsd"
   },
   {
-    "z_avg_negative":-0.45260377,
-    "z_hopelessness_density":0.0558637559,
+    "z_avg_negative":0.7735004316,
+    "z_hopelessness_density":0.7407298215,
     "z_topic_shift_jsd":0.0,
-    "week_start":1594599074000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-1.3814134146,
-    "z_hopelessness_density":-0.714964929,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1595203359000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-0.1504945893,
-    "z_hopelessness_density":-0.9930453047,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1595808149000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-0.272687046,
-    "z_hopelessness_density":-0.1658388675,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1596413486000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":-0.0329155372,
-    "z_hopelessness_density":-0.7785368207,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1597017823000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":0.5470797022,
-    "z_hopelessness_density":-1.0542303114,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1597622458000,
+    "week_start":1750034400000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"avg_negative"
   },
   {
-    "z_avg_negative":-1.068476891,
-    "z_hopelessness_density":0.0723951332,
+    "z_avg_negative":1.2962853056,
+    "z_hopelessness_density":1.6392354168,
     "z_topic_shift_jsd":0.0,
-    "week_start":1598227231000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-0.5051126227,
-    "z_hopelessness_density":-1.9902191568,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1598832204000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":0.434532166,
-    "z_hopelessness_density":-0.3390072994,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1599437029000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":0.8167839722,
-    "z_hopelessness_density":0.9241518415,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1600041718000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":0.6394353598,
-    "z_hopelessness_density":3.377856472,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1600646564000,
-    "aggregate_level":3,
-    "alert_level_name":"critical",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-1.0285835348,
-    "z_hopelessness_density":0.0333679656,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1601251800000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":-0.0288287664,
-    "z_hopelessness_density":-0.2183420718,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1601856036000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"topic_shift_jsd"
-  },
-  {
-    "z_avg_negative":2.4722051174,
-    "z_hopelessness_density":2.5059272484,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1602460901000,
-    "aggregate_level":2,
-    "alert_level_name":"alert",
-    "dominant_signal":"hopelessness_density"
-  },
-  {
-    "z_avg_negative":0.0233388769,
-    "z_hopelessness_density":-0.4853988268,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1603065634000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":1.426749127,
-    "z_hopelessness_density":1.0254921084,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1603670516000,
-    "aggregate_level":1,
-    "alert_level_name":"warning",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":2.1981481334,
-    "z_hopelessness_density":1.4132963638,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1604275313000,
-    "aggregate_level":2,
-    "alert_level_name":"alert",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":1.0739901196,
-    "z_hopelessness_density":1.1407937587,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1604880174000,
+    "week_start":1750655280000,
     "aggregate_level":1,
     "alert_level_name":"warning",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":0.1947663169,
-    "z_hopelessness_density":-1.05231788,
+    "z_avg_negative":0.1738913119,
+    "z_hopelessness_density":0.2338727958,
     "z_topic_shift_jsd":0.0,
-    "week_start":1605484936000,
-    "aggregate_level":0,
-    "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
-  },
-  {
-    "z_avg_negative":-0.0627871321,
-    "z_hopelessness_density":0.6941919284,
-    "z_topic_shift_jsd":0.0,
-    "week_start":1606089672000,
+    "week_start":1751243820000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":-0.8090344785,
-    "z_hopelessness_density":-0.5908555596,
+    "z_avg_negative":1.3006950405,
+    "z_hopelessness_density":1.2969698616,
     "z_topic_shift_jsd":0.0,
-    "week_start":1606694479000,
+    "week_start":1751847660000,
+    "aggregate_level":1,
+    "alert_level_name":"warning",
+    "dominant_signal":"avg_negative"
+  },
+  {
+    "z_avg_negative":-0.6862457121,
+    "z_hopelessness_density":-0.7956781037,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1752475080000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"topic_shift_jsd"
   },
   {
-    "z_avg_negative":-1.1212214286,
-    "z_hopelessness_density":0.1991500864,
+    "z_avg_negative":-0.66484911,
+    "z_hopelessness_density":-0.6427260331,
     "z_topic_shift_jsd":0.0,
-    "week_start":1607299437000,
+    "week_start":1753066680000,
     "aggregate_level":0,
     "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":1.1661753375,
+    "z_hopelessness_density":0.7833398067,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1753678860000,
+    "aggregate_level":1,
+    "alert_level_name":"warning",
+    "dominant_signal":"avg_negative"
+  },
+  {
+    "z_avg_negative":0.6764684056,
+    "z_hopelessness_density":1.1990062238,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1754275380000,
+    "aggregate_level":1,
+    "alert_level_name":"warning",
     "dominant_signal":"hopelessness_density"
   },
   {
-    "z_avg_negative":0.5923601236,
-    "z_hopelessness_density":0.1570577273,
+    "z_avg_negative":-1.5374483367,
+    "z_hopelessness_density":-0.5594779044,
     "z_topic_shift_jsd":0.0,
-    "week_start":1607904186000,
+    "week_start":1754879340000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-1.022946458,
+    "z_hopelessness_density":-0.8774777261,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1755476940000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.7815135451,
+    "z_hopelessness_density":-1.0120491384,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1756084800000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.7881230684,
+    "z_hopelessness_density":-0.8694531163,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1756690560000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.7791735375,
+    "z_hopelessness_density":-1.2757001998,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1757293320000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":0.6831320837,
+    "z_hopelessness_density":0.1617639905,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1757894820000,
     "aggregate_level":0,
     "alert_level_name":"normal",
     "dominant_signal":"avg_negative"
   },
   {
-    "z_avg_negative":0.365278885,
-    "z_hopelessness_density":-0.4222723191,
+    "z_avg_negative":1.5176002492,
+    "z_hopelessness_density":1.956591954,
     "z_topic_shift_jsd":0.0,
-    "week_start":1608508851000,
+    "week_start":1758500460000,
+    "aggregate_level":1,
+    "alert_level_name":"warning",
+    "dominant_signal":"hopelessness_density"
+  },
+  {
+    "z_avg_negative":-0.9998768236,
+    "z_hopelessness_density":-1.4108508403,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1759108500000,
     "aggregate_level":0,
     "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.3839553414,
+    "z_hopelessness_density":-0.2442455087,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1759717980000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.9107019626,
+    "z_hopelessness_density":-0.9956714602,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1760320560000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-1.1934829104,
+    "z_hopelessness_density":-0.7016834171,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1760922000000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.1195511388,
+    "z_hopelessness_density":-0.3237302046,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1761530160000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.7331823565,
+    "z_hopelessness_density":-0.3123827161,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1762128540000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":1.5469475414,
+    "z_hopelessness_density":1.688673719,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1762742700000,
+    "aggregate_level":1,
+    "alert_level_name":"warning",
+    "dominant_signal":"hopelessness_density"
+  },
+  {
+    "z_avg_negative":2.9034885861,
+    "z_hopelessness_density":2.1638469538,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1763359680000,
+    "aggregate_level":2,
+    "alert_level_name":"alert",
     "dominant_signal":"avg_negative"
   },
   {
-    "z_avg_negative":0.7344621117,
-    "z_hopelessness_density":-0.4530121679,
+    "z_avg_negative":1.6491310628,
+    "z_hopelessness_density":1.1383095754,
     "z_topic_shift_jsd":0.0,
-    "week_start":1609113609000,
+    "week_start":1763965980000,
+    "aggregate_level":1,
+    "alert_level_name":"warning",
+    "dominant_signal":"avg_negative"
+  },
+  {
+    "z_avg_negative":0.8261455366,
+    "z_hopelessness_density":1.9735232874,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1764584460000,
+    "aggregate_level":1,
+    "alert_level_name":"warning",
+    "dominant_signal":"hopelessness_density"
+  },
+  {
+    "z_avg_negative":-1.2366771481,
+    "z_hopelessness_density":-1.3786426297,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1765152180000,
     "aggregate_level":0,
     "alert_level_name":"normal",
-    "dominant_signal":"avg_negative"
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.533021083,
+    "z_hopelessness_density":-1.0088262139,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1765761480000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
+  },
+  {
+    "z_avg_negative":-0.6143005159,
+    "z_hopelessness_density":-0.4326625378,
+    "z_topic_shift_jsd":0.0,
+    "week_start":1766370600000,
+    "aggregate_level":0,
+    "alert_level_name":"normal",
+    "dominant_signal":"topic_shift_jsd"
   }
 ]

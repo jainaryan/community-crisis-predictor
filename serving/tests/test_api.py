@@ -183,8 +183,8 @@ class TestPredictFullSubsMockMode:
 
 
 class TestDriftDetection:
-    def test_drift_triggered_when_feature_far_from_mean(self):
-        """With injected feature stats, a 10-std outlier must produce a warning."""
+    def test_out_of_range_feature_rejected(self):
+        """Features beyond strict sigma guardrail should be rejected."""
         sub = "depression"
         injected_stats = {
             "features": {
@@ -200,9 +200,11 @@ class TestDriftDetection:
                     "features": {"hopelessness_density": 0.99},
                 },
             )
+        assert r.status_code == 422
         body = r.json()
-        assert len(body["drift_warnings"]) >= 1
-        assert "hopelessness_density" in body["drift_warnings"][0]
+        detail = body.get("detail", {})
+        assert "violations" in detail
+        assert any("hopelessness_density" in item for item in detail["violations"])
 
     def test_no_drift_for_normal_values(self):
         sub = "depression"

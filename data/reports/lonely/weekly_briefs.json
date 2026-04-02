@@ -565,353 +565,353 @@
     "generated_at": "2026-04-01T03:52:15.936013+00:00"
   },
   "2024-W35": {
-    "text": "r/lonely (2024-W35) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4938; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "text": "r/lonely (2024-W35) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4923; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.452679+00:00"
+    "generated_at": "2026-04-02T15:18:25.380216+00:00"
   },
   "2024-W36": {
-    "text": "r/lonely (2024-W36) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.8115; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2024-W36) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.7370; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.473594+00:00"
+    "generated_at": "2026-04-02T15:18:25.381702+00:00"
   },
   "2024-W37": {
-    "text": "r/lonely (2024-W37) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5539; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2024-W37) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4678; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.482507+00:00"
+    "generated_at": "2026-04-02T15:18:25.382891+00:00"
   },
   "2024-W38": {
-    "text": "r/lonely (2024-W38) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.7089; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "text": "r/lonely (2024-W38) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.7093; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.491088+00:00"
+    "generated_at": "2026-04-02T15:18:25.384048+00:00"
   },
   "2024-W39": {
-    "text": "r/lonely (2024-W39) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3850; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2024-W39) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3656; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.500019+00:00"
+    "generated_at": "2026-04-02T15:18:25.385185+00:00"
   },
   "2024-W40": {
-    "text": "r/lonely (2024-W40) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.2621; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "text": "r/lonely (2024-W40) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.2246; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.508628+00:00"
+    "generated_at": "2026-04-02T15:18:25.386314+00:00"
   },
   "2024-W41": {
-    "text": "r/lonely (2024-W41) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0672; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2024-W41) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0540; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.517335+00:00"
+    "generated_at": "2026-04-02T15:18:25.387446+00:00"
   },
   "2024-W42": {
-    "text": "r/lonely (2024-W42) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1518; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2024-W42) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2056; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.525835+00:00"
+    "generated_at": "2026-04-02T15:18:25.388572+00:00"
   },
   "2024-W43": {
-    "text": "r/lonely (2024-W43) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.0382; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2024-W43) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +1.0745; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.534425+00:00"
+    "generated_at": "2026-04-02T15:18:25.389701+00:00"
   },
   "2024-W44": {
-    "text": "r/lonely (2024-W44) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5393; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "text": "r/lonely (2024-W44) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5300; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.541405+00:00"
+    "generated_at": "2026-04-02T15:18:25.390829+00:00"
   },
   "2024-W45": {
-    "text": "r/lonely (2024-W45) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.2993; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "text": "r/lonely (2024-W45) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.2917; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.545818+00:00"
+    "generated_at": "2026-04-02T15:18:25.391954+00:00"
   },
   "2024-W46": {
-    "text": "r/lonely (2024-W46) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0328; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2024-W46) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0395; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.550748+00:00"
+    "generated_at": "2026-04-02T15:18:25.393071+00:00"
   },
   "2024-W47": {
-    "text": "r/lonely (2024-W47) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.9321; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "text": "r/lonely (2024-W47) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.8908; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.556182+00:00"
+    "generated_at": "2026-04-02T15:18:25.394204+00:00"
   },
   "2024-W48": {
-    "text": "r/lonely (2024-W48) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1466; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2024-W48) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2117; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.561889+00:00"
+    "generated_at": "2026-04-02T15:18:25.395320+00:00"
   },
   "2024-W49": {
-    "text": "r/lonely (2024-W49) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.1247; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "text": "r/lonely (2024-W49) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.1198; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.566686+00:00"
+    "generated_at": "2026-04-02T15:18:25.396436+00:00"
   },
   "2024-W50": {
-    "text": "r/lonely (2024-W50) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1804; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2024-W50) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2295; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.571227+00:00"
+    "generated_at": "2026-04-02T15:18:25.397549+00:00"
   },
   "2024-W51": {
-    "text": "r/lonely (2024-W51) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3049; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "text": "r/lonely (2024-W51) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2850; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.576588+00:00"
+    "generated_at": "2026-04-02T15:18:25.398670+00:00"
   },
   "2024-W52": {
-    "text": "r/lonely (2024-W52) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3742; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "text": "r/lonely (2024-W52) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3440; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.582257+00:00"
+    "generated_at": "2026-04-02T15:18:25.399785+00:00"
   },
   "2025-W01": {
-    "text": "r/lonely (2025-W01) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.9286; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W01) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.9397; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.587492+00:00"
+    "generated_at": "2026-04-02T15:18:25.400901+00:00"
   },
   "2025-W02": {
-    "text": "r/lonely (2025-W02) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2247; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "text": "r/lonely (2025-W02) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2307; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.592850+00:00"
+    "generated_at": "2026-04-02T15:18:25.402014+00:00"
   },
   "2025-W03": {
-    "text": "r/lonely (2025-W03) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.8084; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W03) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.7455; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.599364+00:00"
+    "generated_at": "2026-04-02T15:18:25.403126+00:00"
   },
   "2025-W04": {
-    "text": "r/lonely (2025-W04) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2717; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W04) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3361; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.604360+00:00"
+    "generated_at": "2026-04-02T15:18:25.404235+00:00"
   },
   "2025-W05": {
-    "text": "r/lonely (2025-W05) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3018; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W05) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2803; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.609475+00:00"
+    "generated_at": "2026-04-02T15:18:25.405356+00:00"
   },
   "2025-W06": {
-    "text": "r/lonely (2025-W06) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0454; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W06) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0262; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.614751+00:00"
+    "generated_at": "2026-04-02T15:18:25.406467+00:00"
   },
   "2025-W07": {
-    "text": "r/lonely (2025-W07) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4995; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "text": "r/lonely (2025-W07) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4953; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.619765+00:00"
+    "generated_at": "2026-04-02T15:18:25.407573+00:00"
   },
   "2025-W08": {
-    "text": "r/lonely (2025-W08) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.4336; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W08) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.4208; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.624400+00:00"
+    "generated_at": "2026-04-02T15:18:25.408679+00:00"
   },
   "2025-W09": {
-    "text": "r/lonely (2025-W09) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2292; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "text": "r/lonely (2025-W09) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1959; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.629164+00:00"
+    "generated_at": "2026-04-02T15:18:25.409786+00:00"
   },
   "2025-W10": {
-    "text": "r/lonely (2025-W10) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0142; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W10) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0659; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.634645+00:00"
+    "generated_at": "2026-04-02T15:18:25.410901+00:00"
   },
   "2025-W11": {
-    "text": "r/lonely (2025-W11) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0544; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W11) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0636; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.640279+00:00"
+    "generated_at": "2026-04-02T15:18:25.412027+00:00"
   },
   "2025-W12": {
-    "text": "r/lonely (2025-W12) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1072; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W12) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1675; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.645642+00:00"
+    "generated_at": "2026-04-02T15:18:25.413164+00:00"
   },
   "2025-W13": {
-    "text": "r/lonely (2025-W13) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0348; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W13) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1202; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.652088+00:00"
+    "generated_at": "2026-04-02T15:18:25.414590+00:00"
   },
   "2025-W14": {
-    "text": "r/lonely (2025-W14) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0498; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "text": "r/lonely (2025-W14) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0561; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.660370+00:00"
+    "generated_at": "2026-04-02T15:18:25.415760+00:00"
   },
   "2025-W15": {
-    "text": "r/lonely (2025-W15) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0188; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "text": "r/lonely (2025-W15) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0324; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.667124+00:00"
+    "generated_at": "2026-04-02T15:18:25.416867+00:00"
   },
   "2025-W16": {
-    "text": "r/lonely (2025-W16) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0178; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W16) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0234; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.672205+00:00"
+    "generated_at": "2026-04-02T15:18:25.417972+00:00"
   },
   "2025-W17": {
-    "text": "r/lonely (2025-W17) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3196; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "text": "r/lonely (2025-W17) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2292; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.678386+00:00"
+    "generated_at": "2026-04-02T15:18:25.419076+00:00"
   },
   "2025-W18": {
-    "text": "r/lonely (2025-W18) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0091; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "text": "r/lonely (2025-W18) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0975; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.686971+00:00"
+    "generated_at": "2026-04-02T15:18:25.420189+00:00"
   },
   "2025-W19": {
-    "text": "r/lonely (2025-W19) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0916; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "text": "r/lonely (2025-W19) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1067; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.693013+00:00"
+    "generated_at": "2026-04-02T15:18:25.421321+00:00"
   },
   "2025-W20": {
-    "text": "r/lonely (2025-W20) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0730; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W20) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0527; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.698463+00:00"
+    "generated_at": "2026-04-02T15:18:25.422461+00:00"
   },
   "2025-W21": {
-    "text": "r/lonely (2025-W21) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1442; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W21) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1599; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.702989+00:00"
+    "generated_at": "2026-04-02T15:18:25.423589+00:00"
   },
   "2025-W22": {
-    "text": "r/lonely (2025-W22) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0032; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W22) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0011; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.707316+00:00"
+    "generated_at": "2026-04-02T15:18:25.424718+00:00"
   },
   "2025-W23": {
-    "text": "r/lonely (2025-W23) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0685; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W23) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1889; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.711860+00:00"
+    "generated_at": "2026-04-02T15:18:25.425847+00:00"
   },
   "2025-W24": {
-    "text": "r/lonely (2025-W24) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3323; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W24) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1410; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.716153+00:00"
+    "generated_at": "2026-04-02T15:18:25.427092+00:00"
   },
   "2025-W25": {
-    "text": "r/lonely (2025-W25) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2536; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W25) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1520; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.720693+00:00"
+    "generated_at": "2026-04-02T15:18:25.428217+00:00"
   },
   "2025-W26": {
-    "text": "r/lonely (2025-W26) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1493; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W26) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0943; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.725638+00:00"
+    "generated_at": "2026-04-02T15:18:25.429336+00:00"
   },
   "2025-W27": {
-    "text": "r/lonely (2025-W27) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4965; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W27) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5077; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.729961+00:00"
+    "generated_at": "2026-04-02T15:18:25.430450+00:00"
   },
   "2025-W28": {
-    "text": "r/lonely (2025-W28) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.7600; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W28) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.7731; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.734549+00:00"
+    "generated_at": "2026-04-02T15:18:25.431567+00:00"
   },
   "2025-W29": {
-    "text": "r/lonely (2025-W29) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3064; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W29) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3325; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.739189+00:00"
+    "generated_at": "2026-04-02T15:18:25.432701+00:00"
   },
   "2025-W30": {
-    "text": "r/lonely (2025-W30) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1102; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "text": "r/lonely (2025-W30) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1345; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.743710+00:00"
+    "generated_at": "2026-04-02T15:18:25.433835+00:00"
   },
   "2025-W31": {
-    "text": "r/lonely (2025-W31) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.4174; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W31) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.4014; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.748575+00:00"
+    "generated_at": "2026-04-02T15:18:25.434965+00:00"
   },
   "2025-W32": {
-    "text": "r/lonely (2025-W32) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5164; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "text": "r/lonely (2025-W32) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4883; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.752887+00:00"
+    "generated_at": "2026-04-02T15:18:25.436091+00:00"
   },
   "2025-W33": {
-    "text": "r/lonely (2025-W33) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2688; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W33) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2786; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.757206+00:00"
+    "generated_at": "2026-04-02T15:18:25.437207+00:00"
   },
   "2025-W34": {
-    "text": "r/lonely (2025-W34) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.6019; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "text": "r/lonely (2025-W34) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.5739; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.761654+00:00"
+    "generated_at": "2026-04-02T15:18:25.438316+00:00"
   },
   "2025-W35": {
-    "text": "r/lonely (2025-W35) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.1604; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W35) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.1714; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.766021+00:00"
+    "generated_at": "2026-04-02T15:18:25.439432+00:00"
   },
   "2025-W36": {
-    "text": "r/lonely (2025-W36) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.7249; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "text": "r/lonely (2025-W36) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.8008; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.770364+00:00"
+    "generated_at": "2026-04-02T15:18:25.440565+00:00"
   },
   "2025-W37": {
-    "text": "r/lonely (2025-W37) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4338; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "text": "r/lonely (2025-W37) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4261; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.774635+00:00"
+    "generated_at": "2026-04-02T15:18:25.441721+00:00"
   },
   "2025-W38": {
-    "text": "r/lonely (2025-W38) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.3637; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W38) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -1.3824; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.779583+00:00"
+    "generated_at": "2026-04-02T15:18:25.442879+00:00"
   },
   "2025-W39": {
-    "text": "r/lonely (2025-W39) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.7465; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W39) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.7082; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.784460+00:00"
+    "generated_at": "2026-04-02T15:18:25.444009+00:00"
   },
   "2025-W40": {
-    "text": "r/lonely (2025-W40) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3558; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W40) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3133; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.788830+00:00"
+    "generated_at": "2026-04-02T15:18:25.445129+00:00"
   },
   "2025-W41": {
-    "text": "r/lonely (2025-W41) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2528; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W41) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.1932; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.795133+00:00"
+    "generated_at": "2026-04-02T15:18:25.446255+00:00"
   },
   "2025-W42": {
-    "text": "r/lonely (2025-W42) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1619; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W42) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0230; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.800637+00:00"
+    "generated_at": "2026-04-02T15:18:25.447668+00:00"
   },
   "2025-W43": {
-    "text": "r/lonely (2025-W43) is labeled Early Vulnerability Signal this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3607; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Increase routine visibility of pinned resources and community guidelines; monitor aggregate posting patterns without targeting individuals.",
+    "text": "r/lonely (2025-W43) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4646; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.805077+00:00"
+    "generated_at": "2026-04-02T15:18:25.448791+00:00"
   },
   "2025-W44": {
-    "text": "r/lonely (2025-W44) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.5087; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
+    "text": "r/lonely (2025-W44) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.5957; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.809806+00:00"
+    "generated_at": "2026-04-02T15:18:25.449917+00:00"
   },
   "2025-W45": {
-    "text": "r/lonely (2025-W45) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2122; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W45) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.2928; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.814420+00:00"
+    "generated_at": "2026-04-02T15:18:25.451044+00:00"
   },
   "2025-W46": {
-    "text": "r/lonely (2025-W46) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.4488; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W46) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.5086; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.818982+00:00"
+    "generated_at": "2026-04-02T15:18:25.452159+00:00"
   },
   "2025-W47": {
-    "text": "r/lonely (2025-W47) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0895; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W47) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0245; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.824121+00:00"
+    "generated_at": "2026-04-02T15:18:25.453273+00:00"
   },
   "2025-W48": {
-    "text": "r/lonely (2025-W48) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2496; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W48) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.2542; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.829018+00:00"
+    "generated_at": "2026-04-02T15:18:25.454392+00:00"
   },
   "2025-W49": {
-    "text": "r/lonely (2025-W49) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.4695; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W49) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.3872; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.833297+00:00"
+    "generated_at": "2026-04-02T15:18:25.455509+00:00"
   },
   "2025-W50": {
-    "text": "r/lonely (2025-W50) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.0309; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W50) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.0668; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.837457+00:00"
+    "generated_at": "2026-04-02T15:18:25.456624+00:00"
   },
   "2025-W51": {
-    "text": "r/lonely (2025-W51) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1835; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W51) is labeled Elevated Distress this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is +0.1534; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Consider a pinned thread for community resources and peer support; brief moderator awareness of elevated aggregate activity (no individual outreach based solely on this signal).",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.842448+00:00"
+    "generated_at": "2026-04-02T15:18:25.457740+00:00"
   },
   "2025-W52": {
-    "text": "r/lonely (2025-W52) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3184; globally important features include pct_very_negative, std_word_count_roll2w, pct_positive_roll2w (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
+    "text": "r/lonely (2025-W52) is labeled Stable this week based on model outputs (aggregate community-level indicator, not individual assessment). Distress score change vs the prior week is -0.3572; globally important features include avg_negative, pct_positive_roll2w, avg_compound (SHAP-ranked; per-week direction in JSON). Recommended action: Continue routine moderation and keep general community resources visible in the sidebar or wiki.",
     "source": "template",
-    "generated_at": "2026-04-01T01:48:40.848008+00:00"
+    "generated_at": "2026-04-02T11:26:11.878747+00:00"
   }
 }

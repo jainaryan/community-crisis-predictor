@@ -107,6 +107,10 @@ _feature_stats: dict = {}
 _eval_results: dict = {}
 _shap_data: dict = {}
 _feature_columns: list[str] = []
+_xgb_calibrators: dict[str, dict] = {}
+_lstm_calibrators: dict[str, dict] = {}
+STRICT_MAX_SIGMA = float(os.environ.get("STRICT_MAX_SIGMA", "5.0"))
+CLIP_OUTLIER_FEATURES = os.environ.get("CLIP_OUTLIER_FEATURES", "false").lower() == "true"
 
 
 def _load_models() -> None:
@@ -135,6 +139,13 @@ def _load_models() -> None:
                 logging.info("Loaded XGB model for %s", sub)
             except Exception as exc:
                 logging.error("Failed to load XGB for %s: %s", sub, exc)
+        xgb_cal_path = MODEL_DIR / f"{sub}_xgb_calibrator.json"
+        if xgb_cal_path.exists():
+            try:
+                with open(xgb_cal_path, encoding="utf-8") as f:
+                    _xgb_calibrators[sub] = json.load(f)
+            except Exception as exc:
+                logging.warning("Failed to load XGB calibrator for %s: %s", sub, exc)
 
         # LSTM
         lstm_path = MODEL_DIR / f"{sub}_lstm.pt"
@@ -158,6 +169,13 @@ def _load_models() -> None:
                 logging.info("Loaded LSTM model for %s", sub)
             except Exception as exc:
                 logging.error("Failed to load LSTM for %s: %s", sub, exc)
+        lstm_cal_path = MODEL_DIR / f"{sub}_lstm_calibrator.json"
+        if lstm_cal_path.exists():
+            try:
+                with open(lstm_cal_path, encoding="utf-8") as f:
+                    _lstm_calibrators[sub] = json.load(f)
+            except Exception as exc:
+                logging.warning("Failed to load LSTM calibrator for %s: %s", sub, exc)
 
         # Feature stats
         stats_path = MODEL_DIR / f"{sub}_feature_stats.json"
@@ -207,6 +225,61 @@ def _check_drift(sub: str, features: dict[str, float]) -> list[str]:
                 f"{feat}: value {value:.4f} is {abs(z):.1f} std from training mean ({mean:.4f})"
             )
     return warnings
+
+
+def _apply_calibrator(prob: float, calibrator: dict | None) -> float:
+    p = float(np.clip(prob, 0.0, 1.0))
+    if not calibrator or calibrator.get("type") in {None, "identity"}:
+        return p
+    ctype = calibrator.get("type")
+    if ctype == "platt":
+        coef = float(calibrator.get("coef", 1.0))
+        intercept = float(calibrator.get("intercept", 0.0))
+        z = coef * p + intercept
+        return float(1.0 / (1.0 + np.exp(-z)))
+    if ctype == "isotonic":
+        xs = np.asarray(calibrator.get("x", []), dtype=float)
+        ys = np.asarray(calibrator.get("y", []), dtype=float)
+        if len(xs) >= 2 and len(xs) == len(ys):
+            return float(np.interp(np.clip(p, xs.min(), xs.max()), xs, ys))
+    return p
+
+
+def _validate_or_clip_features(sub: str, features: dict[str, float]) -> tuple[dict[str, float], list[str], list[str]]:
+    """
+    Validate incoming features against training distribution.
+    Returns: (possibly clipped features, clipped_messages, violation_messages)
+    """
+    stats = _feature_stats.get(sub, {}).get("features", {})
+    if not stats:
+        return dict(features), [], []
+    clipped: list[str] = []
+    violations: list[str] = []
+    out = dict(features)
+    for feat, value in out.items():
+        feat_stats = stats.get(feat)
+        if not feat_stats:
+            continue
+        std = float(feat_stats.get("std", 0.0))
+        mean = float(feat_stats.get("mean", 0.0))
+        if std <= 0:
+            continue
+        z = abs((float(value) - mean) / std)
+        if z <= STRICT_MAX_SIGMA:
+            continue
+        lo = mean - STRICT_MAX_SIGMA * std
+        hi = mean + STRICT_MAX_SIGMA * std
+        if CLIP_OUTLIER_FEATURES:
+            out[feat] = float(np.clip(float(value), lo, hi))
+            clipped.append(
+                f"{feat} clipped to [{lo:.4f}, {hi:.4f}] from {value:.4f} ({z:.1f}σ)"
+            )
+        else:
+            violations.append(
+                f"{feat}={value:.4f} outside allowed ±{STRICT_MAX_SIGMA:.1f}σ range "
+                f"[{lo:.4f}, {hi:.4f}]"
+            )
+    return out, clipped, violations
 
 
 # ---------------------------------------------------------------------------
@@ -353,26 +426,37 @@ def predict(req: PredictRequest) -> PredictResponse:
     t_start = time.perf_counter()
     request_id = str(uuid.uuid4())
 
+    validated_features, clipped_msgs, violations = _validate_or_clip_features(req.subreddit, req.features)
+    if violations:
+        raise HTTPException(
+            status_code=422,
+            detail={
+                "message": "Input features outside validated training range",
+                "violations": violations,
+                "max_sigma": STRICT_MAX_SIGMA,
+            },
+        )
+
     # Monitoring-only subreddits — no model inference
     if req.subreddit in MONITORING_ONLY_SUBS:
         return PredictResponse(
             subreddit=req.subreddit,
             week_start=req.week_start,
             prediction_available=False,
-            drift_warnings=[],
+            drift_warnings=clipped_msgs,
             latency_ms=round((time.perf_counter() - t_start) * 1000, 1),
         )
 
     # Validate that required features are present if we know the expected columns
     if _feature_columns and not MOCK_MODELS:
-        missing = [c for c in _feature_columns if c not in req.features]
+        missing = [c for c in _feature_columns if c not in validated_features]
         if missing:
             raise HTTPException(
                 status_code=422,
                 detail=f"Missing {len(missing)} feature(s): {missing[:10]}{'...' if len(missing) > 10 else ''}",
             )
 
-    drift_warnings = _check_drift(req.subreddit, req.features)
+    drift_warnings = clipped_msgs + _check_drift(req.subreddit, validated_features)
 
     xgb_result: Optional[XGBResult] = None
     lstm_result: Optional[LSTMResult] = None
@@ -381,9 +465,10 @@ def predict(req: PredictRequest) -> PredictResponse:
     xgb_model = _xgb_models.get(req.subreddit)
     if xgb_model is not None:
         try:
-            feat_order = _feature_columns if _feature_columns else sorted(req.features.keys())
-            X = pd.DataFrame([{k: req.features.get(k, 0.0) for k in feat_order}])
-            crisis_prob = float(xgb_model.predict_proba(X)[0, 1])
+            feat_order = _feature_columns if _feature_columns else sorted(validated_features.keys())
+            X = pd.DataFrame([{k: validated_features.get(k, 0.0) for k in feat_order}])
+            raw_prob = float(xgb_model.predict_proba(X)[0, 1])
+            crisis_prob = _apply_calibrator(raw_prob, _xgb_calibrators.get(req.subreddit))
             state = int(crisis_prob >= 0.5) * 2  # XGB is binary; map to state 0 or 2
             xgb_result = XGBResult(
                 predicted_state=state,
@@ -399,7 +484,7 @@ def predict(req: PredictRequest) -> PredictResponse:
         seq_len = lstm_info["sequence_length"]
         if len(req.feature_history) >= seq_len:
             try:
-                feat_order = _feature_columns if _feature_columns else sorted(req.features.keys())
+                feat_order = _feature_columns if _feature_columns else sorted(validated_features.keys())
                 history = req.feature_history[-seq_len:]
                 arr = np.array(
                     [[h.get(k, 0.0) for k in feat_order] for h in history],
@@ -411,6 +496,15 @@ def predict(req: PredictRequest) -> PredictResponse:
                     logits = net(t)
                     probs = torch.softmax(logits, dim=1).squeeze(0).numpy()
                 state = int(np.argmax(probs))
+                calibrated_crisis = _apply_calibrator(
+                    float(probs[2] + probs[3]),
+                    _lstm_calibrators.get(req.subreddit),
+                )
+                crisis_raw = float(probs[2] + probs[3])
+                if crisis_raw > 0:
+                    scale = calibrated_crisis / crisis_raw
+                    probs[2] = float(np.clip(probs[2] * scale, 0.0, 1.0))
+                    probs[3] = float(np.clip(probs[3] * scale, 0.0, 1.0))
                 lstm_result = LSTMResult(
                     predicted_state=state,
                     predicted_state_label=STATE_NAMES.get(state, "Unknown"),
@@ -439,6 +533,7 @@ def predict(req: PredictRequest) -> PredictResponse:
         "request_id": request_id,
         "subreddit": req.subreddit,
         "week_start": req.week_start,
+        "feature_validation_clipped": clipped_msgs,
         "xgb_crisis_prob": xgb_result.crisis_probability if xgb_result else None,
         "lstm_predicted_state": lstm_result.predicted_state if lstm_result else None,
         "ensemble_crisis_prob": ensemble_result.crisis_probability if ensemble_result else None,
