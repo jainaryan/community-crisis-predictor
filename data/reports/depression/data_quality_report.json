@@ -1,8 +1,8 @@
 {
   "subreddit": "depression",
   "source": "zenodo_covid",
-  "total_weeks_observed": 291,
-  "gap_weeks_below_50pct": 11,
+  "total_weeks_observed": 342,
+  "gap_weeks_below_50pct": 9,
   "missing_week_count": 24,
   "missing_weeks": [
     "2018-04-23",
@@ -30,5 +30,5 @@
     "2019-12-16",
     "2019-12-23"
   ],
-  "avg_completeness_score": 0.9999520576538242
+  "avg_completeness_score": 0.9996142392514645
 }

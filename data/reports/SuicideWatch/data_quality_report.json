@@ -1,8 +1,8 @@
 {
   "subreddit": "SuicideWatch",
   "source": "zenodo_covid",
-  "total_weeks_observed": 305,
-  "gap_weeks_below_50pct": 10,
+  "total_weeks_observed": 356,
+  "gap_weeks_below_50pct": 9,
   "missing_week_count": 10,
   "missing_weeks": [
     "2018-04-23",
@@ -16,5 +16,5 @@
     "2019-12-16",
     "2019-12-23"
   ],
-  "avg_completeness_score": 1.005551306178014
+  "avg_completeness_score": 1.0046270280130678
 }
