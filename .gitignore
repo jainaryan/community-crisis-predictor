@@ -34,6 +34,8 @@ reports/*.tmp
 /logs/
 /logs/*.jsonl
 
+project_overview.md
+
 
 
 
