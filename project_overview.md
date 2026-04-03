@@ -85,7 +85,12 @@ streamlit run src/dashboard/app.py
 - **Cross-subreddit generalization validation (#10):** `evaluate_cross_subreddit_generalization()` in `src/modeling/evaluate.py` trains XGBoost on each source subreddit and scores it on every other subreddit (zero-shot transfer). Results saved to `data/reports/cross_subreddit_generalization.json` by `run_evaluate.py`.
 - **Feature family ablation study (#8):** `evaluate_feature_family_ablation()` holds out one feature family at a time (linguistic, sentiment, distress, behavioral, topic, temporal) and records the PR-AUC drop versus the full model. Results saved per-subreddit to `data/reports/{sub}/ablation_study.json`.
 - **Granger causality analysis (#9):** `src/modeling/granger.py` runs OLS-based Granger causality tests (via `statsmodels`) between every ordered pair of sureddit distress series at lags 1–4. Results saved to `data/reports/granger_causality.json` with F-statistics and p-values per lag.
-- **LLM-assisted label auditing (#14):** `src/modeling/label_audit.py` samples up to 10 weeks per subreddit, constructs structured prompts with post excerpts and model labels, queries Claude (or GPT-4o) for an independent distress rating, and records agreement rate + disagreement cases in `data/reports/{sub}/label_audit.json`.
+- **LLM-assisted label auditing (#14):** `src/modeling/label_audit.py` samples up to 10 labeled weeks per subreddit, constructs structured prompts (post excerpts + model-assigned 0–3 label), and queries an LLM for an independent distress rating. Agreement rate and disagreement cases are saved to `data/reports/{sub}/label_audit.json`.
+  - **Anthropic backend (default):** uses the `anthropic` SDK (`client.messages.create`, model `claude-sonnet-4-6`), authenticated via `ANTHROPIC_API_KEY` from the environment.
+  - **OpenAI backend:** uses the `openai` SDK (`client.chat.completions.create`, model `gpt-4o`), authenticated via `OPENAI_API_KEY`.
+  - **Provider selection:** set `evaluation.label_audit_provider: anthropic` (or `openai`) in `config/default.yaml`.
+  - **Failure handling:** both backends are wrapped in `try/except`; a missing key, network error, or unparseable JSON response marks that week's entry as `"error": "llm_call_failed_or_unparseable"` and is skipped. The overall pipeline does not abort.
+  - **Prompt structure:** system prompt instructs the LLM to ignore the model label and reply with `{"label": 0–3, "confidence": 0.0–1.0, "reason": "..."}` based solely on post content.
 
 ## 7. Handoff Orientation Checklist
 
