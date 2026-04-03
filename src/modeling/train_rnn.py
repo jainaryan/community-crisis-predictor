@@ -69,7 +69,7 @@ class LSTMCrisisModel:
         for i in range(self.sequence_length, len(X) + 1):
             seqs.append(X[i - self.sequence_length : i])
             if y is not None:
-                labels.append(y[i - 1])
+                labels.append(y[i]) #To make this an Early Warning System, it must predict week (t+1).
         seqs_arr = np.array(seqs, dtype=np.float32) if seqs else np.empty(
             (0, self.sequence_length, X.shape[1]), dtype=np.float32
         )
