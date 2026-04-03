@@ -125,6 +125,16 @@ def get_brief_text(subreddit_short: str, week_key: str) -> str | None:
     return None
 
 
+@st.cache_data
+def load_allocation_report() -> dict | None:
+    cfg = load_app_config()
+    path = Path(cfg["paths"]["reports"]) / "allocation.json"
+    if not path.exists():
+        return None
+    with open(path, encoding="utf-8") as f:
+        return json.load(f)
+
+
 def load_transitions(n: int = 30) -> list[dict]:
     cfg = load_app_config()
     db = Path(cfg["paths"].get("alerts_db", "data/alerts.db"))

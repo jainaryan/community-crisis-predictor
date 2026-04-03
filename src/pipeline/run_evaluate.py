@@ -30,6 +30,7 @@ from src.modeling.evaluate import (
 )
 from src.modeling.granger import compute_granger_causality, save_granger_report
 from src.modeling.label_audit import audit_labels_with_llm, save_audit_report
+from src.prescriptive.lp_allocator import run_allocation, format_allocation_text, save_allocation_report
 
 # Presentation artifact legend:
 # - Input artifacts     -> data/features/features.parquet, data/models/eval_results.json
@@ -380,6 +381,18 @@ def main():
                     print(f"  Label audit for r/{sub}: {audit.get('status', 'unknown')} ({audit_path})")
         except Exception as e:
             print(f"  Warning: label audit skipped for r/{sub}: {e}")
+
+    # --- #7: Prescriptive LP — moderator resource allocation ---
+    # Output: data/reports/allocation.json
+    print("\nRunning prescriptive LP allocation...")
+    try:
+        allocation_report = run_allocation(all_results, config)
+        allocation_path = reports_path / "allocation.json"
+        save_allocation_report(allocation_report, allocation_path)
+        print(format_allocation_text(allocation_report))
+        print(f"  Allocation report: {allocation_path}")
+    except Exception as e:
+        print(f"  Warning: LP allocation failed: {e}")
 
     print("\nVisualization complete.")
     print(f"Alert transitions logged to: {alerts_db_path}")

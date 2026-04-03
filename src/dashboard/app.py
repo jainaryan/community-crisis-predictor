@@ -52,6 +52,7 @@ from src.dashboard.components import (
 )
 from src.dashboard.data_access import (
     get_brief_text,
+    load_allocation_report,
     load_app_config,
     load_data_quality_report,
     load_drift,
@@ -696,7 +697,7 @@ with main_r:
 st.markdown("---")
 
 # ── Bottom tabs ───────────────────────────────────────────────────────
-tab_drift, tab_shap, tab_dq = st.tabs(["Drift alerts", "Feature importance", "Data quality"])
+tab_drift, tab_shap, tab_dq, tab_alloc = st.tabs(["Drift alerts", "Feature importance", "Data quality", "Recommended Actions"])
 
 with tab_drift:
     st.markdown("##### Drift alerts (up to current week)")
@@ -803,3 +804,108 @@ with tab_dq:
         st.caption(
             f"p50={lead.get('p50', 0):.2f}, p75={lead.get('p75', 0):.2f}, p90={lead.get('p90', 0):.2f}"
         )
+
+with tab_alloc:
+    st.markdown("##### Recommended moderator allocation (LP optimisation)")
+    alloc = load_allocation_report()
+
+    if alloc is None or "error" in (alloc or {}):
+        st.info("No allocation report found. Run `make evaluate` to generate.")
+    else:
+        cfg_presc = load_app_config().get("prescriptive", {})
+        total_h = alloc.get("total_hours", cfg_presc.get("total_moderator_hours", 10))
+        objective = alloc.get("objective", 0.0)
+
+        st.caption(
+            f"Budget: **{total_h:.0f} hrs/week** — "
+            f"LP objective (expected interceptions): **{objective:.4f}**"
+        )
+
+        # Allocation table
+        sub_data = alloc.get("subreddits", {})
+        if sub_data:
+            rows = sorted(sub_data.items(), key=lambda kv: kv[1]["hours"], reverse=True)
+            table_rows = [
+                {
+                    "Subreddit": f"r/{s}",
+                    "Hours": d["hours"],
+                    "State": d["state_label"],
+                    "Crisis prob.": f"{d['probability']:.2f}",
+                    "Effectiveness": d["effectiveness"],
+                }
+                for s, d in rows
+            ]
+            st.dataframe(pd.DataFrame(table_rows), use_container_width=True, hide_index=True)
+
+            # Bar chart of allocation
+            fig_a = go.Figure(go.Bar(
+                x=[r["Subreddit"] for r in table_rows],
+                y=[r["Hours"] for r in table_rows],
+                marker_color=[
+                    SUBREDDIT_ACCENT.get(s, "#64748b") for s, _ in rows
+                ],
+                text=[f"{r['Hours']:.1f} h" for r in table_rows],
+                textposition="outside",
+            ))
+            fig_a.update_layout(
+                title="Recommended weekly hours per subreddit",
+                yaxis_title="Hours allocated",
+                template="plotly_white",
+                height=300,
+                showlegend=False,
+            )
+            st.plotly_chart(fig_a, use_container_width=True)
+
+        # Sensitivity analysis
+        sensitivity = alloc.get("sensitivity", {})
+        if sensitivity:
+            st.markdown("**Sensitivity: allocation vs. budget (5 → 20 hrs)**")
+            subs_in_sens = list(next(iter(sensitivity.values())).keys())
+            budgets = sorted(sensitivity.keys(), key=lambda b: int(b))
+            sens_rows = []
+            for b in budgets:
+                row = {"Budget (hrs)": int(b)}
+                for s in subs_in_sens:
+                    row[f"r/{s}"] = sensitivity[b].get(s, 0.0)
+                sens_rows.append(row)
+            sens_df = pd.DataFrame(sens_rows).set_index("Budget (hrs)")
+
+            fig_s = go.Figure()
+            for s in subs_in_sens:
+                col = f"r/{s}"
+                if col in sens_df.columns:
+                    fig_s.add_trace(go.Scatter(
+                        x=sens_df.index.tolist(),
+                        y=sens_df[col].tolist(),
+                        name=col,
+                        mode="lines+markers",
+                        line={"color": SUBREDDIT_ACCENT.get(s, "#64748b")},
+                    ))
+            fig_s.update_layout(
+                title="Hours allocated per subreddit vs. total budget",
+                xaxis_title="Total budget (hrs/week)",
+                yaxis_title="Hours allocated",
+                template="plotly_white",
+                height=320,
+                legend={"orientation": "h", "y": -0.25},
+            )
+            st.plotly_chart(fig_s, use_container_width=True)
+
+            with st.expander("Sensitivity data table", expanded=False):
+                st.dataframe(sens_df.reset_index(), use_container_width=True, hide_index=True)
+
+        with st.expander("LP formulation", expanded=False):
+            st.markdown("""
+**Decision variable:** $x_i$ — hours allocated to subreddit $i$
+
+**Objective (maximise):**
+$$\\max \\sum_i p_i \\cdot e_i \\cdot x_i$$
+where $p_i$ = latest predicted crisis probability, $e_i$ = intervention effectiveness coefficient.
+
+**Constraints:**
+- $\\sum_i x_i \\leq H$ — total budget $H$ hrs/week
+- $x_i \\geq m$ — minimum coverage floor $m$ per subreddit
+- $x_i \\geq 0$
+
+Solved via `scipy.optimize.linprog` (HiGHS backend). Effectiveness coefficients are configurable per subreddit in `config/default.yaml` under `prescriptive.effectiveness`.
+            """)
