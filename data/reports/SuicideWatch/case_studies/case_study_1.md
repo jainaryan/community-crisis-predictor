@@ -1,49 +1,49 @@
-# Case Study: High-Distress Signal Week 2018-W52
-**Week starting:** 2018-12-25
-**Distress score:** 0.051
+# Case Study: High-Distress Signal Week 2020-W18
+**Week starting:** 2020-04-27
+**Distress score:** -0.726
 
 ## What Happened
-The community distress score spiked to 0.051, 
+The community distress score spiked to -0.726, 
 exceeding the severe community distress threshold.
 
 ## Early Warning Signals
 
-### 2018-W49 (not flagged, probability: 0.42)
-- **help_seeking_density**: 0.0025 (19.9% below average)
-- **pct_neutral**: 0.0262 (12.0% above average)
-- **pct_negative_roll2w**: 0.0954 (11.1% above average)
-- **avg_negative_delta**: -0.0072 (53786.8% below average)
-- **distress_density_roll2w**: 0.0077 (6.2% below average)
+### 2020-W15 (not flagged, probability: 0.61)
+- **economic_stress_total**: 191.0000 (20.6% above average)
+- **suicidality_total**: 1148.0000 (11.6% above average)
+- **suicidality_total_roll4w**: 1132.7500 (10.2% above average)
+- **std_word_count_roll2w**: 183.8049 (7.2% below average)
+- **economic_stress_total_roll4w**: 151.5000 (4.2% below average)
 
-### 2018-W50 (FLAGGED, probability: 0.35)
-- **help_seeking_density**: 0.0045 (43.5% above average)
-- **pct_neutral**: 0.0284 (21.2% above average)
-- **pct_negative_roll2w**: 0.1034 (20.5% above average)
-- **avg_negative_delta**: 0.0067 (49482.2% above average)
-- **distress_density_roll2w**: 0.0076 (8.2% below average)
+### 2020-W16 (not flagged, probability: 0.63)
+- **economic_stress_total**: 137.0000 (13.5% below average)
+- **suicidality_total**: 1038.0000 (0.9% above average)
+- **suicidality_total_roll4w**: 1135.2500 (10.5% above average)
+- **std_word_count_roll2w**: 195.5412 (1.2% below average)
+- **economic_stress_total_roll4w**: 150.0000 (5.2% below average)
 
-### 2018-W51 (not flagged, probability: 0.33)
-- **help_seeking_density**: 0.0029 (6.2% below average)
-- **pct_neutral**: 0.0395 (69.0% above average)
-- **pct_negative_roll2w**: 0.0910 (6.0% above average)
-- **avg_negative_delta**: 0.0046 (34028.0% above average)
-- **distress_density_roll2w**: 0.0070 (15.5% below average)
+### 2020-W17 (not flagged, probability: 0.63)
+- **economic_stress_total**: 27.0000 (82.9% below average)
+- **suicidality_total**: 174.0000 (83.1% below average)
+- **suicidality_total_roll4w**: 877.5000 (14.6% below average)
+- **std_word_count_roll2w**: 180.7267 (8.7% below average)
+- **economic_stress_total_roll4w**: 122.7500 (22.4% below average)
 
 ## Top Contributing Features (SHAP)
 
 | Rank | Feature | Importance |
 |------|---------|------------|
-| 1 | help_seeking_density | 0.7066 |
-| 2 | pct_neutral | 0.5677 |
-| 3 | pct_negative_roll2w | 0.5664 |
-| 4 | avg_negative_delta | 0.4251 |
-| 5 | distress_density_roll2w | 0.3882 |
-| 6 | pct_positive_roll4w | 0.3652 |
-| 7 | first_person_singular_ratio_roll2w | 0.3640 |
-| 8 | pct_positive_roll2w | 0.3369 |
-| 9 | avg_flesch_kincaid_delta | 0.3127 |
-| 10 | avg_type_token_ratio_roll4w | 0.3007 |
+| 1 | economic_stress_total | 1.6149 |
+| 2 | suicidality_total | 1.3776 |
+| 3 | suicidality_total_roll4w | 0.8979 |
+| 4 | std_word_count_roll2w | 0.3609 |
+| 5 | economic_stress_total_roll4w | 0.3394 |
+| 6 | hopelessness_density_delta | 0.2331 |
+| 7 | suicidality_total_roll2w | 0.2208 |
+| 8 | pct_negative | 0.1808 |
+| 9 | new_poster_ratio | 0.1748 |
+| 10 | avg_compound_delta | 0.1649 |
 
 ## Summary
 
-The early warning system detected precursor signals 3 weeks before this high-distress event. Key indicators included changes in help_seeking_density, pct_neutral, pct_negative_roll2w.
+The early warning system detected precursor signals 3 weeks before this high-distress event. Key indicators included changes in economic_stress_total, suicidality_total, suicidality_total_roll4w.
