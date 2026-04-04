@@ -58,6 +58,7 @@ from src.dashboard.data_access import (
     load_drift,
     load_eval_results,
     load_feature_df,
+    load_pipeline_last_run_time,
     load_pipeline_profile,
     load_shap,
     load_weekly_completeness,
@@ -164,6 +165,19 @@ div[data-testid="stVerticalBlock"] .community-meta-note {
   color: #64748b;
   margin-top: -0.15rem;
   margin-bottom: 0.35rem;
+}
+/* Responsive community cards: allow horizontal scroll on narrow screens */
+.community-cards-row {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  -webkit-overflow-scrolling: touch;
+}
+.community-cards-row > div {
+  min-width: 160px;
+  flex: 1 1 160px;
 }
 </style>
 """,
@@ -314,26 +328,60 @@ def _state_badge_html(state_text: str, state_color: str) -> str:
 
 _render_api_sidebar()
 
+# ── Sidebar: freshness indicator ──────────────────────────────────────
+with st.sidebar:
+    last_run = load_pipeline_last_run_time()
+    if last_run:
+        st.caption(f"🕐 Pipeline last run: **{last_run}**")
+    else:
+        st.caption("🕐 Pipeline: not yet run")
+    st.caption("Cache refreshes every 5 min. Use ⋮ → Clear cache to force reload.")
+
 app_config = load_app_config()
 feature_df = load_feature_df()
 eval_results = load_eval_results()
 
+# ── Graceful init: checklist error instead of generic stop ────────────
 if feature_df is None or eval_results is None:
-    st.error(
-        "No data found. Run the pipeline first:\n\n"
-        "```\npython -m src.pipeline.run_all --config config/default.yaml --synthetic\n```"
+    st.error("### Pipeline outputs not found")
+    st.markdown("The dashboard needs these files to be generated first. Run the missing steps:")
+    cfg = app_config or {}
+    features_path = Path(cfg.get("paths", {}).get("features", "data/features")) / "features.parquet"
+    models_path = Path(cfg.get("paths", {}).get("models", "data/models")) / "eval_results.json"
+    st.markdown(
+        f"{'✅' if features_path.exists() else '❌'} `{features_path}` — "
+        f"{'found' if features_path.exists() else 'missing'}\n\n"
+        f"{'✅' if models_path.exists() else '❌'} `{models_path}` — "
+        f"{'found' if models_path.exists() else 'missing'}"
+    )
+    st.markdown("**To generate all outputs, run:**")
+    st.code(
+        "~/.pyenv/versions/3.12.11/bin/python -m src.pipeline.run_all "
+        "--config config/default.yaml --force",
+        language="bash",
+    )
+    st.markdown("For a quick synthetic test (no real data required):")
+    st.code(
+        "~/.pyenv/versions/3.12.11/bin/python -m src.pipeline.run_all "
+        "--config config/default.yaml --synthetic --skip-topics --skip-search",
+        language="bash",
     )
     st.stop()
 
 available_subs = sorted(feature_df["subreddit"].unique().tolist())
 if not available_subs:
-    st.error("No subreddits available in feature data. Run collection + feature pipeline first.")
+    st.error("No subreddits available in feature data. Re-run collection + feature pipeline.")
+    st.code("~/.pyenv/versions/3.12.11/bin/python -m src.pipeline.run_collect --config config/default.yaml")
     st.stop()
 
 visible_subs = [s for s in DASHBOARD_SUBORDER if s in available_subs]
 if not visible_subs:
-    st.error("None of the expected Zenodo subreddits are present in features. Check config reddit.subreddits.")
-    st.stop()
+    # Fall back to whatever subreddits are present rather than hard-stopping
+    visible_subs = available_subs[:5]
+    st.warning(
+        f"Expected subreddits not found in features. Showing available: {visible_subs}. "
+        "Check `config/default.yaml` → `reddit.subreddits`."
+    )
 
 
 if {"iso_year", "iso_week"}.issubset(feature_df.columns):
@@ -486,10 +534,12 @@ for i, sub in enumerate(visible_subs):
         )
 
         if use_trend_pill:
+            _card_crisis_n = _n_crisis if _n_crisis is not None else "?"
             status_html = (
                 "<div style='min-height:2.6em;line-height:1.35;color:#64748b;font-size:0.79rem'>"
                 "<b>Signal: Trend monitoring</b><br/>"
-                "<span style='opacity:0.9'>Insufficient crisis weeks for stable eval (&lt;10)</span>"
+                f"<span style='opacity:0.9'>{_card_crisis_n} crisis weeks found "
+                f"(need ≥{monitoring_min_crisis_weeks})</span>"
                 "</div>"
             )
         else:
@@ -570,10 +620,23 @@ if n_weeks == 0:
 week_idx_plot = min(week_idx, n_weeks - 1)
 week_idx_plot = _resolve_week_index_for_sub(sub_df, replay_week_ts)
 
+raw_pred_len = len(predictions_all)
+raw_prob_len = len(probabilities_all)
 predictions_all = trim_to_length(predictions_all, n_weeks)
 probabilities_all = trim_to_length(probabilities_all, n_weeks)
 
-distress_scores = compute_distress_score(sub_df)
+# Warn on length mismatch (silent wrong-week bug guard)
+if raw_pred_len > 0 and raw_pred_len != n_weeks:
+    st.caption(
+        f"ℹ️ Prediction array length ({raw_pred_len}) ≠ feature rows ({n_weeks}) for "
+        f"r/{subreddit} — padded with NaN. Re-run training to realign."
+    )
+
+try:
+    distress_scores = compute_distress_score(sub_df)
+except Exception as e:
+    st.warning(f"Could not compute distress score for r/{subreddit}: {e}")
+    distress_scores = pd.Series(np.zeros(n_weeks), index=sub_df.index)
 
 theme_base = st.get_option("theme.base") or "light"
 is_dark = theme_base == "dark"
@@ -588,9 +651,14 @@ with main_l:
     accent_sel = SUBREDDIT_ACCENT.get(subreddit, "#378ADD")
     _w_slice = weeks[: week_idx_plot + 1]
     if "week_start" in sub_df.columns:
-        x_hist = pd.to_datetime(_w_slice)
+        x_hist = pd.to_datetime(_w_slice, errors="coerce")
+        # Drop NaT entries that would break the x-axis
+        valid_x = ~pd.isnull(x_hist)
+        if not valid_x.all():
+            st.caption(f"⚠️ {(~valid_x).sum()} week_start values could not be parsed and will appear as gaps.")
     else:
         x_hist = np.asarray(_w_slice, dtype=float)
+        valid_x = np.ones(len(x_hist), dtype=bool)
     y_hist = distress_scores.values[: week_idx_plot + 1]
 
     fig = go.Figure()
@@ -673,7 +741,10 @@ with main_l:
         height=400,
         legend=dict(orientation="h", yanchor="bottom", y=1.02),
     )
-    st.plotly_chart(fig, width="stretch")
+    try:
+        st.plotly_chart(fig, width="stretch")
+    except Exception as e:
+        st.warning(f"Could not render distress timeline: {e}")
 
 with main_r:
     st.markdown("##### Weekly snapshot")
@@ -688,8 +759,12 @@ with main_r:
     st.markdown("##### Model performance")
     st.caption("Walk-forward CV (metrics from eval_results.json)")
     if is_monitoring_mode:
+        _crisis_count_str = str(_actual_crisis_weeks) if _actual_crisis_weeks is not None else "unknown"
         st.info(
-            "Prediction disabled — fewer than 10 crisis weeks in dataset.",
+            f"**Trend monitoring mode** — only {_crisis_count_str} crisis weeks detected "
+            f"(threshold: {monitoring_min_crisis_weeks}). "
+            "Not enough positive examples for reliable walk-forward evaluation. "
+            "Metrics shown may not be meaningful."
         )
     else:
         render_model_metrics_tiles(results)
@@ -703,22 +778,40 @@ with tab_drift:
     st.markdown("##### Drift alerts (up to current week)")
     drift_df = load_drift(subreddit)
     if drift_df is not None and not drift_df.empty:
-        drift_up = drift_df.iloc[: week_idx_plot + 1].copy()
+        # Clamp to drift_df length to avoid index mismatch with feature_df
+        safe_drift_idx = min(week_idx_plot + 1, len(drift_df))
+        drift_up = drift_df.iloc[:safe_drift_idx].copy()
         alert_cols = [c for c in drift_df.columns if not c.startswith("z_")]
         display_drift = drift_up[alert_cols].copy()
-        render_drift_table(display_drift)
+        try:
+            render_drift_table(display_drift)
+        except Exception as e:
+            st.warning(f"Could not render drift table: {e}")
+            st.dataframe(display_drift)
     else:
-        st.info("No drift data found. Run `make evaluate` to generate.")
+        st.info(
+            "No drift data found. Run the evaluate stage to generate:\n\n"
+            "`~/.pyenv/versions/3.12.11/bin/python -m src.pipeline.run_evaluate "
+            "--config config/default.yaml`"
+        )
 
 with tab_shap:
     st.markdown("##### Feature importance (SHAP — top 15)")
     shap_df = load_shap(subreddit)
     if shap_df is not None:
-        top15 = shap_df.head(15).sort_values("mean_abs_shap", ascending=True)
-        fig_shap = build_shap_bar(top15)
-        st.plotly_chart(fig_shap, width="stretch")
+        try:
+            top15 = shap_df.head(15).sort_values("mean_abs_shap", ascending=True)
+            fig_shap = build_shap_bar(top15)
+            st.plotly_chart(fig_shap, width="stretch")
+        except Exception as e:
+            st.warning(f"Could not render SHAP chart: {e}")
+            st.dataframe(shap_df.head(15))
     else:
-        st.info("No SHAP data found. Run `make evaluate` to generate.")
+        st.info(
+            "No SHAP data found. Run the evaluate stage to generate:\n\n"
+            "`~/.pyenv/versions/3.12.11/bin/python -m src.pipeline.run_evaluate "
+            "--config config/default.yaml`"
+        )
 
 with tab_dq:
     dq_report = load_data_quality_report(subreddit)
@@ -736,24 +829,27 @@ with tab_dq:
         st.info("No data quality report found. Run `run_collect` first.")
 
     if dq_weekly is not None and not dq_weekly.empty:
-        fig_c = go.Figure(
-            go.Bar(
-                x=dq_weekly["week_start"],
-                y=dq_weekly["completeness_score"],
-                marker_color=[
-                    "#e74c3c" if bool(v) else "#2ecc71" for v in dq_weekly["is_gap"].tolist()
-                ],
-                name="Completeness score",
+        try:
+            fig_c = go.Figure(
+                go.Bar(
+                    x=dq_weekly["week_start"],
+                    y=dq_weekly["completeness_score"],
+                    marker_color=[
+                        "#e74c3c" if bool(v) else "#2ecc71" for v in dq_weekly["is_gap"].tolist()
+                    ],
+                    name="Completeness score",
+                )
             )
-        )
-        fig_c.update_layout(
-            title="Weekly completeness score (red = flagged gap)",
-            xaxis_title="Week",
-            yaxis_title="Completeness score",
-            template="plotly_white",
-            height=280,
-        )
-        st.plotly_chart(fig_c, width="stretch")
+            fig_c.update_layout(
+                title="Weekly completeness score (red = flagged gap)",
+                xaxis_title="Week",
+                yaxis_title="Completeness score",
+                template="plotly_white",
+                height=280,
+            )
+            st.plotly_chart(fig_c, width="stretch")
+        except Exception as e:
+            st.warning(f"Could not render completeness chart: {e}")
 
     if pipeline_profile:
         st.markdown("**Pipeline stage timing**")
@@ -792,18 +888,21 @@ with tab_dq:
     lead = results.get("detection_lead_time_distribution", {})
     lead_dist = lead.get("distribution", []) if isinstance(lead, dict) else []
     if lead_dist:
-        fig_l = go.Figure(go.Histogram(x=lead_dist, nbinsx=10, marker_color="#3498db"))
-        fig_l.update_layout(
-            title="Detection lead time distribution (weeks)",
-            xaxis_title="Lead time (weeks)",
-            yaxis_title="Count",
-            template="plotly_white",
-            height=260,
-        )
-        st.plotly_chart(fig_l, width="stretch")
-        st.caption(
-            f"p50={lead.get('p50', 0):.2f}, p75={lead.get('p75', 0):.2f}, p90={lead.get('p90', 0):.2f}"
-        )
+        try:
+            fig_l = go.Figure(go.Histogram(x=lead_dist, nbinsx=10, marker_color="#3498db"))
+            fig_l.update_layout(
+                title="Detection lead time distribution (weeks)",
+                xaxis_title="Lead time (weeks)",
+                yaxis_title="Count",
+                template="plotly_white",
+                height=260,
+            )
+            st.plotly_chart(fig_l, width="stretch")
+            st.caption(
+                f"p50={lead.get('p50', 0):.2f}, p75={lead.get('p75', 0):.2f}, p90={lead.get('p90', 0):.2f}"
+            )
+        except Exception as e:
+            st.warning(f"Could not render lead time chart: {e}")
 
 with tab_alloc:
     st.markdown("##### Recommended moderator allocation (LP optimisation)")
@@ -860,39 +959,45 @@ with tab_alloc:
         sensitivity = alloc.get("sensitivity", {})
         if sensitivity:
             st.markdown("**Sensitivity: allocation vs. budget (5 → 20 hrs)**")
-            subs_in_sens = list(next(iter(sensitivity.values())).keys())
-            budgets = sorted(sensitivity.keys(), key=lambda b: int(b))
-            sens_rows = []
-            for b in budgets:
-                row = {"Budget (hrs)": int(b)}
+            try:
+                first_val = next(iter(sensitivity.values()), {})
+                subs_in_sens = list(first_val.keys()) if isinstance(first_val, dict) else []
+                budgets = sorted(sensitivity.keys(), key=lambda b: int(b))
+                sens_rows = []
+                for b in budgets:
+                    row = {"Budget (hrs)": int(b)}
+                    bval = sensitivity[b]
+                    if isinstance(bval, dict):
+                        for s in subs_in_sens:
+                            row[f"r/{s}"] = bval.get(s, 0.0)
+                    sens_rows.append(row)
+                sens_df = pd.DataFrame(sens_rows).set_index("Budget (hrs)")
+
+                fig_s = go.Figure()
                 for s in subs_in_sens:
-                    row[f"r/{s}"] = sensitivity[b].get(s, 0.0)
-                sens_rows.append(row)
-            sens_df = pd.DataFrame(sens_rows).set_index("Budget (hrs)")
+                    col = f"r/{s}"
+                    if col in sens_df.columns:
+                        fig_s.add_trace(go.Scatter(
+                            x=sens_df.index.tolist(),
+                            y=sens_df[col].tolist(),
+                            name=col,
+                            mode="lines+markers",
+                            line={"color": SUBREDDIT_ACCENT.get(s, "#64748b")},
+                        ))
+                fig_s.update_layout(
+                    title="Hours allocated per subreddit vs. total budget",
+                    xaxis_title="Total budget (hrs/week)",
+                    yaxis_title="Hours allocated",
+                    template="plotly_white",
+                    height=320,
+                    legend={"orientation": "h", "y": -0.25},
+                )
+                st.plotly_chart(fig_s, use_container_width=True)
 
-            fig_s = go.Figure()
-            for s in subs_in_sens:
-                col = f"r/{s}"
-                if col in sens_df.columns:
-                    fig_s.add_trace(go.Scatter(
-                        x=sens_df.index.tolist(),
-                        y=sens_df[col].tolist(),
-                        name=col,
-                        mode="lines+markers",
-                        line={"color": SUBREDDIT_ACCENT.get(s, "#64748b")},
-                    ))
-            fig_s.update_layout(
-                title="Hours allocated per subreddit vs. total budget",
-                xaxis_title="Total budget (hrs/week)",
-                yaxis_title="Hours allocated",
-                template="plotly_white",
-                height=320,
-                legend={"orientation": "h", "y": -0.25},
-            )
-            st.plotly_chart(fig_s, use_container_width=True)
-
-            with st.expander("Sensitivity data table", expanded=False):
-                st.dataframe(sens_df.reset_index(), use_container_width=True, hide_index=True)
+                with st.expander("Sensitivity data table", expanded=False):
+                    st.dataframe(sens_df.reset_index(), use_container_width=True, hide_index=True)
+            except Exception as e:
+                st.warning(f"Could not render sensitivity analysis: {e}")
 
         with st.expander("LP formulation", expanded=False):
             st.markdown("""
