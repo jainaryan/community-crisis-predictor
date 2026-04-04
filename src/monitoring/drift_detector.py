@@ -6,8 +6,8 @@ DRIFT_SIGNALS = [
     "hopelessness_density",
     "topic_shift_jsd",
     "topic_shift_jsd_4w",
-    "suicidality_total",
-    "isolation_total",
+    "suicidality_density",
+    "isolation_density",
     "post_volume",
 ]
 

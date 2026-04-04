@@ -122,6 +122,7 @@ def load_pipeline_profile():
         return []
 
 
+@st.cache_data(ttl=_CACHE_TTL)
 def load_pipeline_last_run_time() -> str | None:
     """Return mtime of eval_results.json as a human-readable string, or None."""
     cfg = load_app_config()

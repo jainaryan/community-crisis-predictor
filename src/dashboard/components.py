@@ -76,14 +76,14 @@ def render_drift_table(display_drift: pd.DataFrame) -> None:
 
 
 def _fmt_metric(value) -> str:
-    """Format a metric value; show '—' when absent or exactly 0 (uncomputed)."""
+    """Format a metric value; show '—' only when absent (None), not when genuinely 0."""
     if value is None:
         return "—"
     try:
         f = float(value)
     except (TypeError, ValueError):
         return "—"
-    return f"{f:.3f}" if f != 0.0 else "—"
+    return f"{f:.3f}"
 
 
 def render_model_metrics_tiles(results: dict) -> None:
