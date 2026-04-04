@@ -4,7 +4,10 @@ import pandas as pd
 
 _URL_PATTERN = re.compile(r"https?://\S+|www\.\S+", re.IGNORECASE)
 _WHITESPACE_PATTERN = re.compile(r"\s+")
-_DELETED_VALUES = {"[deleted]", "[removed]", ""}
+_DELETED_VALUES = {
+    "[deleted]", "[removed]", "[deleted by user]", "[moderator removal]",
+    "[removed by reddit]", "null", "none", "n/a", "",
+}
 
 
 def clean_text(text: str) -> str:

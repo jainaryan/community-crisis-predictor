@@ -40,7 +40,7 @@ class DriftDetector:
                     else:
                         z_scores[sig] = 0.0
 
-            max_z = max(z_scores.values()) if z_scores else 0.0
+            max_z = max(abs(v) for v in z_scores.values()) if z_scores else 0.0
             if max_z >= THRESHOLDS[2]:
                 level = 3
             elif max_z >= THRESHOLDS[1]:
@@ -50,7 +50,7 @@ class DriftDetector:
             else:
                 level = 0
 
-            dominant = max(z_scores, key=z_scores.get) if z_scores else "none"
+            dominant = max(z_scores, key=lambda k: abs(z_scores[k])) if z_scores else "none"
 
             row: dict = {f"z_{sig}": z_scores.get(sig, 0.0) for sig in available_signals}
             week_val = feature_df.iloc[t].get("week_start", str(t))

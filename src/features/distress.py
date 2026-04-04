@@ -58,29 +58,32 @@ class DistressScorer:
                     "hopelessness_density": 0,
                     "help_seeking_density": 0,
                     "distress_density": 0,
-                    "suicidality_total": 0,
-                    "isolation_total": 0,
-                    "economic_stress_total": 0,
-                    "domestic_stress_total": 0,
+                    "suicidality_density": 0,
+                    "isolation_density": 0,
+                    "economic_stress_density": 0,
+                    "domestic_stress_density": 0,
                 })
                 continue
 
             hope_densities = [self._density(t, self._hopelessness_re) for t in texts]
             help_densities = [self._density(t, self._help_seeking_re) for t in texts]
             dist_densities = [self._density(t, self._distress_re) for t in texts]
-            suic_totals = [self._count_matches(t, self._suicidality_re) for t in texts]
-            isol_totals = [self._count_matches(t, self._isolation_re) for t in texts]
-            econ_totals = [self._count_matches(t, self._economic_stress_re) for t in texts]
-            dome_totals = [self._count_matches(t, self._domestic_stress_re) for t in texts]
+            # Use per-word density (not raw count totals) for all signals so that
+            # all features live on the same 0–1 scale and high-volume weeks don't
+            # dominate the distress score just because more posts were collected.
+            suic_densities = [self._density(t, self._suicidality_re) for t in texts]
+            isol_densities = [self._density(t, self._isolation_re) for t in texts]
+            econ_densities = [self._density(t, self._economic_stress_re) for t in texts]
+            dome_densities = [self._density(t, self._domestic_stress_re) for t in texts]
 
             rows.append({
                 "hopelessness_density": np.mean(hope_densities),
                 "help_seeking_density": np.mean(help_densities),
                 "distress_density": np.mean(dist_densities),
-                "suicidality_total": int(sum(suic_totals)),
-                "isolation_total": int(sum(isol_totals)),
-                "economic_stress_total": int(sum(econ_totals)),
-                "domestic_stress_total": int(sum(dome_totals)),
+                "suicidality_density": np.mean(suic_densities),
+                "isolation_density": np.mean(isol_densities),
+                "economic_stress_density": np.mean(econ_densities),
+                "domestic_stress_density": np.mean(dome_densities),
             })
 
         return pd.DataFrame(rows, index=weekly_df.index)

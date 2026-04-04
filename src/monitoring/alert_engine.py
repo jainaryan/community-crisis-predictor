@@ -1,5 +1,5 @@
 import sqlite3
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
@@ -37,6 +37,7 @@ class AlertEngine:
         weekly_states: list[int],
         weekly_scores: list[float],
         feature_df: pd.DataFrame | None = None,
+        drift_df: pd.DataFrame | None = None,
     ) -> None:
         from src.monitoring.drift_detector import DRIFT_SIGNALS
 
@@ -49,17 +50,26 @@ class AlertEngine:
                 prev_int, curr_int = int(prev), int(curr)
             except (TypeError, ValueError):
                 continue
-            if np.isnan(prev) or np.isnan(curr):
-                continue
-            if curr_int <= prev_int:
-                continue  # only log escalations
+            if curr_int == prev_int:
+                continue  # skip no-change weeks; log both escalations and de-escalations
 
+            # Determine dominant signal using z-scores from drift_df when available,
+            # falling back to raw feature values (same scale only: jsd signals).
             dominant = ""
-            if feature_df is not None and i < len(feature_df):
+            if drift_df is not None and i < len(drift_df):
+                drift_row = drift_df.iloc[i]
+                z_cols = {s: f"z_{s}" for s in DRIFT_SIGNALS}
+                available_z = {s: float(drift_row[z_cols[s]]) for s in DRIFT_SIGNALS if z_cols[s] in drift_row.index}
+                if available_z:
+                    dominant = max(available_z, key=lambda s: abs(available_z[s]))
+            elif feature_df is not None and i < len(feature_df):
                 row = feature_df.iloc[i]
-                available = [s for s in DRIFT_SIGNALS if s in row.index]
-                if available:
-                    dominant = max(available, key=lambda s: float(row[s]))
+                # Only compare signals that share the same 0-1 scale (JSD signals);
+                # skip density columns which have incompatible units.
+                jsd_signals = [s for s in DRIFT_SIGNALS if "jsd" in s and s in row.index]
+                same_scale = [s for s in ["avg_negative"] + jsd_signals if s in row.index]
+                if same_scale:
+                    dominant = max(same_scale, key=lambda s: float(row[s]))
 
             week_start = (
                 str(feature_df.iloc[i]["week_start"])
@@ -92,8 +102,19 @@ class AlertEngine:
             f"week {record['week_start']}: {from_name} -> {to_name}{reset}"
         )
 
-        timestamp = datetime.utcnow().isoformat()
+        timestamp = datetime.now(timezone.utc).isoformat()
         with sqlite3.connect(self.db_path) as conn:
+            # Dupe guard: skip if identical transition already logged for this week.
+            existing = conn.execute(
+                """
+                SELECT 1 FROM transitions
+                WHERE subreddit=? AND week_start=? AND from_state=? AND to_state=?
+                LIMIT 1
+                """,
+                (record["subreddit"], record["week_start"], record["from_state"], record["to_state"]),
+            ).fetchone()
+            if existing:
+                return
             conn.execute(
                 """
                 INSERT INTO transitions

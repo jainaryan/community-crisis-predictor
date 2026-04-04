@@ -129,12 +129,14 @@ def run_allocation(
         probs = per_week.get("probabilities", [])
         states = per_week.get("predictions", [])
 
-        # Walk backwards to find the last valid probability.
-        latest_prob = 0.0
+        # Use rolling mean of last 4 valid probabilities to reduce noise.
+        recent_probs = []
         for v in reversed(probs):
             if v is not None and not (isinstance(v, float) and np.isnan(v)):
-                latest_prob = float(v)
-                break
+                recent_probs.append(float(v))
+                if len(recent_probs) >= 4:
+                    break
+        latest_prob = float(np.mean(recent_probs)) if recent_probs else 0.0
 
         latest_state = 0
         for v in reversed(states):

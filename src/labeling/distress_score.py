@@ -19,15 +19,15 @@ def compute_distress_score(
             "domestic_stress": 0.05,
         }
 
-    # Map weight keys to feature columns
+    # Map weight keys to feature columns (all on per-word density scale).
     col_map = {
         "neg_sentiment": "avg_negative",
         "hopelessness": "hopelessness_density",
         "help_seeking": "help_seeking_density",
-        "suicidality": "suicidality_total",
-        "isolation": "isolation_total",
-        "economic_stress": "economic_stress_total",
-        "domestic_stress": "domestic_stress_total",
+        "suicidality": "suicidality_density",
+        "isolation": "isolation_density",
+        "economic_stress": "economic_stress_density",
+        "domestic_stress": "domestic_stress_density",
     }
 
     components = {}
@@ -44,9 +44,14 @@ def compute_distress_score(
             else:
                 components[key] = values
 
+    # Renormalize active weights to sum to 1.0 so missing columns don't silently
+    # deflate the score (e.g. if suicidality_total is absent, the 0.20 weight
+    # disappears and the scale drops, making threshold comparisons inconsistent).
+    active_weight_sum = sum(w for k, w in weights.items() if k in components)
     score = np.zeros(len(feature_df))
     for key, weight in weights.items():
         if key in components:
-            score += weight * components[key]
+            effective_weight = weight / active_weight_sum if active_weight_sum > 0 else weight
+            score += effective_weight * components[key]
 
     return pd.Series(score, index=feature_df.index, name="distress_score")
