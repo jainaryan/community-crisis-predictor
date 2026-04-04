@@ -1,49 +1,49 @@
-# Case Study: High-Distress Signal Week 2025-W35
-**Week starting:** 2025-08-25
-**Distress score:** -0.292
+# Case Study: High-Distress Signal Week 2018-W48
+**Week starting:** 2018-11-26
+**Distress score:** 0.194
 
 ## What Happened
-The community distress score spiked to -0.292, 
+The community distress score spiked to 0.194, 
 exceeding the severe community distress threshold.
 
 ## Early Warning Signals
 
-### 2025-W32 (not flagged, probability: 0.33)
-- **avg_negative**: 0.1218 (5.3% below average)
-- **pct_positive_roll2w**: 0.5802 (16.9% above average)
-- **avg_compound**: 0.0812 (366.1% above average)
-- **new_poster_ratio**: 0.0000 (100.0% below average)
-- **avg_type_token_ratio_delta**: 0.0007 (45.2% above average)
+### 2018-W45 (not flagged, probability: 0.45)
+- **isolation_density_delta**: 0.3075 (13158.0% above average)
+- **avg_type_token_ratio_roll2w**: 0.7149 (3.8% above average)
+- **avg_positive_roll2w**: 0.1418 (4.3% above average)
+- **hopelessness_density_delta**: 0.0013 (67499.9% above average)
+- **avg_neutral_delta**: -0.0189 (58218.3% below average)
 
-### 2025-W33 (not flagged, probability: 0.43)
-- **avg_negative**: 0.1495 (16.2% above average)
-- **pct_positive_roll2w**: 0.4965 (0.0% above average)
-- **avg_compound**: -0.1737 (468.9% below average)
-- **new_poster_ratio**: 0.0000 (100.0% below average)
-- **avg_type_token_ratio_delta**: -0.0159 (3506.3% below average)
+### 2018-W46 (not flagged, probability: 0.50)
+- **isolation_density_delta**: -0.0696 (2853.8% below average)
+- **avg_type_token_ratio_roll2w**: 0.7190 (4.4% above average)
+- **avg_positive_roll2w**: 0.1507 (10.8% above average)
+- **hopelessness_density_delta**: 0.0002 (8696.3% above average)
+- **avg_neutral_delta**: 0.0087 (26754.7% above average)
 
-### 2025-W34 (not flagged, probability: 0.51)
-- **avg_negative**: 0.1666 (29.5% above average)
-- **pct_positive_roll2w**: 0.3417 (31.1% below average)
-- **avg_compound**: -0.3404 (1014.8% below average)
-- **new_poster_ratio**: 0.0000 (100.0% below average)
-- **avg_type_token_ratio_delta**: -0.0231 (5051.4% below average)
+### 2018-W47 (not flagged, probability: 0.16)
+- **isolation_density_delta**: 0.1064 (4618.2% above average)
+- **avg_type_token_ratio_roll2w**: 0.7175 (4.2% above average)
+- **avg_positive_roll2w**: 0.1539 (13.2% above average)
+- **hopelessness_density_delta**: -0.0008 (45148.8% below average)
+- **avg_neutral_delta**: -0.0230 (70760.9% below average)
 
 ## Top Contributing Features (SHAP)
 
 | Rank | Feature | Importance |
 |------|---------|------------|
-| 1 | avg_negative | 1.9528 |
-| 2 | pct_positive_roll2w | 0.6741 |
-| 3 | avg_compound | 0.6310 |
-| 4 | new_poster_ratio | 0.3908 |
-| 5 | avg_type_token_ratio_delta | 0.3697 |
-| 6 | post_volume_roll2w | 0.3221 |
-| 7 | std_word_count_roll2w | 0.3093 |
-| 8 | avg_flesch_kincaid_delta | 0.2599 |
-| 9 | posting_time_entropy_roll2w | 0.2531 |
-| 10 | avg_flesch_kincaid_roll2w | 0.2528 |
+| 1 | isolation_density_delta | 0.7773 |
+| 2 | avg_type_token_ratio_roll2w | 0.6429 |
+| 3 | avg_positive_roll2w | 0.5438 |
+| 4 | hopelessness_density_delta | 0.4854 |
+| 5 | avg_neutral_delta | 0.4424 |
+| 6 | avg_type_token_ratio_delta | 0.3638 |
+| 7 | economic_stress_density | 0.3131 |
+| 8 | week_sin | 0.2910 |
+| 9 | first_person_singular_ratio_roll4w | 0.2899 |
+| 10 | distress_density_delta | 0.2678 |
 
 ## Summary
 
-The early warning system detected precursor signals 3 weeks before this high-distress event. Key indicators included changes in avg_negative, pct_positive_roll2w, avg_compound.
+The early warning system detected precursor signals 3 weeks before this high-distress event. Key indicators included changes in isolation_density_delta, avg_type_token_ratio_roll2w, avg_positive_roll2w.

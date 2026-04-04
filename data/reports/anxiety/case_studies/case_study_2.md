@@ -1,49 +1,49 @@
-# Case Study: High-Distress Signal Week 2019-W31
-**Week starting:** 2019-08-01
-**Distress score:** 0.300
+# Case Study: High-Distress Signal Week 2020-W12
+**Week starting:** 2020-03-16
+**Distress score:** 0.221
 
 ## What Happened
-The community distress score spiked to 0.300, 
+The community distress score spiked to 0.221, 
 exceeding the severe community distress threshold.
 
 ## Early Warning Signals
 
-### 2019-W28 (FLAGGED, probability: 0.33)
-- **new_poster_ratio_roll4w**: 0.8734 (10.2% above average)
-- **unique_posters_delta**: -182.0000 (10894.3% below average)
-- **first_person_plural_ratio_roll4w**: 0.0016 (6.5% below average)
-- **pct_negative_delta**: 0.0090 (14235.7% above average)
-- **std_word_count_delta**: -29.0929 (7147.7% below average)
+### 2020-W09 (FLAGGED, probability: 0.37)
+- **suicidality_density_roll2w**: 0.0380 (9.0% below average)
+- **avg_type_token_ratio_roll4w**: 0.6959 (5.7% above average)
+- **help_seeking_density_delta**: -0.0004 (3025.3% below average)
+- **avg_type_token_ratio_delta**: 0.0019 (1417.2% above average)
+- **topic_shift_jsd_4w**: 0.1010 (12.8% below average)
 
-### 2019-W29 (FLAGGED, probability: 0.08)
-- **new_poster_ratio_roll4w**: 0.8608 (8.6% above average)
-- **unique_posters_delta**: -235.0000 (14095.9% below average)
-- **first_person_plural_ratio_roll4w**: 0.0015 (11.2% below average)
-- **pct_negative_delta**: 0.0260 (40815.2% above average)
-- **std_word_count_delta**: 4.8881 (1084.1% above average)
+### 2020-W10 (FLAGGED, probability: 0.33)
+- **suicidality_density_roll2w**: 0.0394 (5.5% below average)
+- **avg_type_token_ratio_roll4w**: 0.6949 (5.5% above average)
+- **help_seeking_density_delta**: -0.0001 (495.4% below average)
+- **avg_type_token_ratio_delta**: -0.0041 (3369.3% below average)
+- **topic_shift_jsd_4w**: 0.0774 (33.2% below average)
 
-### 2019-W30 (not flagged, probability: 0.71)
-- **new_poster_ratio_roll4w**: 0.8658 (9.2% above average)
-- **unique_posters_delta**: -54.0000 (3162.0% below average)
-- **first_person_plural_ratio_roll4w**: 0.0015 (14.5% below average)
-- **pct_negative_delta**: -0.0310 (48433.7% below average)
-- **std_word_count_delta**: 25.1630 (5995.7% above average)
+### 2020-W11 (FLAGGED, probability: 0.34)
+- **suicidality_density_roll2w**: 0.0393 (5.7% below average)
+- **avg_type_token_ratio_roll4w**: 0.6971 (5.8% above average)
+- **help_seeking_density_delta**: -0.0000 (259.8% below average)
+- **avg_type_token_ratio_delta**: 0.0081 (6351.6% above average)
+- **topic_shift_jsd_4w**: 0.1616 (39.6% above average)
 
 ## Top Contributing Features (SHAP)
 
 | Rank | Feature | Importance |
 |------|---------|------------|
-| 1 | new_poster_ratio_roll4w | 1.3090 |
-| 2 | unique_posters_delta | 0.6189 |
-| 3 | first_person_plural_ratio_roll4w | 0.6015 |
-| 4 | pct_negative_delta | 0.5829 |
-| 5 | std_word_count_delta | 0.4728 |
-| 6 | avg_word_count_roll2w | 0.3977 |
-| 7 | posting_time_entropy | 0.3633 |
-| 8 | distress_density_roll2w | 0.2968 |
-| 9 | avg_positive | 0.2821 |
-| 10 | help_seeking_density_roll4w | 0.2151 |
+| 1 | suicidality_density_roll2w | 1.4114 |
+| 2 | avg_type_token_ratio_roll4w | 0.7217 |
+| 3 | help_seeking_density_delta | 0.6307 |
+| 4 | avg_type_token_ratio_delta | 0.5976 |
+| 5 | topic_shift_jsd_4w | 0.5287 |
+| 6 | domestic_stress_density_roll2w | 0.5020 |
+| 7 | pct_neutral_roll4w | 0.4659 |
+| 8 | distress_density_roll2w | 0.3540 |
+| 9 | topic_shift_jsd_roll2w | 0.2650 |
+| 10 | avg_type_token_ratio | 0.2185 |
 
 ## Summary
 
-The early warning system detected precursor signals 3 weeks before this high-distress event. Key indicators included changes in new_poster_ratio_roll4w, unique_posters_delta, first_person_plural_ratio_roll4w.
+The early warning system detected precursor signals 3 weeks before this high-distress event. Key indicators included changes in suicidality_density_roll2w, avg_type_token_ratio_roll4w, help_seeking_density_delta.

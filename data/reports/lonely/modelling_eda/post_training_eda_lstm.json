@@ -1,62 +1,70 @@
 {
   "subreddit": "lonely",
   "model": "lstm",
-  "n_valid": 69,
+  "n_valid": 123,
   "calibration": {
     "bins": [
       {
         "bin_low": 0.1,
         "bin_high": 0.2,
-        "n": 29,
-        "mean_predicted": 0.1724,
-        "mean_actual": 0.1379,
-        "calibration_gap": 0.0344
+        "n": 22,
+        "mean_predicted": 0.168,
+        "mean_actual": 0.1364,
+        "calibration_gap": 0.0316
       },
       {
         "bin_low": 0.2,
         "bin_high": 0.3,
-        "n": 18,
-        "mean_predicted": 0.2417,
-        "mean_actual": 0.0556,
-        "calibration_gap": 0.1861
+        "n": 33,
+        "mean_predicted": 0.2601,
+        "mean_actual": 0.0606,
+        "calibration_gap": 0.1995
       },
       {
         "bin_low": 0.3,
         "bin_high": 0.4,
-        "n": 16,
-        "mean_predicted": 0.3772,
-        "mean_actual": 0.0,
-        "calibration_gap": 0.3772
+        "n": 28,
+        "mean_predicted": 0.3424,
+        "mean_actual": 0.0714,
+        "calibration_gap": 0.271
       },
       {
         "bin_low": 0.4,
         "bin_high": 0.5,
-        "n": 6,
-        "mean_predicted": 0.4276,
-        "mean_actual": 0.5,
-        "calibration_gap": -0.0724
+        "n": 20,
+        "mean_predicted": 0.4582,
+        "mean_actual": 0.05,
+        "calibration_gap": 0.4082
+      },
+      {
+        "bin_low": 0.5,
+        "bin_high": 0.6,
+        "n": 20,
+        "mean_predicted": 0.5292,
+        "mean_actual": 0.1,
+        "calibration_gap": 0.4292
       }
     ],
-    "overall_mean_predicted": 0.2601,
-    "overall_mean_actual": 0.1159,
-    "overall_calibration_gap": 0.1442,
+    "overall_mean_predicted": 0.3383,
+    "overall_mean_actual": 0.0813,
+    "overall_calibration_gap": 0.257,
     "verdict": "over-confident"
   },
   "confusion_breakdown": {
-    "tp": 7,
-    "fp": 24,
-    "fn": 1,
-    "tn": 37,
-    "false_alarm_rate": 0.3934,
-    "miss_rate": 0.125,
-    "precision": 0.2258,
-    "recall": 0.875,
-    "f1": 0.359,
-    "summary": "7 true alerts, 24 false alarms, 1 missed crises, 37 correct non-alerts out of 69 predicted weeks."
+    "tp": 2,
+    "fp": 39,
+    "fn": 8,
+    "tn": 74,
+    "false_alarm_rate": 0.3451,
+    "miss_rate": 0.8,
+    "precision": 0.0488,
+    "recall": 0.2,
+    "f1": 0.0784,
+    "summary": "2 true alerts, 39 false alarms, 8 missed crises, 74 correct non-alerts out of 123 predicted weeks."
   },
   "error_timeline": [
     {
-      "week_index": 35,
+      "week_index": 33,
       "error_type": "false_positive"
     },
     {
@@ -65,6 +73,10 @@
     },
     {
       "week_index": 37,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 38,
       "error_type": "false_positive"
     },
     {
@@ -84,27 +96,71 @@
       "error_type": "false_positive"
     },
     {
-      "week_index": 44,
-      "error_type": "false_positive"
-    },
-    {
-      "week_index": 47,
+      "week_index": 43,
       "error_type": "false_negative"
     },
     {
-      "week_index": 52,
+      "week_index": 45,
+      "error_type": "false_negative"
+    },
+    {
+      "week_index": 46,
       "error_type": "false_positive"
     },
     {
       "week_index": 54,
+      "error_type": "false_negative"
+    },
+    {
+      "week_index": 56,
+      "error_type": "false_negative"
+    },
+    {
+      "week_index": 58,
+      "error_type": "false_negative"
+    },
+    {
+      "week_index": 63,
+      "error_type": "false_negative"
+    },
+    {
+      "week_index": 65,
+      "error_type": "false_negative"
+    },
+    {
+      "week_index": 73,
+      "error_type": "false_negative"
+    },
+    {
+      "week_index": 78,
       "error_type": "false_positive"
     },
     {
-      "week_index": 77,
+      "week_index": 79,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 82,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 83,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 84,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 85,
       "error_type": "false_positive"
     },
     {
       "week_index": 86,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 87,
       "error_type": "false_positive"
     },
     {
@@ -124,7 +180,19 @@
       "error_type": "false_positive"
     },
     {
+      "week_index": 93,
+      "error_type": "false_positive"
+    },
+    {
       "week_index": 94,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 95,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 96,
       "error_type": "false_positive"
     },
     {
@@ -148,44 +216,72 @@
       "error_type": "false_positive"
     },
     {
-      "week_index": 102,
+      "week_index": 103,
       "error_type": "false_positive"
     },
     {
-      "week_index": 103,
+      "week_index": 112,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 113,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 114,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 117,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 118,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 119,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 121,
+      "error_type": "false_positive"
+    },
+    {
+      "week_index": 122,
       "error_type": "false_positive"
     }
   ],
-  "n_false_positives": 24,
-  "n_false_negatives": 1,
+  "n_false_positives": 39,
+  "n_false_negatives": 8,
   "threshold_sweep": [
     {
       "threshold": 0.2,
-      "precision": 0.1,
-      "recall": 0.5,
-      "f1": 0.1667,
-      "n_alerts": 40
+      "precision": 0.0693,
+      "recall": 0.7,
+      "f1": 0.1261,
+      "n_alerts": 101
     },
     {
       "threshold": 0.3,
-      "precision": 0.1364,
-      "recall": 0.375,
-      "f1": 0.2,
-      "n_alerts": 22
+      "precision": 0.0735,
+      "recall": 0.5,
+      "f1": 0.1282,
+      "n_alerts": 68
     },
     {
       "threshold": 0.4,
-      "precision": 0.5,
-      "recall": 0.375,
-      "f1": 0.4286,
-      "n_alerts": 6
+      "precision": 0.075,
+      "recall": 0.3,
+      "f1": 0.12,
+      "n_alerts": 40
     },
     {
       "threshold": 0.5,
-      "precision": 0.0,
-      "recall": 0.0,
-      "f1": 0.0,
-      "n_alerts": 0
+      "precision": 0.1,
+      "recall": 0.2,
+      "f1": 0.1333,
+      "n_alerts": 20
     },
     {
       "threshold": 0.6,

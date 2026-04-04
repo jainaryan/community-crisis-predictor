@@ -1,5 +1,4 @@
 {
-  "type": "platt",
-  "coef": 1.6500531778362246,
-  "intercept": -1.1782473470306178
+  "type": "identity",
+  "reason": "insufficient_class_support"
 }

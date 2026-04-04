@@ -1,49 +1,49 @@
-# Case Study: High-Distress Signal Week 2019-W06
-**Week starting:** 2019-02-04
-**Distress score:** 0.051
+# Case Study: High-Distress Signal Week 2020-W33
+**Week starting:** 2020-08-10
+**Distress score:** 0.241
 
 ## What Happened
-The community distress score spiked to 0.051, 
+The community distress score spiked to 0.241, 
 exceeding the severe community distress threshold.
 
 ## Early Warning Signals
 
-### 2019-W03 (FLAGGED, probability: 0.23)
-- **new_poster_ratio_roll2w**: 0.8045 (3.1% below average)
-- **avg_type_token_ratio**: 0.7235 (0.9% below average)
-- **first_person_singular_ratio_roll2w**: 0.0825 (1.7% below average)
-- **distress_density_delta**: -0.0011 (12762.5% below average)
-- **avg_type_token_ratio_delta**: 0.0043 (6589.4% above average)
+### 2020-W30 (FLAGGED, probability: 0.73)
+- **post_volume**: 496.0000 (83.3% above average)
+- **post_volume_roll4w**: 459.2500 (71.3% above average)
+- **week_sin**: -0.4647 (60630.6% below average)
+- **hopelessness_density_roll4w**: 0.0012 (21.5% above average)
+- **isolation_total_roll4w**: 432.7500 (33.7% above average)
 
-### 2019-W04 (FLAGGED, probability: 0.17)
-- **new_poster_ratio_roll2w**: 0.8257 (0.6% below average)
-- **avg_type_token_ratio**: 0.6964 (4.7% below average)
-- **first_person_singular_ratio_roll2w**: 0.0845 (0.8% above average)
-- **distress_density_delta**: 0.0006 (6627.7% above average)
-- **avg_type_token_ratio_delta**: -0.0271 (40796.6% below average)
+### 2020-W31 (FLAGGED, probability: 0.74)
+- **post_volume**: 500.0000 (84.8% above average)
+- **post_volume_roll4w**: 477.2500 (78.0% above average)
+- **week_sin**: -0.5681 (74090.9% below average)
+- **hopelessness_density_roll4w**: 0.0012 (20.1% above average)
+- **isolation_total_roll4w**: 443.5000 (37.0% above average)
 
-### 2019-W05 (not flagged, probability: 0.20)
-- **new_poster_ratio_roll2w**: 0.7758 (6.6% below average)
-- **avg_type_token_ratio**: 0.7328 (0.3% above average)
-- **first_person_singular_ratio_roll2w**: 0.0844 (0.6% above average)
-- **distress_density_delta**: 0.0014 (16451.1% above average)
-- **avg_type_token_ratio_delta**: 0.0364 (54980.8% above average)
+### 2020-W32 (FLAGGED, probability: 0.74)
+- **post_volume**: 498.0000 (84.1% above average)
+- **post_volume_roll4w**: 495.0000 (84.6% above average)
+- **week_sin**: -0.6631 (86472.3% below average)
+- **hopelessness_density_roll4w**: 0.0012 (22.8% above average)
+- **isolation_total_roll4w**: 461.7500 (42.6% above average)
 
 ## Top Contributing Features (SHAP)
 
 | Rank | Feature | Importance |
 |------|---------|------------|
-| 1 | new_poster_ratio_roll2w | 0.6025 |
-| 2 | avg_type_token_ratio | 0.5896 |
-| 3 | first_person_singular_ratio_roll2w | 0.5513 |
-| 4 | distress_density_delta | 0.5052 |
-| 5 | avg_type_token_ratio_delta | 0.4690 |
-| 6 | pct_negative_roll2w | 0.4061 |
-| 7 | pct_negative_roll4w | 0.3414 |
-| 8 | avg_compound_delta | 0.3257 |
-| 9 | help_seeking_density | 0.2821 |
-| 10 | avg_positive | 0.2667 |
+| 1 | post_volume | 1.4440 |
+| 2 | post_volume_roll4w | 0.5400 |
+| 3 | week_sin | 0.5188 |
+| 4 | hopelessness_density_roll4w | 0.3442 |
+| 5 | isolation_total_roll4w | 0.3270 |
+| 6 | economic_stress_total_delta | 0.3164 |
+| 7 | avg_positive_roll4w | 0.2909 |
+| 8 | distress_density_roll2w | 0.2448 |
+| 9 | pct_very_negative | 0.2422 |
+| 10 | domestic_stress_total_roll2w | 0.2341 |
 
 ## Summary
 
-The early warning system detected precursor signals 3 weeks before this high-distress event. Key indicators included changes in new_poster_ratio_roll2w, avg_type_token_ratio, first_person_singular_ratio_roll2w.
+The early warning system detected precursor signals 3 weeks before this high-distress event. Key indicators included changes in post_volume, post_volume_roll4w, week_sin.

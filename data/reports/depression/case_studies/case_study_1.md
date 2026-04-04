@@ -1,49 +1,49 @@
-# Case Study: High-Distress Signal Week 2020-W12
-**Week starting:** 2020-03-16
-**Distress score:** 0.820
+# Case Study: High-Distress Signal Week 2019-W08
+**Week starting:** 2019-02-18
+**Distress score:** 0.390
 
 ## What Happened
-The community distress score spiked to 0.820, 
+The community distress score spiked to 0.390, 
 exceeding the severe community distress threshold.
 
 ## Early Warning Signals
 
-### 2020-W09 (not flagged, probability: 0.58)
-- **avg_char_count**: 930.0462 (2.4% below average)
-- **unique_posters_delta**: -188.0000 (1836.8% below average)
-- **avg_neutral_delta**: 0.0017 (3505.3% above average)
-- **std_word_count_roll2w**: 179.2295 (13.4% below average)
-- **avg_flesch_kincaid**: 8.2400 (5.0% above average)
+### 2019-W05 (not flagged, probability: 0.18)
+- **domestic_stress_density_delta**: -0.0026 (6721.1% below average)
+- **avg_type_token_ratio_roll4w**: 0.6865 (17.4% above average)
+- **pct_neutral_roll2w**: 0.0150 (12.5% below average)
+- **avg_word_count_delta**: 4.5308 (6341.9% above average)
+- **help_seeking_density_roll2w**: 0.0047 (40.3% above average)
 
-### 2020-W10 (not flagged, probability: 0.54)
-- **avg_char_count**: 945.5040 (0.8% below average)
-- **unique_posters_delta**: -21.0000 (116.3% below average)
-- **avg_neutral_delta**: 0.0008 (1508.9% above average)
-- **std_word_count_roll2w**: 170.1932 (17.8% below average)
-- **avg_flesch_kincaid**: 7.8394 (0.1% below average)
+### 2019-W06 (not flagged, probability: 0.18)
+- **domestic_stress_density_delta**: 0.0003 (772.1% above average)
+- **avg_type_token_ratio_roll4w**: 0.6853 (17.1% above average)
+- **pct_neutral_roll2w**: 0.0148 (13.9% below average)
+- **avg_word_count_delta**: -2.4167 (3536.1% below average)
+- **help_seeking_density_roll2w**: 0.0046 (38.0% above average)
 
-### 2020-W11 (not flagged, probability: 0.49)
-- **avg_char_count**: 956.7783 (0.4% above average)
-- **unique_posters_delta**: -288.0000 (2867.0% below average)
-- **avg_neutral_delta**: -0.0009 (1942.4% below average)
-- **std_word_count_roll2w**: 187.7450 (9.3% below average)
-- **avg_flesch_kincaid**: 8.0584 (2.7% above average)
+### 2019-W07 (not flagged, probability: 0.18)
+- **domestic_stress_density_delta**: -0.0031 (8190.3% below average)
+- **avg_type_token_ratio_roll4w**: 0.6847 (17.0% above average)
+- **pct_neutral_roll2w**: 0.0161 (6.3% below average)
+- **avg_word_count_delta**: -1.7389 (2572.4% below average)
+- **help_seeking_density_roll2w**: 0.0044 (31.7% above average)
 
 ## Top Contributing Features (SHAP)
 
 | Rank | Feature | Importance |
 |------|---------|------------|
-| 1 | avg_char_count | 0.6258 |
-| 2 | unique_posters_delta | 0.5391 |
-| 3 | avg_neutral_delta | 0.5360 |
-| 4 | std_word_count_roll2w | 0.5251 |
-| 5 | avg_flesch_kincaid | 0.5096 |
-| 6 | pct_neutral_delta | 0.4630 |
-| 7 | avg_neutral | 0.3197 |
-| 8 | avg_word_count_delta | 0.2699 |
-| 9 | avg_positive_delta | 0.2464 |
-| 10 | hopelessness_density_roll2w | 0.2265 |
+| 1 | domestic_stress_density_delta | 1.0312 |
+| 2 | avg_type_token_ratio_roll4w | 0.6527 |
+| 3 | pct_neutral_roll2w | 0.6401 |
+| 4 | avg_word_count_delta | 0.5892 |
+| 5 | help_seeking_density_roll2w | 0.4807 |
+| 6 | topic_shift_jsd_roll2w | 0.3980 |
+| 7 | week_sin | 0.3709 |
+| 8 | topic_shift_jsd_4w | 0.3497 |
+| 9 | domestic_stress_density_roll2w | 0.3072 |
+| 10 | domestic_stress_density_roll4w | 0.2903 |
 
 ## Summary
 
-The early warning system detected precursor signals 3 weeks before this high-distress event. Key indicators included changes in avg_char_count, unique_posters_delta, avg_neutral_delta.
+The early warning system detected precursor signals 3 weeks before this high-distress event. Key indicators included changes in domestic_stress_density_delta, avg_type_token_ratio_roll4w, pct_neutral_roll2w.
