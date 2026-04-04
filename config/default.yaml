@@ -115,14 +115,7 @@ modeling:
     learning_rate: 0.001
     batch_size: 16
     search:
-      enabled: true
-      max_trials: 16
-      grid:
-        hidden_size: [32, 64, 128]
-        num_layers: [1, 2]
-        learning_rate: [0.001, 0.0005]
-        dropout: [0.1, 0.2, 0.3]
-        batch_size: [16, 32]
+      enabled: false
   walk_forward:
     min_train_weeks: 26
     gap_weeks: 1

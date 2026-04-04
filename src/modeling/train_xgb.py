@@ -47,7 +47,7 @@ class XGBCrisisModel:
                 base_model,
                 self.param_grid,
                 n_iter=min(self.n_search_iter, 20),
-                scoring="recall",
+                scoring="average_precision",
                 cv=tscv,
                 random_state=self.seed,
                 n_jobs=-1,
