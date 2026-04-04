@@ -17,7 +17,7 @@ TIMELINE_THRESHOLD_COLORS = ["gold", "orangered", "darkred"]
 DASHBOARD_COPY = {
     "page_title": "Community Crisis Predictor",
     "title": "Community mental health early warning",
-    "caption": "5-community distress monitoring · 2018–2020 · Zenodo dataset",
+    "caption": "5-community distress monitoring · 2018–2024 · Reddit (Zenodo + Arctic Shift)",
     "current_state_header": "### Current Community Signal State",
     "state_badge_label": "Community Signal State",
     "probability_metric_label": "High-Distress Probability",

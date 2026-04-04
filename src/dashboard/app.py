@@ -651,7 +651,7 @@ with main_l:
         x_hist_raw = pd.to_datetime(_w_slice, errors="coerce")
         # Convert to numpy bool array — pandas Series indexing into numpy arrays
         # silently misaligns when the Series carries a non-default index.
-        valid_x = ~pd.isnull(x_hist_raw).to_numpy()
+        valid_x = ~np.array(pd.isnull(x_hist_raw), dtype=bool)
         _n_nat = int((~valid_x).sum())
         if _n_nat:
             st.caption(f"⚠️ {_n_nat} week_start value(s) could not be parsed and are excluded from the chart.")
