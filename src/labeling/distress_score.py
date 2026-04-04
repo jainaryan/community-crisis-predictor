@@ -24,10 +24,10 @@ def compute_distress_score(
         "neg_sentiment": "avg_negative",
         "hopelessness": "hopelessness_density",
         "help_seeking": "help_seeking_density",
-        "suicidality": "suicidality_total",
-        "isolation": "isolation_total",
-        "economic_stress": "economic_stress_total",
-        "domestic_stress": "domestic_stress_total",
+        "suicidality": "suicidality_density",
+        "isolation": "isolation_density",
+        "economic_stress": "economic_stress_density",
+        "domestic_stress": "domestic_stress_density",
     }
 
     components = {}

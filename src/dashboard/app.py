@@ -649,7 +649,9 @@ with main_l:
     _w_slice = weeks[: week_idx_plot + 1]
     if "week_start" in sub_df.columns:
         x_hist_raw = pd.to_datetime(_w_slice, errors="coerce")
-        valid_x = ~pd.isnull(x_hist_raw)
+        # Convert to numpy bool array — pandas Series indexing into numpy arrays
+        # silently misaligns when the Series carries a non-default index.
+        valid_x = ~pd.isnull(x_hist_raw).to_numpy()
         _n_nat = int((~valid_x).sum())
         if _n_nat:
             st.caption(f"⚠️ {_n_nat} week_start value(s) could not be parsed and are excluded from the chart.")
@@ -1033,26 +1035,47 @@ with tab_alerts:
             # Friendly column order
             _col_order = ["timestamp", "subreddit", "week_start", "from_state", "to_state", "distress_score", "dominant_signal"]
             trans_df = trans_df[[c for c in _col_order if c in trans_df.columns]]
-            # Colour-code rows by to_state severity
-            _state_level = {"Stable": 0, "Elevated": 1, "High": 2, "Severe": 3}
-            def _row_color(to_state: str) -> str:
-                lvl = _state_level.get(str(to_state), 0)
-                return ["#f0fdf4", "#fefce8", "#fff7ed", "#fff1f2"][lvl]
-            st.dataframe(trans_df, use_container_width=True, hide_index=True)
+            # Map integer state codes → human labels for display
+            if "to_state" in trans_df.columns:
+                trans_df["to_state"] = trans_df["to_state"].apply(
+                    lambda v: STATE_NAMES.get(int(v), str(v)) if pd.notna(v) else v
+                )
+            if "from_state" in trans_df.columns:
+                trans_df["from_state"] = trans_df["from_state"].apply(
+                    lambda v: STATE_NAMES.get(int(v), str(v)) if pd.notna(v) else v
+                )
+            # Colour-code rows by to_state severity using Styler
+            _state_bg = {
+                STATE_NAMES.get(0, "Stable"): "#f0fdf4",
+                STATE_NAMES.get(1, "Early Vulnerability Signal"): "#fefce8",
+                STATE_NAMES.get(2, "Elevated Distress"): "#fff7ed",
+                STATE_NAMES.get(3, "Severe Community Distress Signal"): "#fff1f2",
+            }
+            def _style_alert_row(row):
+                bg = _state_bg.get(str(row.get("to_state", "")), "")
+                return [f"background-color: {bg}" if bg else "" for _ in row]
+            try:
+                st.dataframe(
+                    trans_df.style.apply(_style_alert_row, axis=1),
+                    use_container_width=True,
+                    hide_index=True,
+                )
+            except Exception:
+                st.dataframe(trans_df, use_container_width=True, hide_index=True)
             # Quick bar: transition counts by subreddit
             if "subreddit" in trans_df.columns and "to_state" in trans_df.columns:
                 counts = trans_df.groupby(["subreddit", "to_state"]).size().reset_index(name="count")
+                # STATE_NAMES values are the labels now (already mapped above)
+                _label_to_code = {v: k for k, v in STATE_NAMES.items()}
                 fig_tr = go.Figure()
                 for ts in counts["to_state"].unique():
                     sub_cnt = counts[counts["to_state"] == ts]
+                    state_code = _label_to_code.get(str(ts), 0)
                     fig_tr.add_trace(go.Bar(
                         x=sub_cnt["subreddit"],
                         y=sub_cnt["count"],
-                        name=ts,
-                        marker_color=STATE_COLORS.get(
-                            next((k for k, v in {0: "Stable", 1: "Elevated", 2: "High", 3: "Severe"}.items() if v == ts), 0),
-                            "#64748b",
-                        ),
+                        name=str(ts),
+                        marker_color=STATE_COLORS.get(state_code, "#64748b"),
                     ))
                 fig_tr.update_layout(
                     barmode="stack",
