@@ -48,6 +48,8 @@ def main():
         print(f"\n{'='*50}")
         print(f"Evaluating r/{sub} ({len(sub_df)} weeks)...")
         print("=" * 50)
+        selected_features = _select_features_for_subreddit(config, str(sub), feature_columns)
+        print(f"  Feature selection: {len(selected_features)}/{len(feature_columns)} features")
 
         # --- XGBoost baseline ---
         # Produces binary crisis metrics and persists {sub}_xgb.pkl + feature stats.
@@ -55,7 +57,7 @@ def main():
         xgb_results = evaluate_walk_forward(
             sub_df,
             config,
-            feature_columns,
+            selected_features,
             skip_search=args.skip_search,
             save_dir=models_path,
             sub=str(sub),
@@ -72,7 +74,7 @@ def main():
             lstm_results = evaluate_walk_forward_lstm(
                 sub_df,
                 config,
-                feature_columns,
+                selected_features,
                 save_dir=models_path,
                 sub=str(sub),
             )
@@ -106,6 +108,16 @@ def main():
         json.dump(all_results, f, indent=2, default=convert)
 
     print(f"\nResults saved to {results_path}")
+
+
+def _select_features_for_subreddit(config: dict, subreddit: str, feature_columns: list[str]) -> list[str]:
+    fs_cfg = config.get("modeling", {}).get("feature_selection", {})
+    if not bool(fs_cfg.get("enabled", True)):
+        return list(feature_columns)
+    # SHAP-derived reports are produced from full-history evaluation, so they
+    # are not safe to use for training-time feature selection.
+    # Keep the full feature set here to avoid leakage.
+    return list(feature_columns)
 
 
 def _print_comparison(sub: str, xgb: dict, lstm: dict) -> None:
