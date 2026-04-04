@@ -1,28 +1,55 @@
 {
   "subreddit": "mentalhealth",
   "model": "lstm",
+<<<<<<< HEAD
   "n_valid": 332,
+=======
+  "n_valid": 121,
+>>>>>>> 2907167d09780bd3b6d347c8f58a8506bd814720
   "calibration": {
     "bins": [
       {
+        "bin_low": 0.0,
+        "bin_high": 0.1,
+        "n": 62,
+        "mean_predicted": 0.0498,
+        "mean_actual": 0.0,
+        "calibration_gap": 0.0498
+      },
+      {
         "bin_low": 0.1,
         "bin_high": 0.2,
+<<<<<<< HEAD
         "n": 4,
         "mean_predicted": 0.1708,
         "mean_actual": 0.5,
         "calibration_gap": -0.3292
+=======
+        "n": 26,
+        "mean_predicted": 0.1561,
+        "mean_actual": 0.0,
+        "calibration_gap": 0.1561
+>>>>>>> 2907167d09780bd3b6d347c8f58a8506bd814720
       },
       {
         "bin_low": 0.2,
         "bin_high": 0.3,
+<<<<<<< HEAD
         "n": 4,
         "mean_predicted": 0.2645,
         "mean_actual": 0.75,
         "calibration_gap": -0.4855
+=======
+        "n": 24,
+        "mean_predicted": 0.2513,
+        "mean_actual": 0.0,
+        "calibration_gap": 0.2513
+>>>>>>> 2907167d09780bd3b6d347c8f58a8506bd814720
       },
       {
         "bin_low": 0.3,
         "bin_high": 0.4,
+<<<<<<< HEAD
         "n": 8,
         "mean_predicted": 0.3451,
         "mean_actual": 0.625,
@@ -796,13 +823,62 @@
       "recall": 0.98,
       "f1": 0.8537,
       "n_alerts": 324
+=======
+        "n": 9,
+        "mean_predicted": 0.3339,
+        "mean_actual": 0.0,
+        "calibration_gap": 0.3339
+      }
+    ],
+    "overall_mean_predicted": 0.1337,
+    "overall_mean_actual": 0.0,
+    "overall_calibration_gap": 0.1337,
+    "verdict": "over-confident"
+  },
+  "confusion_breakdown": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0,
+    "tn": 121,
+    "false_alarm_rate": 0.0,
+    "miss_rate": 0.0,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "summary": "0 true alerts, 0 false alarms, 0 missed crises, 121 correct non-alerts out of 121 predicted weeks."
+  },
+  "error_timeline": [],
+  "n_false_positives": 0,
+  "n_false_negatives": 0,
+  "threshold_sweep": [
+    {
+      "threshold": 0.2,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "n_alerts": 33
+>>>>>>> 2907167d09780bd3b6d347c8f58a8506bd814720
+    },
+    {
+      "threshold": 0.3,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "n_alerts": 9
     },
     {
       "threshold": 0.4,
+<<<<<<< HEAD
       "precision": 0.7595,
       "recall": 0.96,
       "f1": 0.8481,
       "n_alerts": 316
+=======
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "n_alerts": 0
+>>>>>>> 2907167d09780bd3b6d347c8f58a8506bd814720
     },
     {
       "threshold": 0.5,

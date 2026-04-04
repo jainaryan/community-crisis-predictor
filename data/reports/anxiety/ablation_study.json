@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "full_model_pr_auc": 1.0,
   "linguistic": {
     "pr_auc": 1.0,
@@ -30,4 +31,7 @@
     "pr_auc_drop": 0.0,
     "n_features_removed": 89
   }
+=======
+  "error": "insufficient_data_for_ablation"
+>>>>>>> 2907167d09780bd3b6d347c8f58a8506bd814720
 }

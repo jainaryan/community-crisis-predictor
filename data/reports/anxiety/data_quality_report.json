@@ -1,8 +1,8 @@
 {
   "subreddit": "anxiety",
   "source": "zenodo_covid",
-  "total_weeks_observed": 357,
-  "gap_weeks_below_50pct": 7,
+  "total_weeks_observed": 148,
+  "gap_weeks_below_50pct": 6,
   "missing_week_count": 9,
   "missing_weeks": [
     "2018-04-23",
@@ -15,7 +15,11 @@
     "2019-12-16",
     "2019-12-23"
   ],
+<<<<<<< HEAD
   "avg_completeness_score": 1.0039203891102493,
+=======
+  "avg_completeness_score": 1.0061467300699782,
+>>>>>>> 2907167d09780bd3b6d347c8f58a8506bd814720
   "cross_source_validation": {
     "status": "ok",
     "subreddit": "anxiety",
@@ -23,7 +27,11 @@
       "arctic_shift",
       "zenodo_covid"
     ],
+<<<<<<< HEAD
     "total_weeks": 357,
+=======
+    "total_weeks": 148,
+>>>>>>> 2907167d09780bd3b6d347c8f58a8506bd814720
     "weeks_with_multiple_sources": 1,
     "discrepancies": [
       {
