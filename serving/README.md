@@ -11,7 +11,7 @@ for each monitored subreddit, with drift detection and inference logging.
 |---------|-----|
 | API root / health | https://community-crisis-predictor.onrender.com/health |
 | Swagger UI (interactive docs) | https://community-crisis-predictor.onrender.com/docs |
-| Streamlit dashboard | https://community-crisis-predictor-mozt6amaceenfxso6pegb8.streamlit.app/ (see repo **README** if the team uses a different app URL) |
+| Streamlit dashboard | https://community-crisis-predictor.streamlit.app/ |
 
 > **Cold-start warning (free Render tier):** the service sleeps after 15 min of
 > inactivity. The first request after sleep takes **30–60 seconds** to respond while
@@ -234,8 +234,9 @@ Aggregate statistics from `logs/predictions.jsonl`.
 
 | Variable | Default | Description |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | — | Enables real LLM output for **`POST /brief`** (set on Render / production host) |
-| `OPENAI_API_KEY` | — | Fallback LLM for **`POST /brief`** if Anthropic is unset or fails |
+| `OPENROUTER_API_KEY` | — | Primary LLM for **`POST /brief`** (free tier: google/gemma-3-4b-it) |
+| `ANTHROPIC_API_KEY` | — | Secondary fallback LLM for **`POST /brief`** |
+| `OPENAI_API_KEY` | — | Tertiary fallback LLM for **`POST /brief`** if Anthropic is unset or fails |
 | `ANTHROPIC_MODEL` | `claude-haiku-4-5-20251001` | Override Anthropic model id for `/brief` |
 | `MODEL_DIR` | `../data/models` | Path to model artifact directory |
 | `SHAP_DIR` | `../data/reports` | Path to subreddit report folders containing `shap.csv` |

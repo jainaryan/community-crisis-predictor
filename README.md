@@ -2,7 +2,7 @@
 
 > A production-style early-warning pipeline that detects community-level mental health distress signals on Reddit — up to **14 weeks before they peak** — using walk-forward backtesting on 7 years of real data.
 
-**Live dashboard →** https://community-crisis-predictor-mozt6amaceenfxso6pegb8.streamlit.app/
+**Live dashboard →** https://community-crisis-predictor.streamlit.app/
 
 ---
 
@@ -75,7 +75,7 @@ flowchart TD
     I --> I1[Drift Detector — rolling z-score]
     I --> I2[Alert Engine — state transitions]
     I --> I3[SHAP Importance]
-    I --> I4[Weekly Briefs — Claude / GPT-4o]
+    I --> I4[Weekly Briefs — Gemma 3 / Claude / GPT-4o]
     I --> I5[LP Allocator — moderator hours]
 
     I1 --> J[Streamlit Dashboard]
@@ -164,7 +164,7 @@ Walk-forward evaluation: each fold trains on all past data, predicts the next we
 
 **LP Allocator** — formulates a linear programme to distribute a fixed weekly moderator-hour budget across subreddits. Objective: maximise `Σ p[i] × effectiveness[i] × hours[i]`. Probabilities are smoothed using a 4-week rolling mean to reduce single-week noise.
 
-**Weekly Briefs** — for each predicted week, builds a structured JSON context (SHAP top features + week-over-week deltas + retrieved playbook text) and sends to Claude → GPT-4o → template fallback. Output stored in `weekly_briefs.json` per subreddit.
+**Weekly Briefs** — for each predicted week, builds a structured JSON context (SHAP top features + week-over-week deltas + playbook text) and sends to OpenRouter/Gemma 3 (primary, free tier) → Claude → GPT-4o → template fallback. Output stored in `weekly_briefs.json` per subreddit.
 
 ### 6. Dashboard — Streamlit
 
@@ -230,10 +230,11 @@ python -m src.pipeline.run_all --config config/default.yaml --force
 
 For LLM weekly briefs, set in `.env`:
 ```
-ANTHROPIC_API_KEY=...    # preferred
-OPENAI_API_KEY=...       # fallback
+OPENROUTER_API_KEY=...   # primary (free tier: google/gemma-3-4b-it)
+ANTHROPIC_API_KEY=...    # secondary fallback
+OPENAI_API_KEY=...       # tertiary fallback
 ```
-If neither is set, briefs are generated from a template — the rest of the pipeline is unaffected.
+If none are set, briefs are generated from a deterministic template — the rest of the pipeline is unaffected.
 
 ---
 
@@ -279,7 +280,7 @@ src/
 ├── reporting/
 │   └── eda.py                   IQR outlier detection · trend · crisis rate by year · HTML
 ├── narration/
-│   └── narrative_generator.py   Weekly brief — SHAP context + playbook RAG + LLM/template
+│   └── narrative_generator.py   Weekly brief — SHAP context + playbook injection + LLM/template
 ├── visualization/
 │   ├── timeline.py              4-color Plotly backtesting timeline
 │   ├── feature_importance.py    SHAP bar chart
@@ -391,10 +392,10 @@ prescriptive:
 
 | Service | Platform | URL |
 |---------|----------|-----|
-| Streamlit dashboard | Streamlit Cloud | https://community-crisis-predictor-mozt6amaceenfxso6pegb8.streamlit.app/ |
+| Streamlit dashboard | Streamlit Cloud | https://community-crisis-predictor.streamlit.app/ |
 | FastAPI inference API | Render.com | https://community-crisis-predictor.onrender.com |
 
-Set **`ANTHROPIC_API_KEY`** (or **`OPENAI_API_KEY`**) in the Render service **Environment** so **`POST /brief`** (Community Copilot) uses a real LLM; `.env` is not deployed. Verify with **`GET /health`** → `llm_keys`. See **`serving/README.md`** for full API setup.
+Set **`OPENROUTER_API_KEY`** (or **`ANTHROPIC_API_KEY`** / **`OPENAI_API_KEY`**) in the Render service **Environment** so **`POST /brief`** (Community Copilot) uses a real LLM; `.env` is not deployed. Verify with **`GET /health`** → `llm_keys`. See **`serving/README.md`** for full API setup.
 
 ```bash
 # Local dashboard
