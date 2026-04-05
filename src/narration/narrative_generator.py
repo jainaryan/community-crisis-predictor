@@ -21,6 +21,8 @@ NARRATIVE_SENTENCES = 3
 FLAT_PCT_EPS = 0.5  # treat |delta_pct| below this as "flat"
 ANTHROPIC_MODEL = "claude-sonnet-4-20250514"
 OPENAI_MODEL = "gpt-4o"
+OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "meta-llama/llama-3.3-8b-instruct:free")
+OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
 
 def week_key_from_row(row: pd.Series) -> str:
@@ -212,6 +214,34 @@ def _call_anthropic(user_prompt: str, *, system: str | None = None) -> tuple[str
         return None, f"anthropic error: {e.__class__.__name__}: {e}"
 
 
+def _call_openrouter(user_prompt: str, *, system: str | None = None) -> tuple[str | None, str | None]:
+    """OpenRouter: OpenAI-compatible API, supports free and cheap open-source models."""
+    try:
+        from openai import OpenAI
+    except ImportError:
+        return None, "openai package not installed (needed for OpenRouter)"
+    key = os.environ.get("OPENROUTER_API_KEY", "").strip()
+    if not key:
+        return None, "OPENROUTER_API_KEY missing"
+    sys_prompt = system if system is not None else SYSTEM_PROMPT
+    try:
+        client = OpenAI(api_key=key, base_url=OPENROUTER_BASE_URL)
+        comp = client.chat.completions.create(
+            model=OPENROUTER_MODEL,
+            messages=[
+                {"role": "system", "content": sys_prompt},
+                {"role": "user", "content": user_prompt},
+            ],
+            max_tokens=500,
+        )
+        choice = comp.choices[0]
+        if choice.message and choice.message.content:
+            return choice.message.content.strip(), None
+        return None, "openrouter response had empty content"
+    except Exception as e:
+        return None, f"openrouter error: {e.__class__.__name__}: {e}"
+
+
 def _call_openai(user_prompt: str, *, system: str | None = None) -> tuple[str | None, str | None]:
     try:
         from openai import OpenAI
@@ -240,14 +270,17 @@ def _call_openai(user_prompt: str, *, system: str | None = None) -> tuple[str | 
 
 
 def _resolve_narrative_mode() -> tuple[str, str]:
-    """Decide provider strategy once per run to avoid repeated key checks in loops."""
-    has_anthropic_key = bool(os.environ.get("ANTHROPIC_API_KEY", "").strip())
-    has_openai_key = bool(os.environ.get("OPENAI_API_KEY", "").strip())
-    if has_anthropic_key:
+    """Decide provider strategy once per run to avoid repeated key checks in loops.
+
+    Priority: OpenRouter (free/cheap) → Anthropic → OpenAI → template fallback.
+    """
+    if os.environ.get("OPENROUTER_API_KEY", "").strip():
+        return "openrouter", "ok"
+    if os.environ.get("ANTHROPIC_API_KEY", "").strip():
         return "anthropic", "ok"
-    if has_openai_key:
+    if os.environ.get("OPENAI_API_KEY", "").strip():
         return "openai", "ok"
-    return "template", "ANTHROPIC_API_KEY missing | OPENAI_API_KEY missing"
+    return "template", "OPENROUTER_API_KEY missing | ANTHROPIC_API_KEY missing | OPENAI_API_KEY missing"
 
 
 def _generate_narrative_with_meta(
@@ -265,6 +298,20 @@ def _generate_narrative_with_meta(
 
     user_prompt = _build_user_prompt(context, playbook)
 
+    if mode == "openrouter":
+        text, or_note = _call_openrouter(user_prompt)
+        if text:
+            return _normalize_sentences(text), "openrouter", "ok"
+        # Fall through to Anthropic then OpenAI
+        text, anth_note = _call_anthropic(user_prompt)
+        if text:
+            return _normalize_sentences(text), "anthropic", f"openrouter_unavailable: {or_note}"
+        text, openai_note = _call_openai(user_prompt)
+        if text:
+            return _normalize_sentences(text), "openai", f"openrouter_unavailable: {or_note}"
+        notes = [n for n in (or_note, anth_note, openai_note) if n]
+        return template_fallback(context, playbook), "template", " | ".join(notes)
+
     if mode == "anthropic":
         text, anth_note = _call_anthropic(user_prompt)
         if text:
@@ -276,7 +323,7 @@ def _generate_narrative_with_meta(
         note = " | ".join(notes) if notes else "both providers unavailable"
         return template_fallback(context, playbook), "template", note
 
-    # mode == "openai" (preferred when only OPENAI_API_KEY is configured)
+    # mode == "openai"
     text, openai_note = _call_openai(user_prompt)
     if text:
         return _normalize_sentences(text), "openai", "ok"
@@ -341,6 +388,19 @@ def generate_end_user_dashboard_narrative(
     mode, mode_note = _resolve_narrative_mode()
     if mode == "template":
         return template_fallback(context, playbook or ""), "template", mode_note
+
+    if mode == "openrouter":
+        text, or_note = _call_openrouter(user_msg, system=END_USER_LLM_SYSTEM)
+        if text:
+            return text.strip(), "openrouter", "ok"
+        text, anth_note = _call_anthropic(user_msg, system=END_USER_LLM_SYSTEM)
+        if text:
+            return text.strip(), "anthropic", f"openrouter_unavailable: {or_note}"
+        text, openai_note = _call_openai(user_msg, system=END_USER_LLM_SYSTEM)
+        if text:
+            return text.strip(), "openai", f"openrouter_unavailable: {or_note}"
+        notes = [n for n in (or_note, anth_note, openai_note) if n]
+        return template_fallback(context, playbook or ""), "template", " | ".join(notes) if notes else mode_note
 
     if mode == "anthropic":
         text, anth_note = _call_anthropic(user_msg, system=END_USER_LLM_SYSTEM)
