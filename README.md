@@ -2,7 +2,7 @@
 
 > A production-style early-warning pipeline that detects community-level mental health distress signals on Reddit — up to **14 weeks before they peak** — using walk-forward backtesting on 7 years of real data.
 
-**Live dashboard →** https://community-crisis-predictor.onrender.com
+**Live dashboard →** https://community-crisis-predictor-mozt6amaceenfxso6pegb8.streamlit.app/
 
 ---
 
@@ -46,34 +46,44 @@ The honest framing: *"a production-style pipeline with live-equivalent drift mon
 
 ```mermaid
 flowchart TD
-    A[Raw Reddit Posts\nZenodo 2018-2020\nArctic Shift 2021-2024] --> B[run_collect\nManifest-aware\nIdempotent ingest]
-    B --> C[data/raw per subreddit\n~2.2M posts · 5 communities]
-    C --> D[run_features\nWeekly aggregation]
+    A[Raw Reddit Posts] --> B[run_collect]
+    B --> C[data/raw — 2.2M posts, 5 communities]
+    C --> D[run_features]
 
-    D --> E1[Sentiment\nVADER distributions]
-    D --> E2[Distress Lexicons\n7 signals · per-word density]
-    D --> E3[Linguistic\nPronoun ratios · readability]
-    D --> E4[Behavioral\nPost volume · new authors]
-    D --> E5[Topic Drift\nBERTopic · JSD 1w + 4w]
-    D --> E6[Temporal\nRolling means 2w · 4w]
+    D --> E1[Sentiment — VADER]
+    D --> E2[Distress Lexicons — 7 signals]
+    D --> E3[Linguistic — pronouns, readability]
+    D --> E4[Behavioral — volume, new authors]
+    D --> E5[Topic Drift — BERTopic JSD]
+    D --> E6[Temporal — rolling 2w, 4w]
 
-    E1 & E2 & E3 & E4 & E5 & E6 --> F[features.parquet\n366 weeks × 123 features]
+    E1 --> F[features.parquet — 366 weeks x 123 features]
+    E2 --> F
+    E3 --> F
+    E4 --> F
+    E5 --> F
+    E6 --> F
 
     F --> G[run_train]
-    G --> G1[XGBoost Baseline\nBinary crisis · walk-forward CV\nTimeSeriesSplit gap=1]
-    G --> G2[LSTM Primary\nPyTorch · 4-class · sequence=6w\nMinMaxScaler per fold]
+    G --> G1[XGBoost — binary crisis, walk-forward CV]
+    G --> G2[LSTM — 4-class, sequence 6w, per-fold scaler]
 
-    G1 & G2 --> H[eval_results.json\nPR-AUC · Recall · F1\nLead time · Decision usefulness]
+    G1 --> H[eval_results.json]
+    G2 --> H
 
     H --> I[run_evaluate]
-    I --> I1[Drift Detector\nRolling z-score · 4 signals\n3 alert levels]
-    I --> I2[Alert Engine\nState transitions · SQLite]
-    I --> I3[SHAP Importance\nTop features per fold]
-    I --> I4[Weekly Briefs\nClaude / GPT-4o / Template]
-    I --> I5[LP Allocator\nModerator hours · scipy linprog]
+    I --> I1[Drift Detector — rolling z-score]
+    I --> I2[Alert Engine — state transitions]
+    I --> I3[SHAP Importance]
+    I --> I4[Weekly Briefs — Claude / GPT-4o]
+    I --> I5[LP Allocator — moderator hours]
 
-    I1 & I2 & I3 & I4 & I5 --> J[Streamlit Dashboard\nLive replay · All-community view\nDrift · SHAP · Quality tabs]
-    H --> K[FastAPI Serving\nRender.com · /predict · /model-info]
+    I1 --> J[Streamlit Dashboard]
+    I2 --> J
+    I3 --> J
+    I4 --> J
+    I5 --> J
+    H --> J
 ```
 
 ---
@@ -370,10 +380,7 @@ prescriptive:
 
 | Service | Platform | URL |
 |---------|----------|-----|
-| Streamlit dashboard | Render.com | https://community-crisis-predictor.onrender.com |
-| FastAPI inference API | Render.com | https://community-crisis-predictor.onrender.com |
-
-> **Cold-start note**: free Render tier sleeps after 15 min of inactivity. First request after sleep takes ~30–60s. Hit `/health` once before a demo to wake it.
+| Streamlit dashboard | Streamlit Cloud | https://community-crisis-predictor-mozt6amaceenfxso6pegb8.streamlit.app/ |
 
 ```bash
 # Local dashboard
