@@ -441,13 +441,21 @@ The serving layer is deliberately isolated from `src/` — the LSTM architecture
 
 ### 7.2 Streamlit Dashboard
 
-The dashboard (`src/dashboard/app.py`) runs on Streamlit Cloud with `data/features/features.parquet` and `data/models/eval_results.json` committed to the repository (tracked as git artifacts). When `API_MODE=true` (set via Streamlit Cloud secrets), the dashboard:
+The dashboard is a **multipage** Streamlit app. The Cloud entrypoint remains `src/dashboard/app.py`; additional pages live under `src/dashboard/pages/`.
 
-- Shows a **live API connection status indicator** in the sidebar
-- Forwards `/predict` calls to the Render.com API rather than running local inference
+| Navigation label | Script | Audience |
+|------------------|--------|----------|
+| **app** (Streamlit default for the root script) | `app.py` | Analysts: full replay UI, tabs (drift, SHAP, quality, metrics, allocation), model picker. |
+| **Community Copilot** | `pages/2_End_User_Summary.py` | Moderators: week-scoped **triage board** with left-aligned tabular columns (rank, community, signal, p(hi), trend) and an **Open** control per row; **equal-width** two-column main workspace (list \| detail) below a red section divider; full-width **Responsible use** footer. **AI Copilot** calls the FastAPI `POST /brief` endpoint so LLM keys stay on the server. |
+
+The root page runs on Streamlit Cloud with `data/features/features.parquet` and `data/models/eval_results.json` committed to the repository (tracked as git artifacts). When `API_MODE=true` (set via Streamlit Cloud secrets), the dashboard:
+
+- Shows a **live API connection status indicator** in the sidebar (analyst page)
+- Can use the **AI Copilot** path on the moderator page via `POST /brief` (no provider keys in Streamlit)
+- Forwards `/predict` calls to the Render.com API rather than running local inference where applicable
 - **Automatically falls back** to local pipeline outputs if the API is unreachable
 
-This means the dashboard functions regardless of API availability — the live API connection is a capability enhancement, not a dependency.
+This means the dashboard functions regardless of API availability — the live API connection is a capability enhancement, not a dependency. The sidebar on the Community Copilot page documents that **app** denotes the analyst dashboard; renaming that nav entry would require renaming the root file (e.g. to `Home.py`), which is optional and deployment-specific.
 
 ### 7.3 CI/CD Pipeline
 

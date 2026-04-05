@@ -158,6 +158,15 @@ Walk-forward evaluation: each fold trains on all past data, predicts the next we
 
 ### 6. Dashboard — Streamlit
 
+The app is **multipage** (Streamlit `pages/`). Entry point remains `src/dashboard/app.py` for Streamlit Cloud.
+
+| Page | Purpose |
+|------|---------|
+| **app** (sidebar label) | Full **analyst dashboard**: all-community cards, week replay, tabs (drift, SHAP, quality, metrics, allocation), model dropdown. |
+| **Community Copilot** (`pages/2_End_User_Summary.py`) | **Moderator triage**: equal-width two-column layout — ranked community table (left-aligned columns: rank, community, signal, p(hi), trend, Open) and live detail + AI Copilot on the right. Full-width “Responsible use” below. The sidebar explains that **app** is the analyst home; rename only via Streamlit’s filename convention if you ever need a different nav label for the root page. |
+
+**Analyst dashboard (`app`)** highlights:
+
 - **All-community card row**: state badge, distress score, p(distress), 15-week sparkline
 - **Week slider**: replay any week from 2018 to 2024, all communities in sync
 - **Timeline**: distress score + walk-forward predictions + threshold bands + COVID marker
@@ -266,7 +275,8 @@ src/
 │   ├── feature_importance.py    SHAP bar chart
 │   └── dashboard.py            Combined HTML report
 ├── dashboard/
-│   ├── app.py                   Streamlit entrypoint
+│   ├── app.py                   Streamlit entrypoint (sidebar nav shows as **app**)
+│   ├── pages/                   Multipage: Community Copilot (`2_End_User_Summary.py`)
 │   ├── data_access.py           Cached loaders (features / eval / reports)
 │   ├── state.py                 Ensemble merge · model picker · monitoring mode
 │   ├── components.py            Drift table · metrics panel · alert feed
