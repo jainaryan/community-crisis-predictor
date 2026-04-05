@@ -27,7 +27,7 @@ The prescriptive layer translates each weekly forecast into a structured moderat
 | Cross-community lead time | r/anxiety State 2 onset ~10 weeks before r/SuicideWatch State 3 |
 | Best community LSTM recall | r/depression: 0.403 (67 crisis weeks detected out of 342 eval weeks) |
 | Dataset size | 2,207,696 posts, 1,769 week-observations, 2018–2024 |
-| Live dashboard | https://community-crisis-predictor-g4-2026.streamlit.app |
+| Live dashboard | https://community-crisis-predictor-mozt6amaceenfxso6pegb8.streamlit.app |
 | Inference API | https://community-crisis-predictor.onrender.com |
 
 ---
@@ -404,7 +404,7 @@ Feature mapping is handled by `src/dashboard/demo_utils.py`, which resolves the 
 This enables moderators to answer questions like: "If hopelessness density doubled next week relative to this week, would the model change its prediction?" — turning a black-box prediction into a sensitivity analysis tool.
 
 > **[Figure 7: What-if scenario panel]**
-> *Live at https://community-crisis-predictor-g4-2026.streamlit.app — navigate to the "Scenario Analysis" tab. Three sliders (hopelessness density, post volume, late-night post ratio) adjust the current week's feature vector multiplicatively. The model prediction updates in real time as sliders move. This enables moderators to ask: "If hopelessness density doubled next week, would the model escalate to State 3?" — turning a black-box prediction into a sensitivity analysis tool.*
+> *Live at https://community-crisis-predictor-mozt6amaceenfxso6pegb8.streamlit.app — navigate to the "Scenario Analysis" tab. Three sliders (hopelessness density, post volume, late-night post ratio) adjust the current week's feature vector multiplicatively. The model prediction updates in real time as sliders move. This enables moderators to ask: "If hopelessness density doubled next week, would the model escalate to State 3?" — turning a black-box prediction into a sensitivity analysis tool.*
 
 ### 6.3 Resource Allocation — Future Work
 
@@ -419,7 +419,7 @@ The system is deployed as two hosted services following a Train → Commit → D
 | Service | Platform | URL |
 |---|---|---|
 | FastAPI inference API | Render.com | https://community-crisis-predictor.onrender.com |
-| Streamlit dashboard | Streamlit Cloud | https://community-crisis-predictor-g4-2026.streamlit.app |
+| Streamlit dashboard | Streamlit Cloud | https://community-crisis-predictor-mozt6amaceenfxso6pegb8.streamlit.app |
 
 > **Cold-start note (free Render tier):** The API sleeps after 15 minutes of inactivity. The first request after sleep takes approximately 30–60 seconds. For live demos, hit `/health` once before the presentation to wake the service.
 
@@ -536,7 +536,7 @@ The production deployment (FastAPI on Render.com + Streamlit Cloud dashboard) va
 | GitHub repository | https://github.com/jainaryan/community-crisis-predictor |
 | FastAPI inference API (Render.com) | https://community-crisis-predictor.onrender.com |
 | FastAPI Swagger UI | https://community-crisis-predictor.onrender.com/docs |
-| Streamlit dashboard (Streamlit Cloud) | https://community-crisis-predictor-g4-2026.streamlit.app |
+| Streamlit dashboard (Streamlit Cloud) | https://community-crisis-predictor-mozt6amaceenfxso6pegb8.streamlit.app |
 
 ### B. Pipeline Artifact Paths
 

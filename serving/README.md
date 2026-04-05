@@ -11,7 +11,7 @@ for each monitored subreddit, with drift detection and inference logging.
 |---------|-----|
 | API root / health | https://community-crisis-predictor.onrender.com/health |
 | Swagger UI (interactive docs) | https://community-crisis-predictor.onrender.com/docs |
-| Streamlit dashboard | https://community-crisis-predictor.streamlit.app |
+| Streamlit dashboard | https://community-crisis-predictor-mozt6amaceenfxso6pegb8.streamlit.app/ (see repo **README** if the team uses a different app URL) |
 
 > **Cold-start warning (free Render tier):** the service sleeps after 15 min of
 > inactivity. The first request after sleep takes **30–60 seconds** to respond while
@@ -60,7 +60,7 @@ git add . && git commit -m "Refresh deployment artifacts" && git push
    - `https://<your-render-app>.onrender.com/health`
    - `https://<your-render-app>.onrender.com/docs`
 
-> No mandatory env vars for basic deployment because model/report artifacts are read from `../data`.
+> **Inference only:** no env vars required — models/reports load from `../data`. For **Community Copilot** (`POST /brief`), add **`ANTHROPIC_API_KEY`** (or **`OPENAI_API_KEY`**) under **Environment** (see § Deployment on Render.com below).
 
 ### First-time dashboard deployment (Streamlit Cloud)
 
@@ -175,7 +175,7 @@ git add . && git commit -m "Update model artifacts" && git push
 ## Endpoints
 
 ### `GET /health`
-Returns service status and list of loaded subreddits.
+Returns service status, loaded subreddits, **`llm_keys`** / **`dotenv_file`** / **`llm_setup_hint`** (use these to confirm `/brief` can reach an LLM on the host).
 
 ### `POST /predict`
 Runs inference on a weekly feature vector.
