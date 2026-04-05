@@ -21,7 +21,7 @@ NARRATIVE_SENTENCES = 3
 FLAT_PCT_EPS = 0.5  # treat |delta_pct| below this as "flat"
 ANTHROPIC_MODEL = "claude-sonnet-4-20250514"
 OPENAI_MODEL = "gpt-4o"
-OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "meta-llama/llama-3.3-8b-instruct:free")
+OPENROUTER_MODEL = os.environ.get("OPENROUTER_MODEL", "google/gemma-3-4b-it:free")
 OPENROUTER_BASE_URL = "https://openrouter.ai/api/v1"
 
 
