@@ -35,10 +35,10 @@ The honest framing: *"a production-style pipeline with live-equivalent drift mon
 | r/lonely | **0.889** | 0.986 | 0.852 | — |
 | r/mentalhealth | **0.869** | 0.976 | 0.794 | — |
 | r/suicidewatch | **0.855** | 0.856 | 0.697 | **12.6 weeks** |
-| r/anxiety | **0.758** | 0.852 | 0.642 | **14.8 weeks** |
+| r/anxiety | **0.758** | 0.852 | 0.642 | **14.5 weeks** |
 | r/depression | 0.449 | 0.706 | 0.227 | 4.6 weeks |
 
-> PR-AUC is the primary metric for this imbalanced detection task (baseline = community crisis rate, ~12%). Walk-forward CV with 1-week gap — no future data ever seen during training.
+> PR-AUC is the primary metric for this imbalanced detection task. The random baseline equals each community's crisis rate (26–84% depending on community and threshold) — not 0.5. Walk-forward CV with 1-week gap — no future data ever seen during training. Note: r/lonely and r/mentalhealth have high crisis rates (75–84%) due to low thresholds; r/anxiety (49%) and r/depression (26%) are the more discriminative evaluations.
 
 ---
 
@@ -329,7 +329,7 @@ Each fold's labeler is fit only on the training window. Each fold's LSTM scaler 
 
 **Why PR-AUC over ROC-AUC?**
 
-Crisis weeks are rare (~12% of all weeks). ROC-AUC is optimistic on imbalanced data — a model predicting "never crisis" scores ROC-AUC ≈ 0.88. PR-AUC is harder: its random baseline equals the crisis rate (~0.12), making genuine model skill clearly visible.
+Crisis rates vary by community (26–84%) depending on threshold sensitivity. ROC-AUC is optimistic on imbalanced data — a model predicting "always crisis" on r/lonely would score ROC-AUC ≈ 0.84 for free. PR-AUC is harder: its random baseline equals the actual crisis rate, making genuine model skill clearly visible. For r/depression (26% crisis rate, PR-AUC 0.449) and r/anxiety (49%, PR-AUC 0.758), the model must genuinely discriminate — these are the most informative evaluations.
 
 **Why recall over precision for deployment?**
 
